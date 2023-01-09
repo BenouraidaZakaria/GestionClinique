@@ -29,67 +29,83 @@ namespace GestionClinique
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(156, 327);
+            this.label1.Location = new System.Drawing.Point(58, 137);
+            this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 32);
+            this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Email";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(156, 473);
+            this.label2.Location = new System.Drawing.Point(58, 198);
+            this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(184, 32);
+            this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mot de passe";
             // 
-            // button1
+            // btnLogin
             // 
-            this.button1.Location = new System.Drawing.Point(305, 713);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(307, 61);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Se connecter";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnLogin.Location = new System.Drawing.Point(114, 299);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(1);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(115, 26);
+            this.btnLogin.TabIndex = 1;
+            this.btnLogin.Text = "Se connecter";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // textBox1
+            // txtEmail
             // 
-            this.textBox1.Location = new System.Drawing.Point(391, 320);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(355, 38);
-            this.textBox1.TabIndex = 2;
+            this.txtEmail.Location = new System.Drawing.Point(147, 134);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(1);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(136, 20);
+            this.txtEmail.TabIndex = 2;
             // 
-            // textBox2
+            // txtPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(391, 467);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(355, 38);
-            this.textBox2.TabIndex = 2;
+            this.txtPassword.Location = new System.Drawing.Point(147, 196);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(1);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(136, 20);
+            this.txtPassword.TabIndex = 2;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(965, 1084);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(360, 374);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "login";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -99,8 +115,9 @@ namespace GestionClinique
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
