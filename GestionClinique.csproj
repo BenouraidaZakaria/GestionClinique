@@ -61,11 +61,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AfficherConsultations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AfficherConsultations.Designer.cs">
+      <DependentUpon>AfficherConsultations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AfficherEmployes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AfficherEmployes.Designer.cs">
+      <DependentUpon>AfficherEmployes.cs</DependentUpon>
+    </Compile>
     <Compile Include="AfficherPatients.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AfficherPatients.Designer.cs">
       <DependentUpon>AfficherPatients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterConsultation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterConsultation.Designer.cs">
+      <DependentUpon>AjouterConsultation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterEmploye.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterEmploye.Designer.cs">
+      <DependentUpon>AjouterEmploye.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterPatient.Designer.cs">
+      <DependentUpon>AjouterPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="Connection.cs" />
     <Compile Include="Form1.cs">
@@ -115,7 +145,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-design-form-secretaire
     <Content Include="DB_Clinique.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -126,7 +155,6 @@ design-form-secretaire
     <Content Include="Icons\icons8-add-48.png" />
   </ItemGroup>
   <ItemGroup>
-master
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
