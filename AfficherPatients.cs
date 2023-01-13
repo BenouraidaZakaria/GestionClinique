@@ -12,51 +12,13 @@ namespace GestionClinique
 {
     public partial class AfficherPatients : Form
     {
-        static Boolean etatPanel1 = false;
-        static Boolean etatPanel2 = false;
-        static Boolean etatPanel3 = false;
+        // instancer la class formC for the menu
+        FormC f = new FormC();
 
-
-        // le menu
-        private void btnPatients_Click(object sender, EventArgs e)
-        {
-            if (!etatPanel1)
-            {
-                panel1.Height += 72;
-                etatPanel1 = true;
-            }
-            else
-            {
-                panel1.Height -= 72;
-                etatPanel1 = false;
-            }
-        }
-        private void btnDocteur_Click(object sender, EventArgs e)
-        {
-            if (!etatPanel2)
-            {
-                panel2.Height += 72;
-                etatPanel2 = true;
-            }
-            else
-            {
-                panel2.Height -= 72;
-                etatPanel2 = false;
-            }
-        }
-        private void btnConsultation_Click(object sender, EventArgs e)
-        {
-            if (!etatPanel3)
-            {
-                panel3.Height += 72;
-                etatPanel3 = true;
-            }
-            else
-            {
-                panel3.Height -= 72;
-                etatPanel3 = false;
-            }
-        }
+        // declartion les variables pour afficher contenue d'une champ dans le menu
+        static Boolean etatBtnPatient = true;
+        static Boolean etatBtnDocteur = true;
+        static Boolean etatBtnConsultation = true;
 
         public AfficherPatients()
         {
@@ -79,6 +41,90 @@ namespace GestionClinique
         {
             txtRecherche.Text = "recherche";
             txtRecherche.ForeColor = Color.Gray;
+        }
+
+        private void btnAccueil_Click(object sender, EventArgs e)
+        {
+            f.formInstance("AccueilSecretaire");
+            this.Hide();
+        }
+
+        private void btnPatients_Click(object sender, EventArgs e)
+        {
+            if (etatBtnPatient)
+            {
+                panel1.Height += 72;
+                etatBtnPatient = false;
+            }
+            else
+            {
+                panel1.Height -= 72;
+                etatBtnPatient = true;
+            }
+        }
+
+        private void btnDocteur_Click(object sender, EventArgs e)
+        {
+            if (etatBtnDocteur)
+            {
+                panel2.Height += 72;
+                etatBtnDocteur = false;
+            }
+            else
+            {
+                panel2.Height -= 72;
+                etatBtnDocteur = true;
+            }
+        }
+
+        private void btnConsultation_Click(object sender, EventArgs e)
+        {
+            if (etatBtnConsultation)
+            {
+                panel3.Height += 72;
+                etatBtnConsultation = false;
+            }
+            else
+            {
+                panel3.Height -= 72;
+                etatBtnConsultation = true;
+            }
+        }
+
+        private void btnListPatients_Click(object sender, EventArgs e)
+        {
+            f.formInstance("AfficherPatients");
+            this.Hide();
+        }
+
+        private void btnAjouterPatient_Click(object sender, EventArgs e)
+        {
+            f.formInstance("AjouterPatient");
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            f.formInstance("AfficherEmployes");
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            f.formInstance("AfficherEmployes");
+            this.Hide();
+        }
+
+        private void btnListConsultation_Click(object sender, EventArgs e)
+        {
+            f.formInstance("AfficherConsultations");
+            this.Hide();
+        }
+
+        private void btnAjoutConsultation_Click(object sender, EventArgs e)
+        {
+            f.formInstance("AjouterConsultation");
+            this.Hide();
         }
     }
 }

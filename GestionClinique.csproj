@@ -98,12 +98,13 @@
       <DependentUpon>AjouterPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="Connection.cs" />
-    <Compile Include="Accueil.cs">
+    <Compile Include="AccueilSecretaire.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Accueil.Designer.cs">
-      <DependentUpon>Accueil.cs</DependentUpon>
+    <Compile Include="AccueilSecretaire.Designer.cs">
+      <DependentUpon>AccueilSecretaire.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormC.cs" />
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,8 +131,8 @@
     <EmbeddedResource Include="AjouterPatient.resx">
       <DependentUpon>AjouterPatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Accueil.resx">
-      <DependentUpon>Accueil.cs</DependentUpon>
+    <EmbeddedResource Include="AccueilSecretaire.resx">
+      <DependentUpon>AccueilSecretaire.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
@@ -160,13 +161,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DB_Clinique.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DB_Clinique_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>DB_Clinique.mdf</DependentUpon>
-    </Content>
     <Content Include="Icons\icons8-add-48.png" />
   </ItemGroup>
   <ItemGroup>

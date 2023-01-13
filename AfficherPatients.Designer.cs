@@ -75,6 +75,7 @@ namespace GestionClinique
             this.btnAccueil.TabIndex = 0;
             this.btnAccueil.Text = "Accueil";
             this.btnAccueil.UseVisualStyleBackColor = true;
+            this.btnAccueil.Click += new System.EventHandler(this.btnAccueil_Click);
             // 
             // panel1
             // 
@@ -97,6 +98,7 @@ namespace GestionClinique
             this.btnAjouterPatient.TabIndex = 3;
             this.btnAjouterPatient.Text = "Ajouter Patient";
             this.btnAjouterPatient.UseVisualStyleBackColor = false;
+            this.btnAjouterPatient.Click += new System.EventHandler(this.btnAjouterPatient_Click);
             // 
             // btnListPatients
             // 
@@ -107,6 +109,7 @@ namespace GestionClinique
             this.btnListPatients.TabIndex = 2;
             this.btnListPatients.Text = "Liste des Patients";
             this.btnListPatients.UseVisualStyleBackColor = false;
+            this.btnListPatients.Click += new System.EventHandler(this.btnListPatients_Click);
             // 
             // btnPatients
             // 
@@ -140,6 +143,7 @@ namespace GestionClinique
             this.button1.TabIndex = 5;
             this.button1.Text = "Ajouter Patient";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -150,6 +154,7 @@ namespace GestionClinique
             this.button2.TabIndex = 4;
             this.button2.Text = "Liste des Patients";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnDocteur
             // 
@@ -168,7 +173,7 @@ namespace GestionClinique
             this.panel3.Controls.Add(this.btnListConsultation);
             this.panel3.Controls.Add(this.btnConsultation);
             this.panel3.Location = new System.Drawing.Point(3, 173);
-            this.panel3.MaximumSize = new System.Drawing.Size(218, 130);
+            this.panel3.MaximumSize = new System.Drawing.Size(218, 124);
             this.panel3.MinimumSize = new System.Drawing.Size(218, 52);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(218, 52);
@@ -183,6 +188,7 @@ namespace GestionClinique
             this.btnAjoutConsultation.TabIndex = 7;
             this.btnAjoutConsultation.Text = "Ajouter Consultation";
             this.btnAjoutConsultation.UseVisualStyleBackColor = false;
+            this.btnAjoutConsultation.Click += new System.EventHandler(this.btnAjoutConsultation_Click);
             // 
             // btnListConsultation
             // 
@@ -193,6 +199,7 @@ namespace GestionClinique
             this.btnListConsultation.TabIndex = 6;
             this.btnListConsultation.Text = "Liste des Consultations";
             this.btnListConsultation.UseVisualStyleBackColor = false;
+            this.btnListConsultation.Click += new System.EventHandler(this.btnListConsultation_Click);
             // 
             // btnConsultation
             // 
