@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace GestionClinique
 {
-    public partial class AjouterConsultation : Form
+    public partial class AccueilSecretaire : Form
     {
         // instancer la class formC for the menu
         FormC f = new FormC();
@@ -20,7 +20,7 @@ namespace GestionClinique
         static Boolean etatBtnDocteur = true;
         static Boolean etatBtnConsultation = true;
 
-        public AjouterConsultation()
+        public AccueilSecretaire()
         {
             InitializeComponent();
         }
@@ -122,7 +122,7 @@ namespace GestionClinique
             txtRecherche.ForeColor = Color.Gray;
         }
 
-        private void AjouterConsultation_Load(object sender, EventArgs e)
+        private void AccueilSecretaire_Load(object sender, EventArgs e)
         {
             btnAccueil.Focus();
         }

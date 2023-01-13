@@ -38,7 +38,7 @@ namespace GestionClinique
                         if (con.login("SECRETAIRE", txtEmail.Text.ToString(), txtPassword.Text.ToString()))
                         {
                             // si secretaire connecter avec les donnees correcte on va ouvrir la boite accueil
-                            Accueil f = new Accueil();
+                            AccueilSecretaire f = new AccueilSecretaire();
                             f.Show();
                             this.Hide();
                         }
@@ -51,7 +51,7 @@ namespace GestionClinique
                         if (con.login("DOCTEUR", txtEmail.Text.ToString(), txtPassword.Text.ToString()))
                         {
                             // si docteur connecter avec les donnees correcte on va eregistrer son email
-                            Accueil f = new Accueil();
+                            AccueilSecretaire f = new AccueilSecretaire();
                             f.Show();
                             this.Hide();
                         }
