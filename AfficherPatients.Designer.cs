@@ -61,7 +61,7 @@ namespace GestionClinique
             this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Controls.Add(this.btnRendezVous);
             this.flowLayoutPanel1.Controls.Add(this.btnReglage);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, -2);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(223, 751);
             this.flowLayoutPanel1.TabIndex = 2;
@@ -228,7 +228,7 @@ namespace GestionClinique
             // txtRecherche
             // 
             this.txtRecherche.ForeColor = System.Drawing.Color.Gray;
-            this.txtRecherche.Location = new System.Drawing.Point(503, 12);
+            this.txtRecherche.Location = new System.Drawing.Point(501, 14);
             this.txtRecherche.Multiline = true;
             this.txtRecherche.Name = "txtRecherche";
             this.txtRecherche.Size = new System.Drawing.Size(304, 24);
@@ -247,7 +247,7 @@ namespace GestionClinique
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "AfficherPatients";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Page Secretaire";
+            this.Text = "Les Patients";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.AfficherPatients_Load);
             this.flowLayoutPanel1.ResumeLayout(false);

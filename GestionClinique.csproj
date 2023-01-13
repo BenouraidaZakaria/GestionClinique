@@ -98,11 +98,11 @@
       <DependentUpon>AjouterPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="Connection.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Accueil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Accueil.Designer.cs">
+      <DependentUpon>Accueil.cs</DependentUpon>
     </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
@@ -112,11 +112,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AfficherConsultations.resx">
+      <DependentUpon>AfficherConsultations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AfficherEmployes.resx">
+      <DependentUpon>AfficherEmployes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AfficherPatients.resx">
       <DependentUpon>AfficherPatients.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="AjouterConsultation.resx">
+      <DependentUpon>AjouterConsultation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterEmploye.resx">
+      <DependentUpon>AjouterEmploye.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterPatient.resx">
+      <DependentUpon>AjouterPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accueil.resx">
+      <DependentUpon>Accueil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>

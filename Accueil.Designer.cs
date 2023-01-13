@@ -1,7 +1,7 @@
 ﻿
 namespace GestionClinique
 {
-    partial class AjouterPatient
+    partial class Accueil
     {
         /// <summary>
         /// Required designer variable.
@@ -232,16 +232,16 @@ namespace GestionClinique
             this.btnReglage.Text = "Reglages";
             this.btnReglage.UseVisualStyleBackColor = true;
             // 
-            // AjouterPatient
+            // Accueil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.txtRecherche);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Name = "AjouterPatient";
+            this.Name = "Accueil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ajouter Patient";
+            this.Text = "Accueil";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -273,3 +273,4 @@ namespace GestionClinique
         private System.Windows.Forms.Button btnReglage;
     }
 }
+
