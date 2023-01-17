@@ -21,7 +21,7 @@ namespace GestionClinique
         {
             if (con.State == ConnectionState.Closed || con.State == ConnectionState.Broken)
             {
-                con.ConnectionString = "data source=(LocalDB)\\MSSQLLocalDB; AttachDbFilename=|Datadirectory|\\DB_Clinique.mdf; integrated security=true";
+                con.ConnectionString = "data source=.\\SQLEXPRESS; initial catalog=DB_Clinique; integrated security=true";
                 con.Open();
             }
         }
