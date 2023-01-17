@@ -37,15 +37,29 @@ namespace GestionClinique
         public Boolean login(string TableName, string email, string motPasse)
         {
             Boolean etat = false;
-            connecter();
-            cmd.Connection = con;
-            cmd.CommandText = "select EMAIL from @table where EMAIL=@email and MOT_PASSE=@motPasse";
-            cmd.Parameters.AddWithValue("@table", TableName);
-            cmd.Parameters.AddWithValue("@email", email);
-            cmd.Parameters.AddWithValue("@motPasse", motPasse);
-            if (cmd.ExecuteScalar() != null)
-                etat = true;
-            deConnecter();
+
+            if (TableName.Equals("SECRETAIRE"))
+            {
+                connecter();
+                cmd.Connection = con;
+                cmd.CommandText = "select EMAIL from SECRETAIRE where EMAIL=@email and MOT_PASSE=@motPasse";
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@motPasse", motPasse);
+                if (cmd.ExecuteScalar() != null)
+                    etat = true;
+                deConnecter();
+            }
+            else if (TableName.Equals("DOCTEUR"))
+            {
+                connecter();
+                cmd.Connection = con;
+                cmd.CommandText = "select EMAIL from DOCTEUR where EMAIL=@email and MOT_PASSE=@motPasse";
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@motPasse", motPasse);
+                if (cmd.ExecuteScalar() != null)
+                    etat = true;
+                deConnecter();
+            }
 
             return etat;
         }
@@ -53,19 +67,41 @@ namespace GestionClinique
         public void remplir(DataGridView dgv, string TableName)
         {
             DataTable dt = new DataTable();
+            dt.Rows.Clear();
 
-            connecter();
-            cmd.Connection = con;
-            cmd.CommandText = "select * from @table";
-            cmd.Parameters.AddWithValue("@table", TableName);
-            da.SelectCommand = cmd;
-            da.Fill(dt);
-            deConnecter();
-
-            dgv.DataSource = dt;
+            if (TableName.Equals("SECRETAIRE"))
+            {
+                connecter();
+                cmd.Connection = con;
+                cmd.CommandText = "select * from SECRETAIRE";
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+                deConnecter();
+                dgv.DataSource = dt;
+            }
+            else if (TableName.Equals("DOCTEUR"))
+            {
+                connecter();
+                cmd.Connection = con;
+                cmd.CommandText = "select * from DOCTEUR";
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+                deConnecter();
+                dgv.DataSource = dt;
+            }
+            else if (TableName.Equals("CONSULTATION"))
+            {
+                connecter();
+                cmd.Connection = con;
+                cmd.CommandText = "select * from CONSULTATION";
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+                deConnecter();
+                dgv.DataSource = dt;
+            }
         }
 
-        public Boolean ajouterSecretaire(string nom, string prenom)
+        public Boolean ajouterSecretaire(string nom, string prenom, string image, DateTime dateNaissance, char genre, string telephone)
         {
             Boolean etat = false;
 
@@ -76,9 +112,14 @@ namespace GestionClinique
 
             cmd.Parameters.Clear();
 
-            cmd.CommandText = "insert into SECRETAIRE(NOM,PRENOM) values(@nom,@prenom)";
+            cmd.CommandText = "insert into SECRETAIRE(NOM,PRENOM,IMAGE,DATE_NAISSANCE,GENRE,TELEPHONE) " +
+                                "values(@nom,@prenom,@image,@date,@genre,@telephone)";
             cmd.Parameters.AddWithValue("@nom", nom);
             cmd.Parameters.AddWithValue("@prenom", prenom);
+            cmd.Parameters.AddWithValue("@image", image);
+            cmd.Parameters.AddWithValue("@date", dateNaissance);
+            cmd.Parameters.AddWithValue("@genre", genre);
+            cmd.Parameters.AddWithValue("@telephone", telephone);
             cmd.ExecuteNonQuery();
 
             cmd.Parameters.Clear();
@@ -92,13 +133,19 @@ namespace GestionClinique
             return etat;
         }
 
-        public Boolean modifierSecretaire(int id, string nom, string prenom)
+        public Boolean modifierSecretaire(int id, string nom, string prenom, string image, DateTime dateNaissance, char genre, string telephone, string motPasse)
         {
             connecter();
             cmd.Connection = con;
-            cmd.CommandText = "update SECRETAIRE set nom=@nom, prenom=@prenom where IDSECRETAIRE=@id";
+            cmd.CommandText = "update SECRETAIRE set NOM=@nom, PRENOM=@prenom, IMAGE=@image, DATE_NAISSANCE=convert(date,@dateNaissance), " +
+                              "GENRE=@genre, TELEPHONE=@telephone, MOT_PASSE=@motPasse where IDSECRETAIRE=@id";
             cmd.Parameters.AddWithValue("@nom", nom);
             cmd.Parameters.AddWithValue("@prenom", prenom);
+            cmd.Parameters.AddWithValue("@image", image);
+            cmd.Parameters.AddWithValue("@dateNaissance", dateNaissance);
+            cmd.Parameters.AddWithValue("@genre", genre);
+            cmd.Parameters.AddWithValue("@telephone", telephone);
+            cmd.Parameters.AddWithValue("@motPasse", motPasse);
             cmd.Parameters.AddWithValue("@id", id);
             cmd.ExecuteNonQuery();
             deConnecter();
@@ -106,5 +153,27 @@ namespace GestionClinique
             return true;
         }
 
+        public Boolean supprimerSecretaire(int id)
+        {
+            Boolean etat = false;
+
+            connecter();
+            cmd.Connection = con;
+            cmd.CommandText = "delete SECRETAIRE where IDSECRETAIRE=@id";
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();
+
+            cmd.Parameters.Clear();
+            cmd.CommandText = "select IDSECRETAIRE from SECRETAIRE where IDSECRETAIRE=@id";
+            cmd.Parameters.AddWithValue("@id", id);
+
+            if (cmd.ExecuteScalar().ToString() == null)
+            {
+                etat = true;
+            }
+            deConnecter();
+
+            return etat;
+        }
     }
 }
