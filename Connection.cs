@@ -73,7 +73,7 @@ namespace GestionClinique
             {
                 connecter();
                 cmd.Connection = con;
-                cmd.CommandText = "select * from SECRETAIRE";
+                cmd.CommandText = "SELECT * FROM SECRETAIRE INNER JOIN GERER_SECRETAIRE ON SECRETAIRE.IDSECRETAIRE=GERER_SECRETAIRE.IDSECRETAIRE";
                 da.SelectCommand = cmd;
                 da.Fill(dt);
                 deConnecter();
@@ -83,7 +83,7 @@ namespace GestionClinique
             {
                 connecter();
                 cmd.Connection = con;
-                cmd.CommandText = "select * from DOCTEUR";
+                cmd.CommandText = "SELECT * FROM DOCTEUR";
                 da.SelectCommand = cmd;
                 da.Fill(dt);
                 deConnecter();
@@ -93,7 +93,7 @@ namespace GestionClinique
             {
                 connecter();
                 cmd.Connection = con;
-                cmd.CommandText = "select * from CONSULTATION";
+                cmd.CommandText = "SELECT * FROM CONSULTATION JOIN REALISER ON CONSULTATION.IDCONSULTATION=REALISER.IDCONSULTATION";
                 da.SelectCommand = cmd;
                 da.Fill(dt);
                 deConnecter();
@@ -101,7 +101,9 @@ namespace GestionClinique
             }
         }
 
-        public Boolean ajouterSecretaire(string nom, string prenom, string image, DateTime dateNaissance, char genre, string telephone)
+
+        // Secretaire
+        public Boolean ajouterSecretaire(int idSecretaireSup, string nom, string prenom, string image, DateTime dateNaissance, char genre, string telephone)
         {
             Boolean etat = false;
 
@@ -124,15 +126,25 @@ namespace GestionClinique
 
             cmd.Parameters.Clear();
 
-            cmd.CommandText = "select max(IDSECRETAIRE) from SECRETAIRE";
-            if (id != int.Parse(cmd.ExecuteScalar().ToString()))
-                etat = true;
+            if (idSecretaireSup != 0)
+            {
+                cmd.CommandText = "select max(IDSECRETAIRE) from SECRETAIRE";
+                int id2 = int.Parse(cmd.ExecuteScalar().ToString());
+                if (id != id2)
+                {
+                    cmd.CommandText = "insert into GERER_SECRETAIRE(IDSECRETAIRE,SEC_IDSECRETAIRE) " +
+                                    "values(@supSecretaire,@scretaire)";
+                    cmd.Parameters.AddWithValue("@supSecretaire", idSecretaireSup);
+                    cmd.Parameters.AddWithValue("@scretaire", id2);
+                    cmd.ExecuteNonQuery();
+                    etat = true;
+                }
+            }
 
             deConnecter();
 
             return etat;
         }
-
         public Boolean modifierSecretaire(int id, string nom, string prenom, string image, DateTime dateNaissance, char genre, string telephone, string motPasse)
         {
             connecter();
@@ -153,18 +165,138 @@ namespace GestionClinique
             return true;
         }
 
-        public Boolean supprimerSecretaire(int id)
+
+        // docteur
+        public Boolean ajouterDocteur(int idSecretaire, string nom, string prenom, string image, DateTime dateNaissance, char genre, string telephone, string specialiste)
         {
             Boolean etat = false;
 
             connecter();
             cmd.Connection = con;
-            cmd.CommandText = "delete SECRETAIRE where IDSECRETAIRE=@id";
+            cmd.CommandText = "select max(IDDOCTEUR) from DOCTEUR";
+            int id = int.Parse(cmd.ExecuteScalar().ToString());
+
+            cmd.Parameters.Clear();
+
+            cmd.CommandText = "insert into DOCTEUR(NOM,PRENOM,IMAGE,DATE_NAISSANCE,GENRE,TELEPHONE,SPECIALITE) " +
+                                "values(@nom,@prenom,@image,@date,@genre,@telephone,@specialite)";
+            cmd.Parameters.AddWithValue("@nom", nom);
+            cmd.Parameters.AddWithValue("@prenom", prenom);
+            cmd.Parameters.AddWithValue("@image", image);
+            cmd.Parameters.AddWithValue("@date", dateNaissance);
+            cmd.Parameters.AddWithValue("@genre", genre);
+            cmd.Parameters.AddWithValue("@telephone", telephone);
+            cmd.Parameters.AddWithValue("@specialite", specialiste);
+            cmd.ExecuteNonQuery();
+
+            cmd.Parameters.Clear();
+
+            cmd.CommandText = "select max(IDDOCTEUR) from DOCTEUR";
+            int id2 = int.Parse(cmd.ExecuteScalar().ToString());
+            if (id != id2)
+            {
+                cmd.CommandText = "insert into GERER_DOCTEUR(IDSECRETAIRE,IDDOCTEUR) " +
+                                "values(@secretaire,@docteur)";
+                cmd.Parameters.AddWithValue("@secretaire", idSecretaire);
+                cmd.Parameters.AddWithValue("@docteur", id2);
+                cmd.ExecuteNonQuery();
+
+                etat = true;
+            }
+            deConnecter();
+
+            return etat;
+        }
+        public Boolean modifierDocteur(int id, string nom, string prenom, string image, DateTime dateNaissance, char genre, string telephone, string motPasse, string specialiste)
+        {
+            connecter();
+            cmd.Connection = con;
+            cmd.CommandText = "update DOCTEUR set NOM=@nom, PRENOM=@prenom, IMAGE=@image, DATE_NAISSANCE=convert(date,@dateNaissance), " +
+                              "GENRE=@genre, TELEPHONE=@telephone, MOT_PASSE=@motPasse, SPECIALITE=@specialiste where IDDOCTEUR=@id";
+            cmd.Parameters.AddWithValue("@nom", nom);
+            cmd.Parameters.AddWithValue("@prenom", prenom);
+            cmd.Parameters.AddWithValue("@image", image);
+            cmd.Parameters.AddWithValue("@dateNaissance", dateNaissance);
+            cmd.Parameters.AddWithValue("@genre", genre);
+            cmd.Parameters.AddWithValue("@telephone", telephone);
+            cmd.Parameters.AddWithValue("@motPasse", motPasse);
+            cmd.Parameters.AddWithValue("@specialiste", motPasse);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();
+            deConnecter();
+
+            return true;
+        }
+
+
+        // consultation
+        public Boolean ajouterConsultation(int idSecretaire, int idDocteur, int idPatient, DateTime date, string traitement, string prescription, string diagnostic)
+        {
+            Boolean etat = false;
+
+            connecter();
+            cmd.Connection = con;
+            cmd.CommandText = "select max(IDCONSULTATION) from CONSULTATION";
+            int id = int.Parse(cmd.ExecuteScalar().ToString());
+
+            cmd.Parameters.Clear();
+
+            cmd.CommandText = "insert into CONSULTATION(DATE,TRAITEMENT,PRESCRIPTION,DIAGNOSTIC) " +
+                                "values(@date,@trait,@presc,@diagno)";
+            cmd.Parameters.AddWithValue("@date", date);
+            cmd.Parameters.AddWithValue("@trait", traitement);
+            cmd.Parameters.AddWithValue("@presc", prescription);
+            cmd.Parameters.AddWithValue("@diagno", diagnostic);
+            cmd.ExecuteNonQuery();
+
+            cmd.Parameters.Clear();
+
+            cmd.CommandText = "select max(IDCONSULTATION) from CONSULTATION";
+            int id2 = int.Parse(cmd.ExecuteScalar().ToString());
+            if (id != id2)
+            {
+                cmd.CommandText = "insert into REALISER(IDSECRETAIRE,IDDOCTEUR,IDCONSULTATION,IDPATIENT) " +
+                                "values(@secretaire,@docteur,@consultation,@patient)";
+                cmd.Parameters.AddWithValue("@secretaire", idSecretaire);
+                cmd.Parameters.AddWithValue("@docteur", idDocteur);
+                cmd.Parameters.AddWithValue("@consultation", id2);
+                cmd.Parameters.AddWithValue("@patient", idPatient);
+                cmd.ExecuteNonQuery();
+
+                etat = true;
+            }
+            deConnecter();
+
+            return etat;
+        }
+        public Boolean modifierConsultation(int id, DateTime date, string traitement, string prescription, string diagnostic)
+        {
+            connecter();
+            cmd.Connection = con;
+            cmd.CommandText = "update CONSULTATION set DATE=@date, TRAITEMENT=@trait, PRESCRIPTION=@presc, " +
+                "DIAGNOSTIC=@diagno where IDCONSULTATION=@id";
+            cmd.Parameters.AddWithValue("@date", date);
+            cmd.Parameters.AddWithValue("@trait", traitement);
+            cmd.Parameters.AddWithValue("@presc", prescription);
+            cmd.Parameters.AddWithValue("@diagno", diagnostic);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();
+            deConnecter();
+
+            return true;
+        }
+        public Boolean supprimerConsultation(int id)
+        {
+            Boolean etat = false;
+
+            connecter();
+            cmd.Connection = con;
+            cmd.CommandText = "delete CONSULTATION where IDCONSULTATION=@id";
             cmd.Parameters.AddWithValue("@id", id);
             cmd.ExecuteNonQuery();
 
             cmd.Parameters.Clear();
-            cmd.CommandText = "select IDSECRETAIRE from SECRETAIRE where IDSECRETAIRE=@id";
+            cmd.CommandText = "select IDCONSULTATION from CONSULTATION where IDCONSULTATION=@id";
             cmd.Parameters.AddWithValue("@id", id);
 
             if (cmd.ExecuteScalar().ToString() == null)
