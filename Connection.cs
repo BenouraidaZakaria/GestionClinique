@@ -347,13 +347,14 @@ namespace GestionClinique
             return etat;
 
         }
-        public Boolean ModifierRendezVous(int idSecretaire, int idDocteur, int idPatient, DateTime date)
+        public Boolean ModifierRendezVous(int idRendezVous, int idSecretaire, int idDocteur, int idPatient, DateTime date)
         {
             connecter();
             cmd.Connection = con;
             cmd.CommandText = "UPDATE RENDEZ_VOUS set DATE=@date " +
-                "DIAGNOSTIC=@diagno where IDCONSULTATION=@id";
+                " where IDRDV=@id";
             cmd.Parameters.AddWithValue("@date", date);
+            cmd.Parameters.AddWithValue("@id", idRendezVous);
             cmd.ExecuteNonQuery();
             deConnecter();
 
