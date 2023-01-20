@@ -55,10 +55,11 @@ namespace GestionClinique
             // txtRecherche
             // 
             this.txtRecherche.ForeColor = System.Drawing.Color.Gray;
-            this.txtRecherche.Location = new System.Drawing.Point(501, 14);
+            this.txtRecherche.Location = new System.Drawing.Point(1336, 33);
+            this.txtRecherche.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtRecherche.Multiline = true;
             this.txtRecherche.Name = "txtRecherche";
-            this.txtRecherche.Size = new System.Drawing.Size(304, 24);
+            this.txtRecherche.Size = new System.Drawing.Size(804, 52);
             this.txtRecherche.TabIndex = 3;
             this.txtRecherche.Text = "search";
             this.txtRecherche.Enter += new System.EventHandler(this.txtRecherche_Enter);
@@ -74,16 +75,18 @@ namespace GestionClinique
             this.flowLayoutPanel1.Controls.Add(this.btnRendezVous);
             this.flowLayoutPanel1.Controls.Add(this.btnReglage);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(223, 751);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(595, 1791);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // btnAccueil
             // 
             this.btnAccueil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccueil.Location = new System.Drawing.Point(3, 3);
+            this.btnAccueil.Location = new System.Drawing.Point(8, 7);
+            this.btnAccueil.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnAccueil.Name = "btnAccueil";
-            this.btnAccueil.Size = new System.Drawing.Size(218, 48);
+            this.btnAccueil.Size = new System.Drawing.Size(581, 114);
             this.btnAccueil.TabIndex = 0;
             this.btnAccueil.Text = "Accueil";
             this.btnAccueil.UseVisualStyleBackColor = true;
@@ -94,19 +97,21 @@ namespace GestionClinique
             this.panel1.Controls.Add(this.btnAjouterPatient);
             this.panel1.Controls.Add(this.btnListPatients);
             this.panel1.Controls.Add(this.btnPatients);
-            this.panel1.Location = new System.Drawing.Point(3, 57);
-            this.panel1.MaximumSize = new System.Drawing.Size(218, 124);
-            this.panel1.MinimumSize = new System.Drawing.Size(218, 52);
+            this.panel1.Location = new System.Drawing.Point(8, 135);
+            this.panel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.panel1.MaximumSize = new System.Drawing.Size(581, 296);
+            this.panel1.MinimumSize = new System.Drawing.Size(581, 124);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(218, 52);
+            this.panel1.Size = new System.Drawing.Size(581, 124);
             this.panel1.TabIndex = 1;
             // 
             // btnAjouterPatient
             // 
             this.btnAjouterPatient.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnAjouterPatient.Location = new System.Drawing.Point(-1, 87);
+            this.btnAjouterPatient.Location = new System.Drawing.Point(-3, 207);
+            this.btnAjouterPatient.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnAjouterPatient.Name = "btnAjouterPatient";
-            this.btnAjouterPatient.Size = new System.Drawing.Size(218, 35);
+            this.btnAjouterPatient.Size = new System.Drawing.Size(581, 83);
             this.btnAjouterPatient.TabIndex = 3;
             this.btnAjouterPatient.Text = "Ajouter Patient";
             this.btnAjouterPatient.UseVisualStyleBackColor = false;
@@ -115,9 +120,10 @@ namespace GestionClinique
             // btnListPatients
             // 
             this.btnListPatients.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnListPatients.Location = new System.Drawing.Point(-1, 53);
+            this.btnListPatients.Location = new System.Drawing.Point(-3, 126);
+            this.btnListPatients.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnListPatients.Name = "btnListPatients";
-            this.btnListPatients.Size = new System.Drawing.Size(218, 35);
+            this.btnListPatients.Size = new System.Drawing.Size(581, 83);
             this.btnListPatients.TabIndex = 2;
             this.btnListPatients.Text = "Liste des Patients";
             this.btnListPatients.UseVisualStyleBackColor = false;
@@ -126,9 +132,10 @@ namespace GestionClinique
             // btnPatients
             // 
             this.btnPatients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPatients.Location = new System.Drawing.Point(0, 3);
+            this.btnPatients.Location = new System.Drawing.Point(0, 7);
+            this.btnPatients.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnPatients.Name = "btnPatients";
-            this.btnPatients.Size = new System.Drawing.Size(218, 48);
+            this.btnPatients.Size = new System.Drawing.Size(581, 114);
             this.btnPatients.TabIndex = 1;
             this.btnPatients.Text = "Patients";
             this.btnPatients.UseVisualStyleBackColor = true;
@@ -139,19 +146,21 @@ namespace GestionClinique
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.btnDocteur);
-            this.panel2.Location = new System.Drawing.Point(3, 115);
-            this.panel2.MaximumSize = new System.Drawing.Size(218, 124);
-            this.panel2.MinimumSize = new System.Drawing.Size(218, 52);
+            this.panel2.Location = new System.Drawing.Point(8, 273);
+            this.panel2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.panel2.MaximumSize = new System.Drawing.Size(581, 296);
+            this.panel2.MinimumSize = new System.Drawing.Size(581, 124);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(218, 52);
+            this.panel2.Size = new System.Drawing.Size(581, 124);
             this.panel2.TabIndex = 2;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.Location = new System.Drawing.Point(0, 88);
+            this.button1.Location = new System.Drawing.Point(0, 210);
+            this.button1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(218, 35);
+            this.button1.Size = new System.Drawing.Size(581, 83);
             this.button1.TabIndex = 5;
             this.button1.Text = "Ajouter Patient";
             this.button1.UseVisualStyleBackColor = false;
@@ -160,9 +169,10 @@ namespace GestionClinique
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button2.Location = new System.Drawing.Point(0, 54);
+            this.button2.Location = new System.Drawing.Point(0, 129);
+            this.button2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(218, 35);
+            this.button2.Size = new System.Drawing.Size(581, 83);
             this.button2.TabIndex = 4;
             this.button2.Text = "Liste des Patients";
             this.button2.UseVisualStyleBackColor = false;
@@ -171,9 +181,10 @@ namespace GestionClinique
             // btnDocteur
             // 
             this.btnDocteur.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDocteur.Location = new System.Drawing.Point(0, 3);
+            this.btnDocteur.Location = new System.Drawing.Point(0, 7);
+            this.btnDocteur.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnDocteur.Name = "btnDocteur";
-            this.btnDocteur.Size = new System.Drawing.Size(218, 48);
+            this.btnDocteur.Size = new System.Drawing.Size(581, 114);
             this.btnDocteur.TabIndex = 2;
             this.btnDocteur.Text = "Docteurs";
             this.btnDocteur.UseVisualStyleBackColor = true;
@@ -184,19 +195,21 @@ namespace GestionClinique
             this.panel3.Controls.Add(this.btnAjoutConsultation);
             this.panel3.Controls.Add(this.btnListConsultation);
             this.panel3.Controls.Add(this.btnConsultation);
-            this.panel3.Location = new System.Drawing.Point(3, 173);
-            this.panel3.MaximumSize = new System.Drawing.Size(218, 124);
-            this.panel3.MinimumSize = new System.Drawing.Size(218, 52);
+            this.panel3.Location = new System.Drawing.Point(8, 411);
+            this.panel3.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.panel3.MaximumSize = new System.Drawing.Size(581, 296);
+            this.panel3.MinimumSize = new System.Drawing.Size(581, 124);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(218, 52);
+            this.panel3.Size = new System.Drawing.Size(581, 124);
             this.panel3.TabIndex = 1;
             // 
             // btnAjoutConsultation
             // 
             this.btnAjoutConsultation.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnAjoutConsultation.Location = new System.Drawing.Point(0, 88);
+            this.btnAjoutConsultation.Location = new System.Drawing.Point(0, 210);
+            this.btnAjoutConsultation.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnAjoutConsultation.Name = "btnAjoutConsultation";
-            this.btnAjoutConsultation.Size = new System.Drawing.Size(218, 35);
+            this.btnAjoutConsultation.Size = new System.Drawing.Size(581, 83);
             this.btnAjoutConsultation.TabIndex = 7;
             this.btnAjoutConsultation.Text = "Ajouter Consultation";
             this.btnAjoutConsultation.UseVisualStyleBackColor = false;
@@ -205,9 +218,10 @@ namespace GestionClinique
             // btnListConsultation
             // 
             this.btnListConsultation.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnListConsultation.Location = new System.Drawing.Point(0, 54);
+            this.btnListConsultation.Location = new System.Drawing.Point(0, 129);
+            this.btnListConsultation.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnListConsultation.Name = "btnListConsultation";
-            this.btnListConsultation.Size = new System.Drawing.Size(218, 35);
+            this.btnListConsultation.Size = new System.Drawing.Size(581, 83);
             this.btnListConsultation.TabIndex = 6;
             this.btnListConsultation.Text = "Liste des Consultations";
             this.btnListConsultation.UseVisualStyleBackColor = false;
@@ -216,9 +230,10 @@ namespace GestionClinique
             // btnConsultation
             // 
             this.btnConsultation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultation.Location = new System.Drawing.Point(0, 3);
+            this.btnConsultation.Location = new System.Drawing.Point(0, 7);
+            this.btnConsultation.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnConsultation.Name = "btnConsultation";
-            this.btnConsultation.Size = new System.Drawing.Size(218, 48);
+            this.btnConsultation.Size = new System.Drawing.Size(581, 114);
             this.btnConsultation.TabIndex = 3;
             this.btnConsultation.Text = "Consultations";
             this.btnConsultation.UseVisualStyleBackColor = true;
@@ -227,9 +242,10 @@ namespace GestionClinique
             // btnRendezVous
             // 
             this.btnRendezVous.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRendezVous.Location = new System.Drawing.Point(3, 231);
+            this.btnRendezVous.Location = new System.Drawing.Point(8, 549);
+            this.btnRendezVous.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnRendezVous.Name = "btnRendezVous";
-            this.btnRendezVous.Size = new System.Drawing.Size(218, 48);
+            this.btnRendezVous.Size = new System.Drawing.Size(581, 114);
             this.btnRendezVous.TabIndex = 4;
             this.btnRendezVous.Text = "Rendez-Vous";
             this.btnRendezVous.UseVisualStyleBackColor = true;
@@ -237,20 +253,22 @@ namespace GestionClinique
             // btnReglage
             // 
             this.btnReglage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReglage.Location = new System.Drawing.Point(3, 285);
+            this.btnReglage.Location = new System.Drawing.Point(8, 677);
+            this.btnReglage.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnReglage.Name = "btnReglage";
-            this.btnReglage.Size = new System.Drawing.Size(218, 48);
+            this.btnReglage.Size = new System.Drawing.Size(581, 114);
             this.btnReglage.TabIndex = 5;
             this.btnReglage.Text = "Reglages";
             this.btnReglage.UseVisualStyleBackColor = true;
             // 
             // AfficherEmployes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(3653, 1786);
             this.Controls.Add(this.txtRecherche);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "AfficherEmployes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Les Employes";

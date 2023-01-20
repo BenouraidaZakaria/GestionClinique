@@ -42,9 +42,9 @@ namespace GestionClinique
                 f = new AjouterEmploye();
                 f.Show();
             }
-            else if (nomForm == "AjouterPatient")
+            else if (nomForm == "GererPatients")
             {
-                f = new AjouterPatient();
+                f = new GererPatients();
                 f.Show();
             }
 
