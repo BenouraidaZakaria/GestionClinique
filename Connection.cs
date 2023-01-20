@@ -307,5 +307,80 @@ namespace GestionClinique
 
             return etat;
         }
+
+
+        // rendez-vous
+        public Boolean ajouterRendezVous(int idSecretaire, int idDocteur, int idPatient, DateTime date)
+        {
+            Boolean etat = false;
+
+            connecter();
+            cmd.Connection = con;
+            cmd.CommandText = "SELECT MAX(IDRDV) FROM RENDEZ_VOUS";
+            int id = int.Parse(cmd.ExecuteScalar().ToString());
+
+            cmd.Parameters.Clear();
+
+            cmd.CommandText = "INSERT INTO RENDEZ_VOUS(DATE) " +
+                                "VALUES(@date)";
+            cmd.Parameters.AddWithValue("@date", date);
+            cmd.ExecuteNonQuery();
+
+            cmd.Parameters.Clear();
+
+            cmd.CommandText = "SELECT MAX(IDRDV) FROM RENDEZ_VOUS";
+            int id2 = int.Parse(cmd.ExecuteScalar().ToString());
+            if (id != id2)
+            {
+                cmd.CommandText = "INSERT INTO RESERVER(IDRDV,IDDOCTEUR,IDSECRETAIRE,IDPATIENT) " +
+                                "VALUES(@idRendezVous,@idDocteur,@idSecretaire,@idPatient)";
+                cmd.Parameters.AddWithValue("@idRendezVous", id2);
+                cmd.Parameters.AddWithValue("@idDocteur", idDocteur);
+                cmd.Parameters.AddWithValue("@idSecretaire", idSecretaire);
+                cmd.Parameters.AddWithValue("@idPatient", idPatient);
+                cmd.ExecuteNonQuery();
+
+                etat = true;
+            }
+            deConnecter();
+
+            return etat;
+
+        }
+        public Boolean ModifierRendezVous(int idSecretaire, int idDocteur, int idPatient, DateTime date)
+        {
+            connecter();
+            cmd.Connection = con;
+            cmd.CommandText = "UPDATE RENDEZ_VOUS set DATE=@date " +
+                "DIAGNOSTIC=@diagno where IDCONSULTATION=@id";
+            cmd.Parameters.AddWithValue("@date", date);
+            cmd.ExecuteNonQuery();
+            deConnecter();
+
+            return true;
+        }
+        public Boolean supprimerRendezVous(int id)
+        {
+            Boolean etat = false;
+
+            connecter();
+            cmd.Connection = con;
+            cmd.CommandText = "DELETE RENDEZ_VOUS WHERE IDRDV=@id";
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();
+
+            cmd.Parameters.Clear();
+            cmd.CommandText = "SELECT IDRDV FROM RENDEZ_VOUS WHERE IDRDV=@id";
+            cmd.Parameters.AddWithValue("@id", id);
+
+            if (cmd.ExecuteScalar().ToString() == null)
+            {
+                etat = true;
+            }
+            deConnecter();
+
+            return etat;
+        }
+
     }
 }
