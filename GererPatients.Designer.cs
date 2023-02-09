@@ -49,7 +49,6 @@ namespace GestionClinique
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.imageText = new System.Windows.Forms.TextBox();
-            this.txtRecherche = new System.Windows.Forms.TextBox();
             this.btnReglage = new System.Windows.Forms.Button();
             this.btnAjoutConsultation = new System.Windows.Forms.Button();
             this.btnListConsultation = new System.Windows.Forms.Button();
@@ -106,10 +105,10 @@ namespace GestionClinique
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(624, 143);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(2004, 1137);
+            this.groupBox1.Size = new System.Drawing.Size(2000, 1150);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Informations";
+            this.groupBox1.Text = "Informations du Patients";
             // 
             // imagePatient
             // 
@@ -285,17 +284,6 @@ namespace GestionClinique
             this.imageText.Name = "imageText";
             this.imageText.Size = new System.Drawing.Size(100, 61);
             this.imageText.TabIndex = 28;
-            // 
-            // txtRecherche
-            // 
-            this.txtRecherche.ForeColor = System.Drawing.Color.Gray;
-            this.txtRecherche.Location = new System.Drawing.Point(1454, 62);
-            this.txtRecherche.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.txtRecherche.Multiline = true;
-            this.txtRecherche.Name = "txtRecherche";
-            this.txtRecherche.Size = new System.Drawing.Size(804, 52);
-            this.txtRecherche.TabIndex = 28;
-            this.txtRecherche.Text = "search";
             // 
             // btnReglage
             // 
@@ -530,7 +518,7 @@ namespace GestionClinique
             this.groupBox2.Controls.Add(this.button6);
             this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Location = new System.Drawing.Point(2726, 504);
+            this.groupBox2.Location = new System.Drawing.Point(2726, 505);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(892, 776);
             this.groupBox2.TabIndex = 31;
@@ -560,11 +548,10 @@ namespace GestionClinique
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(3844, 1848);
+            this.ClientSize = new System.Drawing.Size(3844, 1912);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.txtRecherche);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupBox2);
             this.Name = "GererPatients";
@@ -606,7 +593,6 @@ namespace GestionClinique
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox imageText;
-        private System.Windows.Forms.TextBox txtRecherche;
         private System.Windows.Forms.Button btnReglage;
         private System.Windows.Forms.Button btnAjoutConsultation;
         private System.Windows.Forms.Button btnListConsultation;

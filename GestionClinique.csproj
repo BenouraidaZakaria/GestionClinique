@@ -79,18 +79,6 @@
     <Compile Include="AfficherPatients.Designer.cs">
       <DependentUpon>AfficherPatients.cs</DependentUpon>
     </Compile>
-    <Compile Include="AjouterConsultation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AjouterConsultation.Designer.cs">
-      <DependentUpon>AjouterConsultation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AjouterEmploye.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AjouterEmploye.Designer.cs">
-      <DependentUpon>AjouterEmploye.cs</DependentUpon>
-    </Compile>
     <Compile Include="Connection.cs" />
     <Compile Include="AccueilSecretaire.cs">
       <SubType>Form</SubType>
@@ -99,6 +87,18 @@
       <DependentUpon>AccueilSecretaire.cs</DependentUpon>
     </Compile>
     <Compile Include="FormC.cs" />
+    <Compile Include="GererConsultations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GererConsultations.Designer.cs">
+      <DependentUpon>GererConsultations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GererEmployes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GererEmployes.Designer.cs">
+      <DependentUpon>GererEmployes.cs</DependentUpon>
+    </Compile>
     <Compile Include="GererPatients.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,14 +122,14 @@
     <EmbeddedResource Include="AfficherPatients.resx">
       <DependentUpon>AfficherPatients.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AjouterConsultation.resx">
-      <DependentUpon>AjouterConsultation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AjouterEmploye.resx">
-      <DependentUpon>AjouterEmploye.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AccueilSecretaire.resx">
       <DependentUpon>AccueilSecretaire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GererConsultations.resx">
+      <DependentUpon>GererConsultations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GererEmployes.resx">
+      <DependentUpon>GererEmployes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GererPatients.resx">
       <DependentUpon>GererPatients.cs</DependentUpon>
@@ -161,6 +161,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Icons\open.png" />
+    <None Include="Icons\closed.png" />
     <Content Include="Icons\icons8-add-48.png" />
   </ItemGroup>
   <ItemGroup>
