@@ -124,6 +124,7 @@ namespace GestionClinique
 
         private void AccueilSecretaire_Load(object sender, EventArgs e)
         {
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             btnAccueil.Focus();
         }
     }

@@ -45,6 +45,10 @@
             this.btnRendezVous = new System.Windows.Forms.Button();
             this.btnReglage = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.imagePrescription = new System.Windows.Forms.PictureBox();
+            this.imagePrescText = new System.Windows.Forms.TextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -63,17 +67,13 @@
             this.button4 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.imagePrescription = new System.Windows.Forms.PictureBox();
-            this.imagePrescText = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imagePrescription)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -287,6 +287,40 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informations de la Consultation";
             // 
+            // imagePrescription
+            // 
+            this.imagePrescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imagePrescription.Location = new System.Drawing.Point(578, 819);
+            this.imagePrescription.Name = "imagePrescription";
+            this.imagePrescription.Size = new System.Drawing.Size(355, 229);
+            this.imagePrescription.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imagePrescription.TabIndex = 29;
+            this.imagePrescription.TabStop = false;
+            this.imagePrescription.Click += new System.EventHandler(this.imagePrescription_Click);
+            // 
+            // imagePrescText
+            // 
+            this.imagePrescText.Location = new System.Drawing.Point(695, 861);
+            this.imagePrescText.Name = "imagePrescText";
+            this.imagePrescText.Size = new System.Drawing.Size(100, 61);
+            this.imagePrescText.TabIndex = 30;
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(578, 1113);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(806, 96);
+            this.richTextBox2.TabIndex = 10;
+            this.richTextBox2.Text = "";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(578, 688);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(806, 96);
+            this.richTextBox1.TabIndex = 10;
+            this.richTextBox1.Text = "";
+            // 
             // maskedTextBox1
             // 
             this.maskedTextBox1.Location = new System.Drawing.Point(578, 570);
@@ -458,40 +492,6 @@
             this.comboBox1.Size = new System.Drawing.Size(265, 69);
             this.comboBox1.TabIndex = 34;
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(578, 688);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(806, 96);
-            this.richTextBox1.TabIndex = 10;
-            this.richTextBox1.Text = "";
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.Location = new System.Drawing.Point(578, 1113);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(806, 96);
-            this.richTextBox2.TabIndex = 10;
-            this.richTextBox2.Text = "";
-            // 
-            // imagePrescription
-            // 
-            this.imagePrescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imagePrescription.Location = new System.Drawing.Point(578, 819);
-            this.imagePrescription.Name = "imagePrescription";
-            this.imagePrescription.Size = new System.Drawing.Size(355, 229);
-            this.imagePrescription.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imagePrescription.TabIndex = 29;
-            this.imagePrescription.TabStop = false;
-            this.imagePrescription.Click += new System.EventHandler(this.imagePrescription_Click);
-            // 
-            // imagePrescText
-            // 
-            this.imagePrescText.Location = new System.Drawing.Point(695, 861);
-            this.imagePrescText.Name = "imagePrescText";
-            this.imagePrescText.Size = new System.Drawing.Size(100, 61);
-            this.imagePrescText.TabIndex = 30;
-            // 
             // GererConsultations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -505,14 +505,15 @@
             this.Name = "GererConsultations";
             this.Text = "GererConsultations";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.GererConsultations_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imagePrescription)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
