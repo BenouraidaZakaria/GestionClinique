@@ -47,6 +47,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Iconshock-Super-Vista-Medical-Stethoscope.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -161,8 +164,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Icons\login arrow.png" />
+    <None Include="Icons\user.png" />
+    <None Include="Icons\mail.png" />
+    <None Include="Icons\lock.png" />
     <None Include="Icons\open.png" />
     <None Include="Icons\closed.png" />
+    <Content Include="Iconshock-Super-Vista-Medical-Stethoscope.ico" />
     <Content Include="Icons\icons8-add-48.png" />
   </ItemGroup>
   <ItemGroup>

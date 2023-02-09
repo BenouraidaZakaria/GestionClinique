@@ -77,5 +77,10 @@ namespace GestionClinique
                     errorProvider1.SetError(txtPassword, "Mot de Passe est Obligatoite");
             }
         }
+
+        private void login_Load(object sender, EventArgs e)
+        {
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+        }
     }
 }

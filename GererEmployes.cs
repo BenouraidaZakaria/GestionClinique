@@ -63,5 +63,10 @@ namespace GestionClinique
             eclosed.Visible = true;
             Mdptxt.PasswordChar = '*';
         }
+
+        private void GererEmployes_Load(object sender, EventArgs e)
+        {
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+        }
     }
 }

@@ -42,5 +42,10 @@ namespace GestionClinique
             File.Copy(imagePrescText.Text, Application.StartupPath + @"\IMAGES\PRESCRIPTION\" + Path.GetFileName(imagePrescription.ImageLocation));
 
         }
+
+        private void GererConsultations_Load(object sender, EventArgs e)
+        {
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+        }
     }
 }

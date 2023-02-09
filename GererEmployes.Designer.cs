@@ -595,6 +595,7 @@
             this.Name = "GererEmployes";
             this.Text = "GererEmployes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.GererEmployes_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

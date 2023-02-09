@@ -28,6 +28,7 @@ namespace GestionClinique
 
         private void GererPatients_Load(object sender, EventArgs e)
         {
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             btnAccueil.Focus();
 
         }
