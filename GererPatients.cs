@@ -98,7 +98,7 @@ namespace GestionClinique
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            File.Copy(imageText.Text, Application.StartupPath + @"\Image\" + Path.GetFileName(imagePatient.ImageLocation));
+            File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\PROFILE\" + Path.GetFileName(imagePatient.ImageLocation));
         }
 
        

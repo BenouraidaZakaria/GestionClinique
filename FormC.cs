@@ -34,12 +34,12 @@ namespace GestionClinique
             }
             else if (nomForm == "AjouterConsultation")
             {
-                f = new AjouterConsultation();
+                f = new GererConsultations();
                 f.Show();
             }
             else if (nomForm == "AjouterEmploye")
             {
-                f = new AjouterEmploye();
+                f = new GererEmployes();
                 f.Show();
             }
             else if (nomForm == "GererPatients")
