@@ -50,23 +50,25 @@ namespace GestionClinique
 
         }
 
-        private void eclosed_Click(object sender, EventArgs e)
+        
+
+        private void GererEmployes_Load(object sender, EventArgs e)
         {
-            eopen.Visible = true;
-            eclosed.Visible = false;
-            Mdptxt.PasswordChar = '\0';
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
         }
 
         private void eopen_Click(object sender, EventArgs e)
         {
             eopen.Visible = false;
             eclosed.Visible = true;
-            Mdptxt.PasswordChar = '*';
+            Mdptxt.PasswordChar = '\0';
         }
 
-        private void GererEmployes_Load(object sender, EventArgs e)
+        private void eclosed_Click(object sender, EventArgs e)
         {
-            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+            eopen.Visible = true;
+            eclosed.Visible = false;
+            Mdptxt.PasswordChar = '*';
         }
     }
 }

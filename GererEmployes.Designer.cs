@@ -307,7 +307,6 @@
             this.eopen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.eopen.TabIndex = 46;
             this.eopen.TabStop = false;
-            this.eopen.Visible = false;
             this.eopen.Click += new System.EventHandler(this.eopen_Click);
             // 
             // eclosed
@@ -319,6 +318,7 @@
             this.eclosed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.eclosed.TabIndex = 46;
             this.eclosed.TabStop = false;
+            this.eclosed.Visible = false;
             this.eclosed.Click += new System.EventHandler(this.eclosed_Click);
             // 
             // Specmb
