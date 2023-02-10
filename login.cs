@@ -82,5 +82,19 @@ namespace GestionClinique
         {
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
         }
+
+        private void eopen_Click(object sender, EventArgs e)
+        {
+            eopen.Visible = false;
+            eclosed.Visible = true;
+            txtPassword.PasswordChar= '\0';
+        }
+
+        private void eclosed_Click(object sender, EventArgs e)
+        {
+            eopen.Visible = true;
+            eclosed.Visible = false;
+            txtPassword.PasswordChar = '*';
+        }
     }
 }

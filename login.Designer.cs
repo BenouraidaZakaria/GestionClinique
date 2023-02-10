@@ -40,9 +40,13 @@ namespace GestionClinique
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.eopen = new System.Windows.Forms.PictureBox();
+            this.eclosed = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eopen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eclosed)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -142,11 +146,36 @@ namespace GestionClinique
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // eopen
+            // 
+            this.eopen.Image = global::GestionClinique.Properties.Resources.open;
+            this.eopen.Location = new System.Drawing.Point(821, 458);
+            this.eopen.Name = "eopen";
+            this.eopen.Size = new System.Drawing.Size(65, 59);
+            this.eopen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.eopen.TabIndex = 47;
+            this.eopen.TabStop = false;
+            this.eopen.Click += new System.EventHandler(this.eopen_Click);
+            // 
+            // eclosed
+            // 
+            this.eclosed.Image = global::GestionClinique.Properties.Resources.closed;
+            this.eclosed.Location = new System.Drawing.Point(821, 458);
+            this.eclosed.Name = "eclosed";
+            this.eclosed.Size = new System.Drawing.Size(65, 59);
+            this.eclosed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.eclosed.TabIndex = 48;
+            this.eclosed.TabStop = false;
+            this.eclosed.Visible = false;
+            this.eclosed.Click += new System.EventHandler(this.eclosed_Click);
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 892);
+            this.Controls.Add(this.eopen);
+            this.Controls.Add(this.eclosed);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox2);
@@ -164,6 +193,8 @@ namespace GestionClinique
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eopen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eclosed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,5 +212,7 @@ namespace GestionClinique
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox eopen;
+        private System.Windows.Forms.PictureBox eclosed;
     }
 }
