@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace GestionClinique
@@ -103,41 +104,51 @@ namespace GestionClinique
 
 
         // Secretaire
-        public Boolean ajouterSecretaire(int idSecretaireSup, string nom, string prenom, string image, DateTime dateNaissance, char genre, string telephone)
+        // changer ajouterEmployee a la place de methode secretaire et docteur
+        public Boolean ajouterEmploye(int idSecretaireSup, string nom, string prenom, string image, DateTime dateNaissance, char genre, string telephone, string type, string specialite)
         {
             Boolean etat = false;
 
             connecter();
             cmd.Connection = con;
-            cmd.CommandText = "select max(IDSECRETAIRE) from SECRETAIRE";
+            cmd.CommandText = "select max(IDEMPLOYEE) from EMPLOYEE";
             int id = int.Parse(cmd.ExecuteScalar().ToString());
 
             cmd.Parameters.Clear();
 
-            cmd.CommandText = "insert into SECRETAIRE(NOM,PRENOM,IMAGE,DATE_NAISSANCE,GENRE,TELEPHONE) " +
-                                "values(@nom,@prenom,@image,@date,@genre,@telephone)";
+            cmd.CommandText = "insert into EMPLOYEE(NOM,PRENOM,IMAGE,DATE_NAISSANCE,GENRE,TELEPHONE,[TYPE]) " +
+                                "values(@nom,@prenom,@image,@date,@genre,@telephone,@type)";
             cmd.Parameters.AddWithValue("@nom", nom);
             cmd.Parameters.AddWithValue("@prenom", prenom);
             cmd.Parameters.AddWithValue("@image", image);
             cmd.Parameters.AddWithValue("@date", dateNaissance);
             cmd.Parameters.AddWithValue("@genre", genre);
             cmd.Parameters.AddWithValue("@telephone", telephone);
+            cmd.Parameters.AddWithValue("@type", type);
             cmd.ExecuteNonQuery();
 
             cmd.Parameters.Clear();
 
-            if (idSecretaireSup != 0)
+            cmd.CommandText = "select max(IDEMPLOYEE) from EMPLOYEE";
+            int id2 = int.Parse(cmd.ExecuteScalar().ToString());
+
+            cmd.Parameters.Clear();
+
+            if (id != id2)
             {
-                cmd.CommandText = "select max(IDSECRETAIRE) from SECRETAIRE";
-                int id2 = int.Parse(cmd.ExecuteScalar().ToString());
-                if (id != id2)
+                if (type == "docteur")
                 {
-                    cmd.CommandText = "insert into GERER_SECRETAIRE(IDSECRETAIRE,SEC_IDSECRETAIRE) " +
-                                    "values(@supSecretaire,@scretaire)";
-                    cmd.Parameters.AddWithValue("@supSecretaire", idSecretaireSup);
-                    cmd.Parameters.AddWithValue("@scretaire", id2);
+                    cmd.CommandText = "insert into DOCTEUR(IDDOCTEUR,NOM,PRENOM,SPECIALITE,IMAGE,DATE_NAISSANCE,GENRE,TELEPHONE,[USER]) " +
+                                    "values(@id,@nom,@prenom,@specialite,@image,@date,@genre,@telephone)";
+                    cmd.Parameters.AddWithValue("@id", id2);
+                    cmd.Parameters.AddWithValue("@nom", nom);
+                    cmd.Parameters.AddWithValue("@prenom", prenom);
+                    cmd.Parameters.AddWithValue("@specialite", specialite);
+                    cmd.Parameters.AddWithValue("@image", image);
+                    cmd.Parameters.AddWithValue("@date", dateNaissance);
+                    cmd.Parameters.AddWithValue("@genre", genre);
+                    cmd.Parameters.AddWithValue("@telephone", telephone);
                     cmd.ExecuteNonQuery();
-                    etat = true;
                 }
             }
 
@@ -145,6 +156,22 @@ namespace GestionClinique
 
             return etat;
         }
+        public DataTable infoEmployee(int id)
+        {
+            DataTable dt = new DataTable();
+
+            connecter();
+            cmd.Connection = con;
+            cmd.CommandText = "select * from EMPLOYEE where IDEMPLOYEE=@id";
+            cmd.Parameters.AddWithValue ("id", id);
+            da.SelectCommand = cmd;
+            da.Fill(dt);
+            deConnecter();
+
+            return dt;
+        }
+
+        // add methode for modifier les information d'employee
         public Boolean modifierSecretaire(int id, string nom, string prenom, string image, DateTime dateNaissance, char genre, string telephone, string motPasse)
         {
             connecter();
@@ -160,53 +187,28 @@ namespace GestionClinique
             cmd.Parameters.AddWithValue("@motPasse", motPasse);
             cmd.Parameters.AddWithValue("@id", id);
             cmd.ExecuteNonQuery();
+
+            cmd.Parameters.Clear();
+
+            cmd.CommandText = "update EMPLOYEE set NOM=@nom, PRENOM=@prenom, IMAGE=@image, DATE_NAISSANCE=convert(date,@dateNaissance), " +
+                              "GENRE=@genre, TELEPHONE=@telephone, MOT_PASSE=@motPasse where IDEMPLOYEE=@id";
+            cmd.Parameters.AddWithValue("@nom", nom);
+            cmd.Parameters.AddWithValue("@prenom", prenom);
+            cmd.Parameters.AddWithValue("@image", image);
+            cmd.Parameters.AddWithValue("@dateNaissance", dateNaissance);
+            cmd.Parameters.AddWithValue("@genre", genre);
+            cmd.Parameters.AddWithValue("@telephone", telephone);
+            cmd.Parameters.AddWithValue("@motPasse", motPasse);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();
+
             deConnecter();
 
             return true;
         }
-
-
+        
         // docteur
-        public Boolean ajouterDocteur(int idSecretaire, string nom, string prenom, string image, DateTime dateNaissance, char genre, string telephone, string specialiste)
-        {
-            Boolean etat = false;
-
-            connecter();
-            cmd.Connection = con;
-            cmd.CommandText = "select max(IDDOCTEUR) from DOCTEUR";
-            int id = int.Parse(cmd.ExecuteScalar().ToString());
-
-            cmd.Parameters.Clear();
-
-            cmd.CommandText = "insert into DOCTEUR(NOM,PRENOM,IMAGE,DATE_NAISSANCE,GENRE,TELEPHONE,SPECIALITE) " +
-                                "values(@nom,@prenom,@image,@date,@genre,@telephone,@specialite)";
-            cmd.Parameters.AddWithValue("@nom", nom);
-            cmd.Parameters.AddWithValue("@prenom", prenom);
-            cmd.Parameters.AddWithValue("@image", image);
-            cmd.Parameters.AddWithValue("@date", dateNaissance);
-            cmd.Parameters.AddWithValue("@genre", genre);
-            cmd.Parameters.AddWithValue("@telephone", telephone);
-            cmd.Parameters.AddWithValue("@specialite", specialiste);
-            cmd.ExecuteNonQuery();
-
-            cmd.Parameters.Clear();
-
-            cmd.CommandText = "select max(IDDOCTEUR) from DOCTEUR";
-            int id2 = int.Parse(cmd.ExecuteScalar().ToString());
-            if (id != id2)
-            {
-                cmd.CommandText = "insert into GERER_DOCTEUR(IDSECRETAIRE,IDDOCTEUR) " +
-                                "values(@secretaire,@docteur)";
-                cmd.Parameters.AddWithValue("@secretaire", idSecretaire);
-                cmd.Parameters.AddWithValue("@docteur", id2);
-                cmd.ExecuteNonQuery();
-
-                etat = true;
-            }
-            deConnecter();
-
-            return etat;
-        }
+        // add methode for modifier les infos d'employee
         public Boolean modifierDocteur(int id, string nom, string prenom, string image, DateTime dateNaissance, char genre, string telephone, string motPasse, string specialiste)
         {
             connecter();
@@ -220,9 +222,24 @@ namespace GestionClinique
             cmd.Parameters.AddWithValue("@genre", genre);
             cmd.Parameters.AddWithValue("@telephone", telephone);
             cmd.Parameters.AddWithValue("@motPasse", motPasse);
-            cmd.Parameters.AddWithValue("@specialiste", motPasse);
+            cmd.Parameters.AddWithValue("@specialiste", specialiste);
             cmd.Parameters.AddWithValue("@id", id);
             cmd.ExecuteNonQuery();
+
+            cmd.Parameters.Clear();
+
+            cmd.CommandText = "update EMPLOYEE set NOM=@nom, PRENOM=@prenom, IMAGE=@image, DATE_NAISSANCE=convert(date,@dateNaissance), " +
+                              "GENRE=@genre, TELEPHONE=@telephone, MOT_PASSE=@motPasse where IDEMPLOYEE=@id";
+            cmd.Parameters.AddWithValue("@nom", nom);
+            cmd.Parameters.AddWithValue("@prenom", prenom);
+            cmd.Parameters.AddWithValue("@image", image);
+            cmd.Parameters.AddWithValue("@dateNaissance", dateNaissance);
+            cmd.Parameters.AddWithValue("@genre", genre);
+            cmd.Parameters.AddWithValue("@telephone", telephone);
+            cmd.Parameters.AddWithValue("@motPasse", motPasse);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();
+
             deConnecter();
 
             return true;
@@ -381,6 +398,69 @@ namespace GestionClinique
             deConnecter();
 
             return etat;
+        }
+
+
+        // patient
+        public Boolean ajouterPatient(string nom, string prenom, DateTime dateNaissance, char sexe, string email, string tele, string adresse, string assurance, string image)
+        {
+            Boolean etat = false;
+            connecter();
+            cmd.Connection = con;
+            cmd.CommandText = "select max(IDPATIENT) from Patient";
+            int id = int.Parse(cmd.ExecuteScalar().ToString());
+
+            cmd.Parameters.Clear();
+
+            cmd.CommandText = "insert into Patient(NOM,PRENOM,DATENAISSANCE,SEXE,EMAIL,TELEPHONE,ADRESSE,IMAGE) values(@nom,@prenom,@da,@s,@email,@tele,@adresse,@img)";
+            cmd.Parameters.AddWithValue("@nom", nom);
+            cmd.Parameters.AddWithValue("@prenom", prenom);
+            cmd.Parameters.AddWithValue("@da", dateNaissance);
+            cmd.Parameters.AddWithValue("@s", sexe);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@tele", tele);
+            cmd.Parameters.AddWithValue("@adresse", adresse);
+            cmd.Parameters.AddWithValue("@img", image);
+
+            cmd.Parameters.Clear();
+
+            cmd.CommandText = "select max(IDPATIENT) from Patient";
+            int id2 = int.Parse(cmd.ExecuteScalar().ToString());
+
+            cmd.Parameters.Clear();
+
+            if (id != id2)
+            {
+                etat = true;
+            }
+            deConnecter();
+            return etat;
+        }
+        public Boolean modifierPatient(int id, string nom, string prenom, DateTime dateNaissance, char sexe, string email, string tele, string adresse, string assurance, string image)
+        {
+            connecter();
+            cmd.Connection = con;
+            cmd.CommandText = "update Patient set NOM=@nom,PRENOM=@prenom,DATENAISSANCE=@da,SEXE=@s,EMAIL=@email,TELEPHONE=@tele,ADRESSE=@adresse,IMAGE=@img where idPatient=@id)";
+            cmd.Parameters.AddWithValue("@nom", nom);
+            cmd.Parameters.AddWithValue("@prenom", prenom);
+            cmd.Parameters.AddWithValue("@da", dateNaissance);
+            cmd.Parameters.AddWithValue("@s", sexe);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@tele", tele);
+            cmd.Parameters.AddWithValue("@adresse", adresse);
+            cmd.Parameters.AddWithValue("@img", image);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            return true;
+        }
+        public Boolean supprimerPatient(int id)
+        {
+            connecter();
+            cmd.Connection = con;
+            cmd.CommandText = "delete Patient where idPatient=@id)";
+            cmd.Parameters.AddWithValue("@id", id);
+
+            return true;
         }
 
     }
