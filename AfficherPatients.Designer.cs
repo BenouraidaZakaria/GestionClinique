@@ -270,7 +270,7 @@ namespace GestionClinique
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(637, 131);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(345, 95);
+            this.label1.Size = new System.Drawing.Size(341, 95);
             this.label1.TabIndex = 8;
             this.label1.Text = "Patients";
             // 

@@ -46,10 +46,13 @@ namespace GestionClinique
             this.btnConsultation = new System.Windows.Forms.Button();
             this.btnRendezVous = new System.Windows.Forms.Button();
             this.btnReglage = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PatientsGrid = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PatientsGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // txtRecherche
@@ -261,11 +264,33 @@ namespace GestionClinique
             this.btnReglage.Text = "Reglages";
             this.btnReglage.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(637, 131);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(452, 95);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Employees";
+            // 
+            // PatientsGrid
+            // 
+            this.PatientsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PatientsGrid.Location = new System.Drawing.Point(653, 273);
+            this.PatientsGrid.Name = "PatientsGrid";
+            this.PatientsGrid.RowHeadersWidth = 102;
+            this.PatientsGrid.RowTemplate.Height = 40;
+            this.PatientsGrid.Size = new System.Drawing.Size(2969, 1248);
+            this.PatientsGrid.TabIndex = 9;
+            // 
             // AfficherEmployes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(3653, 1786);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.PatientsGrid);
             this.Controls.Add(this.txtRecherche);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
@@ -278,6 +303,7 @@ namespace GestionClinique
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PatientsGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,5 +328,7 @@ namespace GestionClinique
         private System.Windows.Forms.Button btnConsultation;
         private System.Windows.Forms.Button btnRendezVous;
         private System.Windows.Forms.Button btnReglage;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView PatientsGrid;
     }
 }

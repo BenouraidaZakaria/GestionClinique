@@ -30,8 +30,9 @@ namespace GestionClinique
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.imagePatient = new System.Windows.Forms.PictureBox();
-            this.cmbAssurance = new System.Windows.Forms.ComboBox();
             this.cmbSexe = new System.Windows.Forms.ComboBox();
             this.datpickNaissance = new System.Windows.Forms.DateTimePicker();
             this.txtAdresse = new System.Windows.Forms.TextBox();
@@ -65,13 +66,12 @@ namespace GestionClinique
             this.button2 = new System.Windows.Forms.Button();
             this.btnDocteur = new System.Windows.Forms.Button();
             this.btnRendezVous = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.supprimer = new System.Windows.Forms.Button();
+            this.modifier = new System.Windows.Forms.Button();
+            this.ajouter = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.select = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imagePatient)).BeginInit();
             this.panel3.SuspendLayout();
@@ -83,8 +83,9 @@ namespace GestionClinique
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.imagePatient);
-            this.groupBox1.Controls.Add(this.cmbAssurance);
             this.groupBox1.Controls.Add(this.cmbSexe);
             this.groupBox1.Controls.Add(this.datpickNaissance);
             this.groupBox1.Controls.Add(this.txtAdresse);
@@ -110,6 +111,28 @@ namespace GestionClinique
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informations du Patients";
             // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(936, 1000);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(293, 58);
+            this.radioButton2.TabIndex = 30;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "NonAssure";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(573, 1000);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(207, 58);
+            this.radioButton1.TabIndex = 29;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Assure";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
             // imagePatient
             // 
             this.imagePatient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -120,20 +143,6 @@ namespace GestionClinique
             this.imagePatient.TabIndex = 26;
             this.imagePatient.TabStop = false;
             this.imagePatient.Click += new System.EventHandler(this.imagePatient_Click);
-            // 
-            // cmbAssurance
-            // 
-            this.cmbAssurance.FormattingEnabled = true;
-            this.cmbAssurance.Items.AddRange(new object[] {
-            "AMO",
-            "CNSS",
-            "RAMED",
-            "ANAM",
-            "CNOPS"});
-            this.cmbAssurance.Location = new System.Drawing.Point(573, 990);
-            this.cmbAssurance.Name = "cmbAssurance";
-            this.cmbAssurance.Size = new System.Drawing.Size(635, 62);
-            this.cmbAssurance.TabIndex = 25;
             // 
             // cmbSexe
             // 
@@ -475,64 +484,45 @@ namespace GestionClinique
             this.btnRendezVous.Text = "Rendez-Vous";
             this.btnRendezVous.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // supprimer
             // 
-            this.button7.Location = new System.Drawing.Point(169, 570);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(553, 85);
-            this.button7.TabIndex = 3;
-            this.button7.Text = "Actualiser";
-            this.button7.UseVisualStyleBackColor = true;
+            this.supprimer.Location = new System.Drawing.Point(169, 438);
+            this.supprimer.Name = "supprimer";
+            this.supprimer.Size = new System.Drawing.Size(553, 85);
+            this.supprimer.TabIndex = 2;
+            this.supprimer.Text = "Supprimer";
+            this.supprimer.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // modifier
             // 
-            this.button6.Location = new System.Drawing.Point(169, 434);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(553, 85);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "Supprimer";
-            this.button6.UseVisualStyleBackColor = true;
+            this.modifier.Location = new System.Drawing.Point(169, 298);
+            this.modifier.Name = "modifier";
+            this.modifier.Size = new System.Drawing.Size(553, 85);
+            this.modifier.TabIndex = 1;
+            this.modifier.Text = "Modifier";
+            this.modifier.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // ajouter
             // 
-            this.button5.Location = new System.Drawing.Point(169, 298);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(553, 85);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "Modifier";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(169, 162);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(553, 85);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Ajouter";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            this.ajouter.Location = new System.Drawing.Point(169, 162);
+            this.ajouter.Name = "ajouter";
+            this.ajouter.Size = new System.Drawing.Size(553, 85);
+            this.ajouter.TabIndex = 0;
+            this.ajouter.Text = "Ajouter";
+            this.ajouter.UseVisualStyleBackColor = true;
+            this.ajouter.Click += new System.EventHandler(this.ajouter_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button7);
-            this.groupBox2.Controls.Add(this.button6);
-            this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.supprimer);
+            this.groupBox2.Controls.Add(this.modifier);
+            this.groupBox2.Controls.Add(this.ajouter);
             this.groupBox2.Location = new System.Drawing.Point(2726, 505);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(892, 776);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Operations";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(3207, 301);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(411, 69);
-            this.comboBox1.TabIndex = 32;
             // 
             // label10
             // 
@@ -544,13 +534,23 @@ namespace GestionClinique
             this.label10.TabIndex = 33;
             this.label10.Text = "Selection Patients";
             // 
+            // select
+            // 
+            this.select.Location = new System.Drawing.Point(3413, 287);
+            this.select.Name = "select";
+            this.select.Size = new System.Drawing.Size(205, 81);
+            this.select.TabIndex = 34;
+            this.select.Text = "selectionner";
+            this.select.UseVisualStyleBackColor = true;
+            this.select.Click += new System.EventHandler(this.select_Click);
+            // 
             // GererPatients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(3844, 1912);
+            this.Controls.Add(this.select);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupBox2);
@@ -575,7 +575,6 @@ namespace GestionClinique
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox imagePatient;
-        private System.Windows.Forms.ComboBox cmbAssurance;
         private System.Windows.Forms.ComboBox cmbSexe;
         private System.Windows.Forms.DateTimePicker datpickNaissance;
         private System.Windows.Forms.TextBox txtAdresse;
@@ -609,12 +608,13 @@ namespace GestionClinique
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnDocteur;
         private System.Windows.Forms.Button btnRendezVous;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button supprimer;
+        private System.Windows.Forms.Button modifier;
+        private System.Windows.Forms.Button ajouter;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button select;
     }
 }

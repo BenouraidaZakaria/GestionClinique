@@ -127,5 +127,7 @@ namespace GestionClinique
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             btnAccueil.Focus();
         }
+
+       
     }
 }

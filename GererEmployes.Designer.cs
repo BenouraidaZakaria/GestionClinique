@@ -48,7 +48,6 @@
             this.eopen = new System.Windows.Forms.PictureBox();
             this.eclosed = new System.Windows.Forms.PictureBox();
             this.Specmb = new System.Windows.Forms.ComboBox();
-            this.Spetxt = new System.Windows.Forms.TextBox();
             this.Mdptxt = new System.Windows.Forms.TextBox();
             this.Mailtxt = new System.Windows.Forms.TextBox();
             this.Pretxt = new System.Windows.Forms.TextBox();
@@ -68,12 +67,11 @@
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.supprimer = new System.Windows.Forms.Button();
+            this.modifier = new System.Windows.Forms.Button();
+            this.ajouter = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.select = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -276,7 +274,6 @@
             this.groupbox1.Controls.Add(this.eopen);
             this.groupbox1.Controls.Add(this.eclosed);
             this.groupbox1.Controls.Add(this.Specmb);
-            this.groupbox1.Controls.Add(this.Spetxt);
             this.groupbox1.Controls.Add(this.Mdptxt);
             this.groupbox1.Controls.Add(this.Mailtxt);
             this.groupbox1.Controls.Add(this.Pretxt);
@@ -324,17 +321,10 @@
             // Specmb
             // 
             this.Specmb.FormattingEnabled = true;
-            this.Specmb.Location = new System.Drawing.Point(1363, 905);
+            this.Specmb.Location = new System.Drawing.Point(635, 905);
             this.Specmb.Name = "Specmb";
-            this.Specmb.Size = new System.Drawing.Size(121, 62);
+            this.Specmb.Size = new System.Drawing.Size(644, 62);
             this.Specmb.TabIndex = 45;
-            // 
-            // Spetxt
-            // 
-            this.Spetxt.Location = new System.Drawing.Point(635, 906);
-            this.Spetxt.Name = "Spetxt";
-            this.Spetxt.Size = new System.Drawing.Size(644, 61);
-            this.Spetxt.TabIndex = 44;
             // 
             // Mdptxt
             // 
@@ -506,10 +496,9 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.comboBox1);
-            this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Controls.Add(this.button8);
-            this.groupBox3.Controls.Add(this.button9);
-            this.groupBox3.Controls.Add(this.button10);
+            this.groupBox3.Controls.Add(this.supprimer);
+            this.groupBox3.Controls.Add(this.modifier);
+            this.groupBox3.Controls.Add(this.ajouter);
             this.groupBox3.Location = new System.Drawing.Point(2726, 505);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(892, 776);
@@ -526,42 +515,36 @@
             this.comboBox1.Size = new System.Drawing.Size(411, 69);
             this.comboBox1.TabIndex = 34;
             // 
-            // button3
+            // supprimer
             // 
-            this.button3.Location = new System.Drawing.Point(169, 570);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(553, 85);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Actualiser";
-            this.button3.UseVisualStyleBackColor = true;
+            this.supprimer.Location = new System.Drawing.Point(169, 434);
+            this.supprimer.Name = "supprimer";
+            this.supprimer.Size = new System.Drawing.Size(553, 85);
+            this.supprimer.TabIndex = 2;
+            this.supprimer.Text = "Supprimer";
+            this.supprimer.UseVisualStyleBackColor = true;
+            this.supprimer.Click += new System.EventHandler(this.supprimer_Click);
             // 
-            // button8
+            // modifier
             // 
-            this.button8.Location = new System.Drawing.Point(169, 434);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(553, 85);
-            this.button8.TabIndex = 2;
-            this.button8.Text = "Supprimer";
-            this.button8.UseVisualStyleBackColor = true;
+            this.modifier.Enabled = false;
+            this.modifier.Location = new System.Drawing.Point(169, 298);
+            this.modifier.Name = "modifier";
+            this.modifier.Size = new System.Drawing.Size(553, 85);
+            this.modifier.TabIndex = 1;
+            this.modifier.Text = "Modifier";
+            this.modifier.UseVisualStyleBackColor = true;
+            this.modifier.Click += new System.EventHandler(this.modifier_Click);
             // 
-            // button9
+            // ajouter
             // 
-            this.button9.Enabled = false;
-            this.button9.Location = new System.Drawing.Point(169, 298);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(553, 85);
-            this.button9.TabIndex = 1;
-            this.button9.Text = "Modifier";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(169, 162);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(553, 85);
-            this.button10.TabIndex = 0;
-            this.button10.Text = "Ajouter";
-            this.button10.UseVisualStyleBackColor = true;
+            this.ajouter.Location = new System.Drawing.Point(169, 162);
+            this.ajouter.Name = "ajouter";
+            this.ajouter.Size = new System.Drawing.Size(553, 85);
+            this.ajouter.TabIndex = 0;
+            this.ajouter.Text = "Ajouter";
+            this.ajouter.UseVisualStyleBackColor = true;
+            this.ajouter.Click += new System.EventHandler(this.ajouter_Click);
             // 
             // label10
             // 
@@ -573,21 +556,22 @@
             this.label10.TabIndex = 35;
             this.label10.Text = "Selection Employe";
             // 
-            // comboBox2
+            // select
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(3207, 291);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(411, 69);
-            this.comboBox2.TabIndex = 36;
+            this.select.Location = new System.Drawing.Point(3413, 280);
+            this.select.Name = "select";
+            this.select.Size = new System.Drawing.Size(205, 81);
+            this.select.TabIndex = 36;
+            this.select.Text = "selectionner";
+            this.select.UseVisualStyleBackColor = true;
+            this.select.Click += new System.EventHandler(this.select_Click);
             // 
             // GererEmployes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(3844, 1912);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.select);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupbox1);
@@ -636,13 +620,11 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button supprimer;
+        private System.Windows.Forms.Button modifier;
+        private System.Windows.Forms.Button ajouter;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -650,7 +632,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox Specmb;
-        private System.Windows.Forms.TextBox Spetxt;
         private System.Windows.Forms.TextBox Mdptxt;
         private System.Windows.Forms.TextBox Mailtxt;
         private System.Windows.Forms.TextBox Pretxt;
@@ -659,5 +640,6 @@
         private System.Windows.Forms.RadioButton rbDoc;
         private System.Windows.Forms.PictureBox eopen;
         private System.Windows.Forms.PictureBox eclosed;
+        private System.Windows.Forms.Button select;
     }
 }

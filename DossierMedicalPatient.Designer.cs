@@ -1,7 +1,6 @@
-﻿
-namespace GestionClinique
+﻿namespace GestionClinique
 {
-    partial class AccueilSecretaire
+    partial class DossierMedicalPatient
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +28,7 @@ namespace GestionClinique
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtRecherche = new System.Windows.Forms.TextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DossierMedicalPatient));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAccueil = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -46,36 +45,30 @@ namespace GestionClinique
             this.btnConsultation = new System.Windows.Forms.Button();
             this.btnRendezVous = new System.Windows.Forms.Button();
             this.btnReglage = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.PatientsGrid = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.imgPatient = new System.Windows.Forms.PictureBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.nom = new System.Windows.Forms.Label();
+            this.prenom = new System.Windows.Forms.Label();
+            this.age = new System.Windows.Forms.Label();
+            this.email = new System.Windows.Forms.Label();
+            this.tel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PatientsGrid)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPatient)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtRecherche
-            // 
-            this.txtRecherche.ForeColor = System.Drawing.Color.Gray;
-            this.txtRecherche.Location = new System.Drawing.Point(1336, 33);
-            this.txtRecherche.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.txtRecherche.Multiline = true;
-            this.txtRecherche.Name = "txtRecherche";
-            this.txtRecherche.Size = new System.Drawing.Size(804, 52);
-            this.txtRecherche.TabIndex = 3;
-            this.txtRecherche.Text = "search";
-            this.txtRecherche.Enter += new System.EventHandler(this.txtRecherche_Enter);
-            this.txtRecherche.Leave += new System.EventHandler(this.txtRecherche_Leave);
             // 
             // flowLayoutPanel1
             // 
@@ -90,7 +83,7 @@ namespace GestionClinique
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(595, 1791);
-            this.flowLayoutPanel1.TabIndex = 4;
+            this.flowLayoutPanel1.TabIndex = 5;
             // 
             // btnAccueil
             // 
@@ -102,7 +95,6 @@ namespace GestionClinique
             this.btnAccueil.TabIndex = 0;
             this.btnAccueil.Text = "Accueil";
             this.btnAccueil.UseVisualStyleBackColor = true;
-            this.btnAccueil.Click += new System.EventHandler(this.btnAccueil_Click);
             // 
             // panel1
             // 
@@ -127,7 +119,6 @@ namespace GestionClinique
             this.btnAjouterPatient.TabIndex = 3;
             this.btnAjouterPatient.Text = "Ajouter Patient";
             this.btnAjouterPatient.UseVisualStyleBackColor = false;
-            this.btnAjouterPatient.Click += new System.EventHandler(this.btnAjouterPatient_Click);
             // 
             // btnListPatients
             // 
@@ -139,7 +130,6 @@ namespace GestionClinique
             this.btnListPatients.TabIndex = 2;
             this.btnListPatients.Text = "Liste des Patients";
             this.btnListPatients.UseVisualStyleBackColor = false;
-            this.btnListPatients.Click += new System.EventHandler(this.btnListPatients_Click);
             // 
             // btnPatients
             // 
@@ -151,7 +141,6 @@ namespace GestionClinique
             this.btnPatients.TabIndex = 1;
             this.btnPatients.Text = "Patients";
             this.btnPatients.UseVisualStyleBackColor = true;
-            this.btnPatients.Click += new System.EventHandler(this.btnPatients_Click);
             // 
             // panel2
             // 
@@ -174,9 +163,8 @@ namespace GestionClinique
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(581, 83);
             this.button1.TabIndex = 5;
-            this.button1.Text = "Ajouter Docteur";
+            this.button1.Text = "Ajouter Patient";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -186,9 +174,8 @@ namespace GestionClinique
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(581, 83);
             this.button2.TabIndex = 4;
-            this.button2.Text = "Liste des Docteur";
+            this.button2.Text = "Liste des Patients";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnDocteur
             // 
@@ -200,7 +187,6 @@ namespace GestionClinique
             this.btnDocteur.TabIndex = 2;
             this.btnDocteur.Text = "Docteurs";
             this.btnDocteur.UseVisualStyleBackColor = true;
-            this.btnDocteur.Click += new System.EventHandler(this.btnDocteur_Click);
             // 
             // panel3
             // 
@@ -225,7 +211,6 @@ namespace GestionClinique
             this.btnAjoutConsultation.TabIndex = 7;
             this.btnAjoutConsultation.Text = "Ajouter Consultation";
             this.btnAjoutConsultation.UseVisualStyleBackColor = false;
-            this.btnAjoutConsultation.Click += new System.EventHandler(this.btnAjoutConsultation_Click);
             // 
             // btnListConsultation
             // 
@@ -237,7 +222,6 @@ namespace GestionClinique
             this.btnListConsultation.TabIndex = 6;
             this.btnListConsultation.Text = "Liste des Consultations";
             this.btnListConsultation.UseVisualStyleBackColor = false;
-            this.btnListConsultation.Click += new System.EventHandler(this.btnListConsultation_Click);
             // 
             // btnConsultation
             // 
@@ -249,7 +233,6 @@ namespace GestionClinique
             this.btnConsultation.TabIndex = 3;
             this.btnConsultation.Text = "Consultations";
             this.btnConsultation.UseVisualStyleBackColor = true;
-            this.btnConsultation.Click += new System.EventHandler(this.btnConsultation_Click);
             // 
             // btnRendezVous
             // 
@@ -273,123 +256,161 @@ namespace GestionClinique
             this.btnReglage.Text = "Reglages";
             this.btnReglage.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // groupBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(623, 131);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(406, 95);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Employes";
+            this.groupBox1.Controls.Add(this.groupBox4);
+            this.groupBox1.Controls.Add(this.groupBox3);
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(674, 46);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(2845, 1655);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Dossier Medical";
             // 
-            // PatientsGrid
+            // imgPatient
             // 
-            this.PatientsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PatientsGrid.Location = new System.Drawing.Point(628, 261);
-            this.PatientsGrid.Name = "PatientsGrid";
-            this.PatientsGrid.RowHeadersWidth = 102;
-            this.PatientsGrid.RowTemplate.Height = 40;
-            this.PatientsGrid.Size = new System.Drawing.Size(1387, 590);
-            this.PatientsGrid.TabIndex = 9;
+            this.imgPatient.Image = ((System.Drawing.Image)(resources.GetObject("imgPatient.Image")));
+            this.imgPatient.Location = new System.Drawing.Point(42, 82);
+            this.imgPatient.Name = "imgPatient";
+            this.imgPatient.Size = new System.Drawing.Size(258, 254);
+            this.imgPatient.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgPatient.TabIndex = 0;
+            this.imgPatient.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tel);
+            this.groupBox2.Controls.Add(this.email);
+            this.groupBox2.Controls.Add(this.age);
+            this.groupBox2.Controls.Add(this.prenom);
+            this.groupBox2.Controls.Add(this.nom);
+            this.groupBox2.Controls.Add(this.imgPatient);
+            this.groupBox2.Location = new System.Drawing.Point(102, 166);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1234, 598);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Infos";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Location = new System.Drawing.Point(103, 893);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1233, 721);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Rendez-vous";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dataGridView2);
+            this.groupBox4.Location = new System.Drawing.Point(1494, 166);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(1293, 1448);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Consultations";
+            // 
+            // nom
+            // 
+            this.nom.AutoSize = true;
+            this.nom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nom.Location = new System.Drawing.Point(410, 93);
+            this.nom.Name = "nom";
+            this.nom.Size = new System.Drawing.Size(122, 54);
+            this.nom.TabIndex = 1;
+            this.nom.Text = "Nom";
+            // 
+            // prenom
+            // 
+            this.prenom.AutoSize = true;
+            this.prenom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prenom.Location = new System.Drawing.Point(693, 92);
+            this.prenom.Name = "prenom";
+            this.prenom.Size = new System.Drawing.Size(187, 54);
+            this.prenom.TabIndex = 2;
+            this.prenom.Text = "Prenom";
+            // 
+            // age
+            // 
+            this.age.AutoSize = true;
+            this.age.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.age.Location = new System.Drawing.Point(410, 219);
+            this.age.Name = "age";
+            this.age.Size = new System.Drawing.Size(106, 54);
+            this.age.TabIndex = 3;
+            this.age.Text = "Age";
+            // 
+            // email
+            // 
+            this.email.AutoSize = true;
+            this.email.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.email.Location = new System.Drawing.Point(410, 336);
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(139, 54);
+            this.email.TabIndex = 4;
+            this.email.Text = "Email";
+            // 
+            // tel
+            // 
+            this.tel.AutoSize = true;
+            this.tel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tel.Location = new System.Drawing.Point(410, 465);
+            this.tel.Name = "tel";
+            this.tel.Size = new System.Drawing.Size(244, 54);
+            this.tel.TabIndex = 4;
+            this.tel.Text = "Telephone";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(628, 1048);
+            this.dataGridView1.Location = new System.Drawing.Point(41, 62);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 102;
             this.dataGridView1.RowTemplate.Height = 40;
-            this.dataGridView1.Size = new System.Drawing.Size(1387, 673);
-            this.dataGridView1.TabIndex = 9;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(646, 920);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(546, 95);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Consultations";
+            this.dataGridView1.Size = new System.Drawing.Size(1146, 627);
+            this.dataGridView1.TabIndex = 0;
             // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(2207, 261);
+            this.dataGridView2.Location = new System.Drawing.Point(43, 82);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 102;
             this.dataGridView2.RowTemplate.Height = 40;
-            this.dataGridView2.Size = new System.Drawing.Size(1387, 590);
-            this.dataGridView2.TabIndex = 9;
+            this.dataGridView2.Size = new System.Drawing.Size(1226, 1334);
+            this.dataGridView2.TabIndex = 0;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(2202, 131);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(341, 95);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Patients";
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(2218, 1048);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 102;
-            this.dataGridView3.RowTemplate.Height = 40;
-            this.dataGridView3.Size = new System.Drawing.Size(1387, 673);
-            this.dataGridView3.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(2202, 920);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(530, 95);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Rendez-vous";
-            // 
-            // AccueilSecretaire
+            // DossierMedicalPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(3653, 1786);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.dataGridView3);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.PatientsGrid);
-            this.Controls.Add(this.txtRecherche);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.Name = "AccueilSecretaire";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Accueil";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.AccueilSecretaire_Load);
+            this.Name = "DossierMedicalPatient";
+            this.Text = "DossierMedicalPatient";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PatientsGrid)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imgPatient)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtRecherche;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnAccueil;
         private System.Windows.Forms.Panel panel1;
@@ -406,14 +427,17 @@ namespace GestionClinique
         private System.Windows.Forms.Button btnConsultation;
         private System.Windows.Forms.Button btnRendezVous;
         private System.Windows.Forms.Button btnReglage;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView PatientsGrid;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox imgPatient;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label tel;
+        private System.Windows.Forms.Label email;
+        private System.Windows.Forms.Label age;
+        private System.Windows.Forms.Label prenom;
+        private System.Windows.Forms.Label nom;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.Label label4;
     }
 }
-

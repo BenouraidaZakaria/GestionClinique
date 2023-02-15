@@ -89,6 +89,12 @@
     <Compile Include="AccueilSecretaire.Designer.cs">
       <DependentUpon>AccueilSecretaire.cs</DependentUpon>
     </Compile>
+    <Compile Include="DossierMedicalPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DossierMedicalPatient.Designer.cs">
+      <DependentUpon>DossierMedicalPatient.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormC.cs" />
     <Compile Include="GererConsultations.cs">
       <SubType>Form</SubType>
@@ -128,6 +134,9 @@
     <EmbeddedResource Include="AccueilSecretaire.resx">
       <DependentUpon>AccueilSecretaire.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DossierMedicalPatient.resx">
+      <DependentUpon>DossierMedicalPatient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GererConsultations.resx">
       <DependentUpon>GererConsultations.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +173,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Icons\plus.png" />
+    <None Include="Icons\minus.png" />
     <None Include="Icons\login arrow.png" />
     <None Include="Icons\user.png" />
     <None Include="Icons\mail.png" />
