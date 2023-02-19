@@ -89,6 +89,11 @@
     <Compile Include="AccueilSecretaire.Designer.cs">
       <DependentUpon>AccueilSecretaire.cs</DependentUpon>
     </Compile>
+    <Compile Include="DB_CliniqueDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_CliniqueDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DossierMedicalPatient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +164,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="DB_CliniqueDataSet.xsc">
+      <DependentUpon>DB_CliniqueDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DB_CliniqueDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_CliniqueDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_CliniqueDataSet.xss">
+      <DependentUpon>DB_CliniqueDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

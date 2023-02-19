@@ -16,7 +16,7 @@ namespace GestionClinique
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GererConsultations());
+            Application.Run(new GererPatients());
         }
     }
 }

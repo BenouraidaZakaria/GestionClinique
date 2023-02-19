@@ -30,8 +30,6 @@ namespace GestionClinique
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.imagePatient = new System.Windows.Forms.PictureBox();
             this.cmbSexe = new System.Windows.Forms.ComboBox();
             this.datpickNaissance = new System.Windows.Forms.DateTimePicker();
@@ -72,6 +70,7 @@ namespace GestionClinique
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.select = new System.Windows.Forms.Button();
+            this.cmbassur = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imagePatient)).BeginInit();
             this.panel3.SuspendLayout();
@@ -83,8 +82,7 @@ namespace GestionClinique
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.cmbassur);
             this.groupBox1.Controls.Add(this.imagePatient);
             this.groupBox1.Controls.Add(this.cmbSexe);
             this.groupBox1.Controls.Add(this.datpickNaissance);
@@ -110,28 +108,6 @@ namespace GestionClinique
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informations du Patients";
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(936, 1000);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(293, 58);
-            this.radioButton2.TabIndex = 30;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "NonAssure";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(573, 1000);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(207, 58);
-            this.radioButton1.TabIndex = 29;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Assure";
-            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // imagePatient
             // 
@@ -544,6 +520,18 @@ namespace GestionClinique
             this.select.UseVisualStyleBackColor = true;
             this.select.Click += new System.EventHandler(this.select_Click);
             // 
+            // cmbassur
+            // 
+            this.cmbassur.FormattingEnabled = true;
+            this.cmbassur.Items.AddRange(new object[] {
+            "AMO",
+            "CNSS",
+            "NOM ASSURE"});
+            this.cmbassur.Location = new System.Drawing.Point(573, 1000);
+            this.cmbassur.Name = "cmbassur";
+            this.cmbassur.Size = new System.Drawing.Size(635, 62);
+            this.cmbassur.TabIndex = 29;
+            // 
             // GererPatients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -613,8 +601,7 @@ namespace GestionClinique
         private System.Windows.Forms.Button ajouter;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Button select;
+        private System.Windows.Forms.ComboBox cmbassur;
     }
 }

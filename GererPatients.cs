@@ -16,6 +16,7 @@ namespace GestionClinique
     {
         // instancer la class formC for the menu
         FormC f = new FormC();
+        Connection c = new Connection();
 
         // declartion les variables pour afficher contenue d'une champ dans le menu
         static Boolean etatBtnPatient = true;
@@ -101,7 +102,18 @@ namespace GestionClinique
 
         private void ajouter_Click(object sender, EventArgs e)
         {
-            File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\PROFILE\" + Path.GetFileName(imagePatient.ImageLocation));
+            try
+            {
+                File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\PROFILE\" + Path.GetFileName(imagePatient.ImageLocation));
+                char[] sexe = cmbSexe.Text.ToCharArray();
+                c.ajouterPatient(txtNom.Text, txtPrenom.Text, datpickNaissance.Value, sexe[0], txtEmail.Text, txtTelephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileName(imagePatient.ImageLocation));
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void select_Click(object sender, EventArgs e)
