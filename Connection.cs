@@ -23,6 +23,7 @@ namespace GestionClinique
             if (con.State == ConnectionState.Closed || con.State == ConnectionState.Broken)
             {
                 con.ConnectionString = "data source=.\\SQLEXPRESS; initial catalog=DB_Clinique; integrated security=true";
+                //con.ConnectionString = " Data Source = .; Initial Catalog = DB_Clinique; Integrated Security = True";
                 con.Open();
             }
         }
@@ -412,7 +413,7 @@ namespace GestionClinique
 
             cmd.Parameters.Clear();
 
-            cmd.CommandText = "insert into Patient(NOM,PRENOM,DATENAISSANCE,SEXE,EMAIL,TELEPHONE,ADRESSE,IMAGE) values(@nom,@prenom,@da,@s,@email,@tele,@adresse,@img)";
+            cmd.CommandText = "insert into Patient(NOM,PRENOM,DATENAISSANCE,SEXE,EMAIL,TELEPHONE,ADRESSE,IMAGE) values(@nom,@prenom,@da,@s,@email,@tele,@adresse,@assurance,@img)";
             cmd.Parameters.AddWithValue("@nom", nom);
             cmd.Parameters.AddWithValue("@prenom", prenom);
             cmd.Parameters.AddWithValue("@da", dateNaissance);
@@ -420,6 +421,7 @@ namespace GestionClinique
             cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@tele", tele);
             cmd.Parameters.AddWithValue("@adresse", adresse);
+            cmd.Parameters.AddWithValue("@assurance", assurance);
             cmd.Parameters.AddWithValue("@img", image);
 
             cmd.Parameters.Clear();
