@@ -14,14 +14,7 @@ namespace GestionClinique
 {
     public partial class GererPatients : Form
     {
-        // instancer la class formC for the menu
-        FormC f = new FormC();
-        Connection c = new Connection();
-
-        // declartion les variables pour afficher contenue d'une champ dans le menu
-        static Boolean etatBtnPatient = true;
-        static Boolean etatBtnDocteur = true;
-        static Boolean etatBtnConsultation = true;
+        
 
         public GererPatients()
         {
@@ -32,56 +25,9 @@ namespace GestionClinique
         private void GererPatients_Load(object sender, EventArgs e)
         {
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
-            btnAccueil.Focus();
 
         }
-        private void btnAccueil_Click_1(object sender, EventArgs e)
-        {
-            f.formInstance("AccueilSecretaire");
-            this.Hide();
-        }
-
-        private void btnPatients_Click_1(object sender, EventArgs e)
-        {
-            if (etatBtnPatient)
-            {
-                panel1.Height += 72;
-                etatBtnPatient = false;
-            }
-            else
-            {
-                panel1.Height -= 72;
-                etatBtnPatient = true;
-            }
-        }
-
-        private void btnDocteur_Click_1(object sender, EventArgs e)
-        {
-            if (etatBtnDocteur)
-            {
-                panel2.Height += 72;
-                etatBtnDocteur = false;
-            }
-            else
-            {
-                panel2.Height -= 72;
-                etatBtnDocteur = true;
-            }
-        }
-
-        private void btnConsultation_Click_1(object sender, EventArgs e)
-        {
-            if (etatBtnConsultation)
-            {
-                panel3.Height += 72;
-                etatBtnConsultation = false;
-            }
-            else
-            {
-                panel3.Height -= 72;
-                etatBtnConsultation = true;
-            }
-        }
+        
         private void imagePatient_Click(object sender, EventArgs e)
         {
             String imageLocation = "";
@@ -106,7 +52,7 @@ namespace GestionClinique
             {
                 File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\PROFILE\" + Path.GetFileName(imagePatient.ImageLocation));
                 char[] sexe = cmbSexe.Text.ToCharArray();
-                c.ajouterPatient(txtNom.Text, txtPrenom.Text, datpickNaissance.Value, sexe[0], txtEmail.Text, txtTelephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileName(imagePatient.ImageLocation));
+                //c.ajouterPatient(txtNom.Text, txtPrenom.Text, datpickNaissance.Value, sexe[0], txtEmail.Text, txtTelephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileName(imagePatient.ImageLocation));
 
             }
             catch (Exception ex)
