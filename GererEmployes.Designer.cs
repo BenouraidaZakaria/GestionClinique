@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupbox1 = new System.Windows.Forms.GroupBox();
+            this.imageEmp = new System.Windows.Forms.PictureBox();
+            this.imageText = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.eopen = new System.Windows.Forms.PictureBox();
             this.eclosed = new System.Windows.Forms.PictureBox();
             this.Specmb = new System.Windows.Forms.ComboBox();
@@ -51,9 +54,10 @@
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.supprimer = new System.Windows.Forms.Button();
-            this.modifier = new System.Windows.Forms.Button();
-            this.ajouter = new System.Windows.Forms.Button();
+            this.Desactiver = new System.Windows.Forms.Button();
+            this.Activer = new System.Windows.Forms.Button();
+            this.Modifier = new System.Windows.Forms.Button();
+            this.Ajouter = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.select = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -72,7 +76,12 @@
             this.btnConsultation = new System.Windows.Forms.Button();
             this.btnRendezVous = new System.Windows.Forms.Button();
             this.btnReglage = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbSexe = new System.Windows.Forms.ComboBox();
+            this.datpickNaissance = new System.Windows.Forms.DateTimePicker();
             this.groupbox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageEmp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eopen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eclosed)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -85,6 +94,13 @@
             // 
             // groupbox1
             // 
+            this.groupbox1.Controls.Add(this.cmbSexe);
+            this.groupbox1.Controls.Add(this.datpickNaissance);
+            this.groupbox1.Controls.Add(this.label9);
+            this.groupbox1.Controls.Add(this.label8);
+            this.groupbox1.Controls.Add(this.imageEmp);
+            this.groupbox1.Controls.Add(this.imageText);
+            this.groupbox1.Controls.Add(this.label7);
             this.groupbox1.Controls.Add(this.eopen);
             this.groupbox1.Controls.Add(this.eclosed);
             this.groupbox1.Controls.Add(this.Specmb);
@@ -104,15 +120,43 @@
             this.groupbox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F);
             this.groupbox1.Location = new System.Drawing.Point(624, 143);
             this.groupbox1.Name = "groupbox1";
-            this.groupbox1.Size = new System.Drawing.Size(2000, 1150);
+            this.groupbox1.Size = new System.Drawing.Size(2000, 1648);
             this.groupbox1.TabIndex = 31;
             this.groupbox1.TabStop = false;
             this.groupbox1.Text = "Informations de l\'employe";
             // 
+            // imageEmp
+            // 
+            this.imageEmp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imageEmp.Location = new System.Drawing.Point(635, 362);
+            this.imageEmp.Name = "imageEmp";
+            this.imageEmp.Size = new System.Drawing.Size(355, 229);
+            this.imageEmp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imageEmp.TabIndex = 48;
+            this.imageEmp.TabStop = false;
+            this.imageEmp.Click += new System.EventHandler(this.imageEmp_Click);
+            // 
+            // imageText
+            // 
+            this.imageText.Location = new System.Drawing.Point(635, 430);
+            this.imageText.Name = "imageText";
+            this.imageText.Size = new System.Drawing.Size(100, 61);
+            this.imageText.TabIndex = 49;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(97, 430);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(129, 46);
+            this.label7.TabIndex = 47;
+            this.label7.Text = "Image";
+            // 
             // eopen
             // 
             this.eopen.Image = global::GestionClinique.Properties.Resources.open;
-            this.eopen.Location = new System.Drawing.Point(1339, 764);
+            this.eopen.Location = new System.Drawing.Point(1339, 1086);
             this.eopen.Name = "eopen";
             this.eopen.Size = new System.Drawing.Size(100, 71);
             this.eopen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -123,7 +167,7 @@
             // eclosed
             // 
             this.eclosed.Image = global::GestionClinique.Properties.Resources.closed;
-            this.eclosed.Location = new System.Drawing.Point(1339, 764);
+            this.eclosed.Location = new System.Drawing.Point(1339, 1086);
             this.eclosed.Name = "eclosed";
             this.eclosed.Size = new System.Drawing.Size(100, 71);
             this.eclosed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -135,14 +179,14 @@
             // Specmb
             // 
             this.Specmb.FormattingEnabled = true;
-            this.Specmb.Location = new System.Drawing.Point(635, 905);
+            this.Specmb.Location = new System.Drawing.Point(635, 1488);
             this.Specmb.Name = "Specmb";
             this.Specmb.Size = new System.Drawing.Size(644, 62);
             this.Specmb.TabIndex = 45;
             // 
             // Mdptxt
             // 
-            this.Mdptxt.Location = new System.Drawing.Point(635, 764);
+            this.Mdptxt.Location = new System.Drawing.Point(635, 1086);
             this.Mdptxt.Name = "Mdptxt";
             this.Mdptxt.PasswordChar = '*';
             this.Mdptxt.ReadOnly = true;
@@ -151,7 +195,7 @@
             // 
             // Mailtxt
             // 
-            this.Mailtxt.Location = new System.Drawing.Point(635, 627);
+            this.Mailtxt.Location = new System.Drawing.Point(635, 949);
             this.Mailtxt.Name = "Mailtxt";
             this.Mailtxt.ReadOnly = true;
             this.Mailtxt.Size = new System.Drawing.Size(644, 61);
@@ -159,7 +203,7 @@
             // 
             // Pretxt
             // 
-            this.Pretxt.Location = new System.Drawing.Point(635, 480);
+            this.Pretxt.Location = new System.Drawing.Point(635, 802);
             this.Pretxt.Name = "Pretxt";
             this.Pretxt.Size = new System.Drawing.Size(644, 61);
             this.Pretxt.TabIndex = 42;
@@ -167,7 +211,7 @@
             // 
             // Nomtxt
             // 
-            this.Nomtxt.Location = new System.Drawing.Point(635, 338);
+            this.Nomtxt.Location = new System.Drawing.Point(635, 660);
             this.Nomtxt.Name = "Nomtxt";
             this.Nomtxt.Size = new System.Drawing.Size(644, 61);
             this.Nomtxt.TabIndex = 41;
@@ -202,7 +246,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(89, 921);
+            this.label6.Location = new System.Drawing.Point(89, 1504);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(194, 46);
             this.label6.TabIndex = 38;
@@ -212,7 +256,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label5.Location = new System.Drawing.Point(89, 779);
+            this.label5.Location = new System.Drawing.Point(89, 1101);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(259, 46);
             this.label5.TabIndex = 37;
@@ -222,7 +266,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label4.Location = new System.Drawing.Point(89, 637);
+            this.label4.Location = new System.Drawing.Point(89, 959);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 46);
             this.label4.TabIndex = 36;
@@ -232,7 +276,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(89, 495);
+            this.label3.Location = new System.Drawing.Point(89, 817);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(160, 46);
             this.label3.TabIndex = 35;
@@ -242,7 +286,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(89, 353);
+            this.label2.Location = new System.Drawing.Point(89, 675);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 46);
             this.label2.TabIndex = 34;
@@ -310,9 +354,10 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.comboBox1);
-            this.groupBox3.Controls.Add(this.supprimer);
-            this.groupBox3.Controls.Add(this.modifier);
-            this.groupBox3.Controls.Add(this.ajouter);
+            this.groupBox3.Controls.Add(this.Desactiver);
+            this.groupBox3.Controls.Add(this.Activer);
+            this.groupBox3.Controls.Add(this.Modifier);
+            this.groupBox3.Controls.Add(this.Ajouter);
             this.groupBox3.Location = new System.Drawing.Point(2726, 505);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(892, 776);
@@ -329,36 +374,46 @@
             this.comboBox1.Size = new System.Drawing.Size(411, 69);
             this.comboBox1.TabIndex = 34;
             // 
-            // supprimer
+            // Desactiver
             // 
-            this.supprimer.Location = new System.Drawing.Point(169, 434);
-            this.supprimer.Name = "supprimer";
-            this.supprimer.Size = new System.Drawing.Size(553, 85);
-            this.supprimer.TabIndex = 2;
-            this.supprimer.Text = "Supprimer";
-            this.supprimer.UseVisualStyleBackColor = true;
-            this.supprimer.Click += new System.EventHandler(this.supprimer_Click);
+            this.Desactiver.Location = new System.Drawing.Point(169, 559);
+            this.Desactiver.Name = "Desactiver";
+            this.Desactiver.Size = new System.Drawing.Size(553, 85);
+            this.Desactiver.TabIndex = 2;
+            this.Desactiver.Text = "Desactiver";
+            this.Desactiver.UseVisualStyleBackColor = true;
+            this.Desactiver.Click += new System.EventHandler(this.supprimer_Click);
             // 
-            // modifier
+            // Activer
             // 
-            this.modifier.Enabled = false;
-            this.modifier.Location = new System.Drawing.Point(169, 298);
-            this.modifier.Name = "modifier";
-            this.modifier.Size = new System.Drawing.Size(553, 85);
-            this.modifier.TabIndex = 1;
-            this.modifier.Text = "Modifier";
-            this.modifier.UseVisualStyleBackColor = true;
-            this.modifier.Click += new System.EventHandler(this.modifier_Click);
+            this.Activer.Location = new System.Drawing.Point(169, 434);
+            this.Activer.Name = "Activer";
+            this.Activer.Size = new System.Drawing.Size(553, 85);
+            this.Activer.TabIndex = 2;
+            this.Activer.Text = "Activer";
+            this.Activer.UseVisualStyleBackColor = true;
+            this.Activer.Click += new System.EventHandler(this.supprimer_Click);
             // 
-            // ajouter
+            // Modifier
             // 
-            this.ajouter.Location = new System.Drawing.Point(169, 162);
-            this.ajouter.Name = "ajouter";
-            this.ajouter.Size = new System.Drawing.Size(553, 85);
-            this.ajouter.TabIndex = 0;
-            this.ajouter.Text = "Ajouter";
-            this.ajouter.UseVisualStyleBackColor = true;
-            this.ajouter.Click += new System.EventHandler(this.ajouter_Click);
+            this.Modifier.Enabled = false;
+            this.Modifier.Location = new System.Drawing.Point(169, 298);
+            this.Modifier.Name = "Modifier";
+            this.Modifier.Size = new System.Drawing.Size(553, 85);
+            this.Modifier.TabIndex = 1;
+            this.Modifier.Text = "Modifier";
+            this.Modifier.UseVisualStyleBackColor = true;
+            this.Modifier.Click += new System.EventHandler(this.modifier_Click);
+            // 
+            // Ajouter
+            // 
+            this.Ajouter.Location = new System.Drawing.Point(169, 162);
+            this.Ajouter.Name = "Ajouter";
+            this.Ajouter.Size = new System.Drawing.Size(553, 85);
+            this.Ajouter.TabIndex = 0;
+            this.Ajouter.Text = "Ajouter";
+            this.Ajouter.UseVisualStyleBackColor = true;
+            this.Ajouter.Click += new System.EventHandler(this.ajouter_Click);
             // 
             // label10
             // 
@@ -576,6 +631,44 @@
             this.btnReglage.Text = "Reglages";
             this.btnReglage.UseVisualStyleBackColor = true;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(93, 1254);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(112, 46);
+            this.label8.TabIndex = 50;
+            this.label8.Text = "Sexe";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(97, 1377);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(357, 46);
+            this.label9.TabIndex = 51;
+            this.label9.Text = "Date de Naissance";
+            // 
+            // cmbSexe
+            // 
+            this.cmbSexe.FormattingEnabled = true;
+            this.cmbSexe.Items.AddRange(new object[] {
+            "M",
+            "F"});
+            this.cmbSexe.Location = new System.Drawing.Point(635, 1254);
+            this.cmbSexe.Name = "cmbSexe";
+            this.cmbSexe.Size = new System.Drawing.Size(635, 62);
+            this.cmbSexe.TabIndex = 53;
+            // 
+            // datpickNaissance
+            // 
+            this.datpickNaissance.Location = new System.Drawing.Point(635, 1368);
+            this.datpickNaissance.Name = "datpickNaissance";
+            this.datpickNaissance.Size = new System.Drawing.Size(635, 61);
+            this.datpickNaissance.TabIndex = 52;
+            // 
             // GererEmployes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -592,6 +685,7 @@
             this.Load += new System.EventHandler(this.GererEmployes_Load);
             this.groupbox1.ResumeLayout(false);
             this.groupbox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageEmp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eopen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eclosed)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -613,9 +707,9 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button supprimer;
-        private System.Windows.Forms.Button modifier;
-        private System.Windows.Forms.Button ajouter;
+        private System.Windows.Forms.Button Activer;
+        private System.Windows.Forms.Button Modifier;
+        private System.Windows.Forms.Button Ajouter;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label6;
@@ -650,5 +744,13 @@
         private System.Windows.Forms.Button btnConsultation;
         private System.Windows.Forms.Button btnRendezVous;
         private System.Windows.Forms.Button btnReglage;
+        private System.Windows.Forms.Button Desactiver;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox imageEmp;
+        private System.Windows.Forms.TextBox imageText;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbSexe;
+        private System.Windows.Forms.DateTimePicker datpickNaissance;
     }
 }

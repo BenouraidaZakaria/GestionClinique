@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,10 +71,26 @@ namespace GestionClinique
             eclosed.Visible = false;
             Mdptxt.PasswordChar = '*';
         }
-
+        private void imageEmp_Click(object sender, EventArgs e)
+        {
+            String imageLocation = "";
+            try
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All Files(*.*)|*.*";
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    imageText.Text = dialog.FileName;
+                imageLocation = dialog.FileName;
+                imageEmp.ImageLocation = imageLocation;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("An Error Occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void ajouter_Click(object sender, EventArgs e)
         {
-
+            File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\PROFILE\" + Path.GetFileName(imageEmp.ImageLocation));
         }
 
         private void modifier_Click(object sender, EventArgs e)
@@ -232,5 +249,7 @@ namespace GestionClinique
             f.formInstance("GererConsultations");
             this.Hide();
         }
+
+      
     }
 }
