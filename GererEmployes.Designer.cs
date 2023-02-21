@@ -141,7 +141,7 @@
             // imageEmp
             // 
             this.imageEmp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imageEmp.Location = new System.Drawing.Point(887, 210);
+            this.imageEmp.Location = new System.Drawing.Point(635, 210);
             this.imageEmp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.imageEmp.Name = "imageEmp";
             this.imageEmp.Size = new System.Drawing.Size(354, 229);
