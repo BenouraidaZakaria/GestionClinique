@@ -71,21 +71,21 @@ namespace GestionClinique
             DataTable dt = new DataTable();
             dt.Rows.Clear();
 
-            if (TableName.Equals("SECRETAIRE"))
+            if (TableName.Equals("EMPLOYEE"))
             {
                 connecter();
                 cmd.Connection = con;
-                cmd.CommandText = "SELECT * FROM SECRETAIRE INNER JOIN GERER_SECRETAIRE ON SECRETAIRE.IDSECRETAIRE=GERER_SECRETAIRE.IDSECRETAIRE";
+                cmd.CommandText = "SELECT IDEMPLOYEE as 'ID', NOM as 'Nom', PRENOM as 'Prenom', DATE_NAISSANCE as 'Date de Naissance', GENRE as 'Genre', TELEPHONE as 'Telephone', TYPE as 'Type', EMAIL as 'Emial' FROM EMPLOYEE";
                 da.SelectCommand = cmd;
                 da.Fill(dt);
                 deConnecter();
                 dgv.DataSource = dt;
             }
-            else if (TableName.Equals("DOCTEUR"))
+            else if (TableName.Equals("PATIENT"))
             {
                 connecter();
                 cmd.Connection = con;
-                cmd.CommandText = "SELECT * FROM DOCTEUR";
+                cmd.CommandText = "SELECT IDPATIENT as 'ID', NOM as 'Nom', PRENOM as 'Prenom', DATENAISSANCE as 'Date de Naissance', GENRE as 'Genre', EMAIL as 'Email', TELEPHONE as 'Telephone', ADRESSE as 'Adresse' FROM PATIENT";
                 da.SelectCommand = cmd;
                 da.Fill(dt);
                 deConnecter();
@@ -95,7 +95,7 @@ namespace GestionClinique
             {
                 connecter();
                 cmd.Connection = con;
-                cmd.CommandText = "SELECT * FROM CONSULTATION JOIN REALISER ON CONSULTATION.IDCONSULTATION=REALISER.IDCONSULTATION";
+                cmd.CommandText = "SELECT con.IDCONSULTATION as 'ID', DATE as 'Date', IDDOCTEUR as 'ID Docteur', IDPATIENT as 'ID Patient', TRAITEMENT as 'Traitement', PRESCRIPTION as 'Prescription', DIAGNOSTIC as 'Diagnostic' FROM CONSULTATION con inner join REALISER rea on con.IDCONSULTATION=rea.IDCONSULTATION";
                 da.SelectCommand = cmd;
                 da.Fill(dt);
                 deConnecter();
@@ -106,7 +106,7 @@ namespace GestionClinique
 
         // Secretaire
         // changer ajouterEmployee a la place de methode secretaire et docteur
-        public Boolean ajouterEmploye(int idSecretaireSup, string nom, string prenom, string image, DateTime dateNaissance, char genre, string telephone, string type, string specialite)
+        public Boolean ajouterEmploye(/*int idSecretaireSup,*/ string nom, string prenom, string image, DateTime dateNaissance, char genre, string telephone, string type, string email, string motPasse, string specialite)
         {
             Boolean etat = false;
 
@@ -117,8 +117,8 @@ namespace GestionClinique
 
             cmd.Parameters.Clear();
 
-            cmd.CommandText = "insert into EMPLOYEE(NOM,PRENOM,IMAGE,DATE_NAISSANCE,GENRE,TELEPHONE,[TYPE]) " +
-                                "values(@nom,@prenom,@image,@date,@genre,@telephone,@type)";
+            cmd.CommandText = "insert into EMPLOYEE(NOM,PRENOM,IMAGE,DATE_NAISSANCE,GENRE,TELEPHONE,[TYPE],EMAIL,MOT_PASSE) " +
+                                "values(@nom,@prenom,@image,@date,@genre,@telephone,@type,@email,@motPasse)";
             cmd.Parameters.AddWithValue("@nom", nom);
             cmd.Parameters.AddWithValue("@prenom", prenom);
             cmd.Parameters.AddWithValue("@image", image);
@@ -126,6 +126,8 @@ namespace GestionClinique
             cmd.Parameters.AddWithValue("@genre", genre);
             cmd.Parameters.AddWithValue("@telephone", telephone);
             cmd.Parameters.AddWithValue("@type", type);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@motPasse", motPasse);
             cmd.ExecuteNonQuery();
 
             cmd.Parameters.Clear();

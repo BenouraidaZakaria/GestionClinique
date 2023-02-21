@@ -12,6 +12,8 @@ namespace GestionClinique
 {
     public partial class AccueilSecretaire : Form
     {
+        Connection con = new Connection();
+
         public AccueilSecretaire()
         {
             InitializeComponent();
@@ -19,6 +21,9 @@ namespace GestionClinique
         private void AccueilSecretaire_Load(object sender, EventArgs e)
         {
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+            con.remplir(EmployesGrid, "EMPLOYEE");
+            con.remplir(PatientsGrid, "PATIENT");
+            con.remplir(consultationGrid, "CONSULTATION");
         }
         // instancer la class formC for the menu
         FormC f = new FormC();

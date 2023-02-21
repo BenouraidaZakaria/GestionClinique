@@ -12,6 +12,8 @@ namespace GestionClinique
 {
     public partial class AfficherConsultations : Form
     {
+        Connection con = new Connection();
+
         public AfficherConsultations()
         {
             InitializeComponent();
@@ -19,6 +21,9 @@ namespace GestionClinique
         private void AfficherConsultations_Load(object sender, EventArgs e)
         {
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+            con.remplir(ConsultationsGrid,"CONSULTATION");
+            ConsultationsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
         }
         FormC f = new FormC();
 

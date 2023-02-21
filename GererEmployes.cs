@@ -14,6 +14,7 @@ namespace GestionClinique
 {
     public partial class GererEmployes : Form
     {
+        Connection con = new Connection();
         String mailext="@docteur.ma";
         public GererEmployes()
         {
@@ -90,7 +91,24 @@ namespace GestionClinique
         }
         private void ajouter_Click(object sender, EventArgs e)
         {
+
+            if (rbDoc.Checked)
+            {
+                if (Nomtxt.Text != "" && Pretxt.Text != "" && Mdptxt.Text != "" && Specmb.Text != "" && cmbGenre.Text != "" && teletxt.Text != "")
+                {
+                    con.ajouterEmploye(Nomtxt.Text, Pretxt.Text, null, Convert.ToDateTime(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, "docteur", Mailtxt.Text, Mdptxt.Text, Specmb.Text);
+                }
+            }
+            else
+            {
+                if (Nomtxt.Text != "" && Pretxt.Text != "" && Mdptxt.Text != "" && cmbGenre.Text != "" && teletxt.Text != "")
+                {
+                    con.ajouterEmploye(Nomtxt.Text, Pretxt.Text, null, Convert.ToDateTime(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, "secretaire", Mailtxt.Text, Mdptxt.Text, null);
+                }
+            }
+
             File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\PROFILE\" + Path.GetFileName(imageEmp.ImageLocation));
+
         }
 
         private void modifier_Click(object sender, EventArgs e)
@@ -127,8 +145,10 @@ namespace GestionClinique
             dgv.AllowUserToAddRows = false;
             // Add the DataGridView to the form
             form.Controls.Add(dgv);
+            con.remplir(dgv, "EMPLOYEE");
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-     
+
 
             // Create a new instance of the OK button
             Button okButton = new Button();

@@ -12,6 +12,8 @@ namespace GestionClinique
 {
     public partial class AfficherEmployes : Form
     {
+        Connection con = new Connection();
+
         public AfficherEmployes()
         {
             InitializeComponent();
@@ -19,6 +21,9 @@ namespace GestionClinique
         private void AfficherEmployes_Load(object sender, EventArgs e)
         {
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+            con.remplir(EmployesGrid,"EMPLOYEE");
+            EmployesGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
         }
         FormC f = new FormC();
 
