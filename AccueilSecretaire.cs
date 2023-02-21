@@ -24,6 +24,7 @@ namespace GestionClinique
             con.remplir(EmployesGrid, "EMPLOYEE");
             con.remplir(PatientsGrid, "PATIENT");
             con.remplir(consultationGrid, "CONSULTATION");
+            label5.Text = Program.typeuser;
         }
         // instancer la class formC for the menu
         FormC f = new FormC();
@@ -35,8 +36,17 @@ namespace GestionClinique
 
         private void btnAccueil_Click(object sender, EventArgs e)
         {
-            f.formInstance("AccueilSecretaire");
-            this.Hide();
+            if (Program.typeuser == "secretaire")
+            {
+                f.formInstance("AccueilSecretaire");
+                this.Hide();
+            }
+            else
+            {
+                f.formInstance("AcceuilDocteur");
+                this.Hide();
+            }
+           
         }
         private void btnPatients_Click(object sender, EventArgs e)
         {

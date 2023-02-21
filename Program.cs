@@ -8,6 +8,11 @@ namespace GestionClinique
 {
     static class Program
     {
+        static public int  iduser;
+        static public string  nameuser;
+        static public string  prenomuser;
+        static public string  typeuser;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -17,9 +22,9 @@ namespace GestionClinique
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new AccueilSecretaire());
+            //Application.Run(new AccueilSecretaire());
             //Application.Run(new AcceuilDoctors());
-            //Application.Run(new login());
+            Application.Run(new login());
         }
     }
 }

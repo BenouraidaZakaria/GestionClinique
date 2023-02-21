@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace GestionClinique
 {
     public partial class login : Form
     {
         // instancer une objet de la class Connection
         Connection con = new Connection();
-
         public login()
         {
             InitializeComponent();
@@ -35,8 +34,9 @@ namespace GestionClinique
                     if (txtEmail.Text.Contains("@secretaire.ma"))
                     {
                         // si l'email contient '@admin.ma' on va cherecher dans la table secretaire
-                        if (con.login("SECRETAIRE", txtEmail.Text.ToString(), txtPassword.Text.ToString()))
+                        if (con.login("EMPLOYEE", txtEmail.Text.ToString(), txtPassword.Text.ToString()))
                         {
+                         
                             // si secretaire connecter avec les donnees correcte on va ouvrir la boite accueil
                             AccueilSecretaire f = new AccueilSecretaire();
                             f.Show();
@@ -48,7 +48,7 @@ namespace GestionClinique
                     else if (txtEmail.Text.Contains("@docteur.ma"))
                     {
                         // si l'email contient '@docteur.ma' on va cherecher dans la table docteur
-                        if (con.login("DOCTEUR", txtEmail.Text.ToString(), txtPassword.Text.ToString()))
+                        if (con.login("EMPLOYEE", txtEmail.Text.ToString(), txtPassword.Text.ToString()))
                         {
                             // si docteur connecter avec les donnees correcte on va eregistrer son email
                             AcceuilDoctors f = new AcceuilDoctors();
@@ -81,6 +81,11 @@ namespace GestionClinique
         private void login_Load(object sender, EventArgs e)
         {
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+            Program.iduser=0;
+            Program.nameuser="";
+            Program.prenomuser = "";
+            Program.typeuser = "";
+
         }
 
         private void eopen_Click(object sender, EventArgs e)

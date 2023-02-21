@@ -22,12 +22,6 @@ namespace GestionClinique
             ConsultationGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             PatientsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
-
-        private void AcceuilDoctors_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void AcceuilDoctors_Load(object sender, EventArgs e)
         {
             con.remplir(PatientsGrid, "PATIENT");
