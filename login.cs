@@ -32,7 +32,7 @@ namespace GestionClinique
                     con.connecter();
 
                     // veriver si l'email de secretaire ou de docteur
-                    if (txtEmail.Text.Contains("@admin.ma"))
+                    if (txtEmail.Text.Contains("@secretaire.ma"))
                     {
                         // si l'email contient '@admin.ma' on va cherecher dans la table secretaire
                         if (con.login("SECRETAIRE", txtEmail.Text.ToString(), txtPassword.Text.ToString()))

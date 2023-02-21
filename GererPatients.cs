@@ -14,7 +14,7 @@ namespace GestionClinique
 {
     public partial class GererPatients : Form
     {
-        
+        Connection con = new Connection();
 
         public GererPatients()
         {
@@ -86,6 +86,9 @@ namespace GestionClinique
             dgv.AllowUserToAddRows = false;
             // Add the DataGridView to the form
             form.Controls.Add(dgv);
+            con.remplir(dgv, "PATIENT");
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
             // Create a new instance of the OK button
             Button okButton = new Button();
             okButton.Text = "OK";

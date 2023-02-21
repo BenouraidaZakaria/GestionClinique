@@ -14,6 +14,8 @@ namespace GestionClinique
 {
     public partial class GererConsultations : Form
     {
+        Connection con = new Connection();
+
         public GererConsultations()
         {
             InitializeComponent();
@@ -95,6 +97,8 @@ namespace GestionClinique
             dgv.AllowUserToAddRows = false;
             // Add the DataGridView to the form
             form.Controls.Add(dgv);
+            con.remplir(dgv, "CONSULTATION");
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
 
 
