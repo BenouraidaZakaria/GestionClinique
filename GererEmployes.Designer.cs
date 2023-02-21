@@ -61,7 +61,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.desEmp = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.actEmp = new System.Windows.Forms.Button();
             this.modEmp = new System.Windows.Forms.Button();
             this.ajtEmp = new System.Windows.Forms.Button();
@@ -447,7 +446,6 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.desEmp);
-            this.groupBox3.Controls.Add(this.button8);
             this.groupBox3.Controls.Add(this.actEmp);
             this.groupBox3.Controls.Add(this.modEmp);
             this.groupBox3.Controls.Add(this.ajtEmp);
@@ -469,15 +467,6 @@
             this.desEmp.TabIndex = 38;
             this.desEmp.Text = "Desactiver";
             this.desEmp.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(168, 539);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(380, 107);
-            this.button8.TabIndex = 38;
-            this.button8.Text = "button8";
-            this.button8.UseVisualStyleBackColor = true;
             // 
             // actEmp
             // 
@@ -845,7 +834,6 @@
         private System.Windows.Forms.PictureBox imageEmp;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox imageText;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button actEmp;
         private System.Windows.Forms.Button modEmp;
         private System.Windows.Forms.Button ajtEmp;

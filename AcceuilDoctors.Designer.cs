@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.PatientsGrid = new System.Windows.Forms.DataGridView();
             this.btnAccueil = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnGerPat = new System.Windows.Forms.Button();
@@ -36,7 +36,7 @@
             this.btnPatients = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ConsultationGrid = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.GerEmp = new System.Windows.Forms.Button();
             this.AffEmp = new System.Windows.Forms.Button();
@@ -50,24 +50,24 @@
             this.btnReglage = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatientsGrid)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ConsultationGrid)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView2
+            // PatientsGrid
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(658, 246);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 102;
-            this.dataGridView2.RowTemplate.Height = 40;
-            this.dataGridView2.Size = new System.Drawing.Size(1350, 1209);
-            this.dataGridView2.TabIndex = 23;
+            this.PatientsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PatientsGrid.Location = new System.Drawing.Point(658, 246);
+            this.PatientsGrid.Name = "PatientsGrid";
+            this.PatientsGrid.RowHeadersWidth = 102;
+            this.PatientsGrid.RowTemplate.Height = 40;
+            this.PatientsGrid.Size = new System.Drawing.Size(1350, 1209);
+            this.PatientsGrid.TabIndex = 23;
             // 
             // btnAccueil
             // 
@@ -146,15 +146,15 @@
             this.label3.TabIndex = 26;
             this.label3.Text = "Patients";
             // 
-            // dataGridView1
+            // ConsultationGrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(2183, 246);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 102;
-            this.dataGridView1.RowTemplate.Height = 40;
-            this.dataGridView1.Size = new System.Drawing.Size(1184, 492);
-            this.dataGridView1.TabIndex = 21;
+            this.ConsultationGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ConsultationGrid.Location = new System.Drawing.Point(2183, 246);
+            this.ConsultationGrid.Name = "ConsultationGrid";
+            this.ConsultationGrid.RowHeadersWidth = 102;
+            this.ConsultationGrid.RowTemplate.Height = 40;
+            this.ConsultationGrid.Size = new System.Drawing.Size(1184, 492);
+            this.ConsultationGrid.TabIndex = 21;
             // 
             // panel2
             // 
@@ -211,6 +211,7 @@
             this.label4.Size = new System.Drawing.Size(530, 95);
             this.label4.TabIndex = 24;
             this.label4.Text = "Rendez-vous";
+            this.label4.Visible = false;
             // 
             // btnGerCon
             // 
@@ -289,6 +290,7 @@
             this.dataGridView3.RowTemplate.Height = 40;
             this.dataGridView3.Size = new System.Drawing.Size(1189, 492);
             this.dataGridView3.TabIndex = 22;
+            this.dataGridView3.Visible = false;
             // 
             // flowLayoutPanel1
             // 
@@ -310,19 +312,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(3412, 1524);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.PatientsGrid);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.ConsultationGrid);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "AcceuilDoctors";
             this.Text = "AcceuilDoctors";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.Load += new System.EventHandler(this.AcceuilDoctors_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.PatientsGrid)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ConsultationGrid)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
@@ -334,7 +337,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView PatientsGrid;
         private System.Windows.Forms.Button btnAccueil;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnGerPat;
@@ -342,7 +345,7 @@
         private System.Windows.Forms.Button btnPatients;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView ConsultationGrid;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button GerEmp;
         private System.Windows.Forms.Button AffEmp;

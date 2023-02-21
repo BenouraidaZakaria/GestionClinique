@@ -21,7 +21,7 @@ namespace GestionClinique
         private void AfficherConsultations_Load(object sender, EventArgs e)
         {
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
-            //con.remplir(ConsultationsGrid,"CONSULTATION");
+            con.remplir(ConsultationsGrid, "CONSULTATION");
             ConsultationsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
         }

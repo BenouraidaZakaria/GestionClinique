@@ -51,7 +51,9 @@ namespace GestionClinique
         {
             try
             {
-                File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\PROFILE\" + Path.GetFileName(imagePatient.ImageLocation));
+                DateTime now = DateTime.Now;
+                String imgname = txtNom.Text + txtPrenom.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
+                File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\PROFILE\" + imgname);
                 char[] sexe = cmbSexe.Text.ToCharArray();
                 //c.ajouterPatient(txtNom.Text, txtPrenom.Text, datpickNaissance.Value, sexe[0], txtEmail.Text, txtTelephoneephoneephoneephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileName(imagePatient.ImageLocation));
 
@@ -87,7 +89,7 @@ namespace GestionClinique
             dgv.AllowUserToAddRows = false;
             // Add the DataGridView to the form
             form.Controls.Add(dgv);
-            //con.remplir(dgv, "PATIENT");
+            con.remplir(dgv, "PATIENT");
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             // Create a new instance of the OK button

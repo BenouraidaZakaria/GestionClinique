@@ -41,8 +41,6 @@
             this.imagePrescText = new System.Windows.Forms.TextBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -72,6 +70,10 @@
             this.btnConsultation = new System.Windows.Forms.Button();
             this.btnRendezVous = new System.Windows.Forms.Button();
             this.btnReglage = new System.Windows.Forms.Button();
+            this.textDoc = new System.Windows.Forms.TextBox();
+            this.textPat = new System.Windows.Forms.TextBox();
+            this.slctDoc = new System.Windows.Forms.Button();
+            this.slctPat = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rmvtrai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addtrai)).BeginInit();
@@ -87,6 +89,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.slctPat);
+            this.groupBox1.Controls.Add(this.slctDoc);
+            this.groupBox1.Controls.Add(this.textPat);
+            this.groupBox1.Controls.Add(this.textDoc);
             this.groupBox1.Controls.Add(this.rmvtrai);
             this.groupBox1.Controls.Add(this.addtrai);
             this.groupBox1.Controls.Add(this.rmvdiag);
@@ -99,8 +105,6 @@
             this.groupBox1.Controls.Add(this.imagePrescText);
             this.groupBox1.Controls.Add(this.dateTimePicker2);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.comboBox2);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
@@ -229,22 +233,6 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(806, 61);
             this.dateTimePicker1.TabIndex = 8;
             this.dateTimePicker1.Value = new System.DateTime(2023, 2, 10, 0, 0, 0, 0);
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(578, 309);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(418, 62);
-            this.comboBox3.TabIndex = 7;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(578, 179);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(418, 62);
-            this.comboBox2.TabIndex = 7;
             // 
             // label7
             // 
@@ -574,6 +562,42 @@
             this.btnReglage.Text = "Reglages";
             this.btnReglage.UseVisualStyleBackColor = true;
             // 
+            // textDoc
+            // 
+            this.textDoc.Location = new System.Drawing.Point(579, 169);
+            this.textDoc.Name = "textDoc";
+            this.textDoc.Size = new System.Drawing.Size(375, 61);
+            this.textDoc.TabIndex = 38;
+            // 
+            // textPat
+            // 
+            this.textPat.Location = new System.Drawing.Point(579, 304);
+            this.textPat.Name = "textPat";
+            this.textPat.Size = new System.Drawing.Size(375, 61);
+            this.textPat.TabIndex = 39;
+            // 
+            // slctDoc
+            // 
+            this.slctDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.slctDoc.Location = new System.Drawing.Point(1072, 164);
+            this.slctDoc.Name = "slctDoc";
+            this.slctDoc.Size = new System.Drawing.Size(297, 66);
+            this.slctDoc.TabIndex = 40;
+            this.slctDoc.Text = "selectionner";
+            this.slctDoc.UseVisualStyleBackColor = true;
+            this.slctDoc.Click += new System.EventHandler(this.slctDoc_Click);
+            // 
+            // slctPat
+            // 
+            this.slctPat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.slctPat.Location = new System.Drawing.Point(1072, 306);
+            this.slctPat.Name = "slctPat";
+            this.slctPat.Size = new System.Drawing.Size(297, 59);
+            this.slctPat.TabIndex = 41;
+            this.slctPat.Text = "selectionner";
+            this.slctPat.UseVisualStyleBackColor = true;
+            this.slctPat.Click += new System.EventHandler(this.slctPat_Click);
+            // 
             // GererConsultations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -620,8 +644,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.PictureBox imagePrescription;
         private System.Windows.Forms.TextBox imagePrescText;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
@@ -650,5 +672,9 @@
         private System.Windows.Forms.Button btnConsultation;
         private System.Windows.Forms.Button btnRendezVous;
         private System.Windows.Forms.Button btnReglage;
+        private System.Windows.Forms.TextBox textPat;
+        private System.Windows.Forms.TextBox textDoc;
+        private System.Windows.Forms.Button slctPat;
+        private System.Windows.Forms.Button slctDoc;
     }
 }

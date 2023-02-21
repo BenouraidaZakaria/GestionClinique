@@ -67,7 +67,9 @@ namespace GestionClinique
         }
         private void ajouter_Click(object sender, EventArgs e)
         {
-            File.Copy(imagePrescText.Text, Application.StartupPath + @"\IMAGES\PRESCRIPTION\" + Path.GetFileName(imagePrescription.ImageLocation));
+            DateTime now = DateTime.Now;
+            String imgname = now.ToString("yyyyMMddHHmmssfff") + ".jpg";
+            File.Copy(imagePrescText.Text, Application.StartupPath + @"\IMAGES\PRESCRIPTION\" + imgname);
         }
 
         private void modifier_Click(object sender, EventArgs e)
@@ -80,18 +82,17 @@ namespace GestionClinique
 
         }
 
-        private void select_Click(object sender, EventArgs e)
+        private void createDGV(string table)
         {
-
             // Create a new form to contain the DataGridView, label, and buttons
             Form form = new Form();
             form.ClientSize = new Size(1000, 630);
             form.StartPosition = FormStartPosition.CenterScreen;
-            form.Text = "Liste de consultations";
+            form.Text = table;
 
             // Create a new instance of the Label
             Label label = new Label();
-            label.Text = "Sélectionnez une consultation";
+            label.Text = "Sélectionnez "+ table.ToLower();
             label.Location = new Point(25, 25);
             label.Size = new Size(200, 25);
             // Add the Label to the form
@@ -105,10 +106,8 @@ namespace GestionClinique
             dgv.AllowUserToAddRows = false;
             // Add the DataGridView to the form
             form.Controls.Add(dgv);
-            //con.remplir(dgv, "CONSULTATION");
+            con.remplir(dgv, table);
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-
 
             // Create a new instance of the OK button
             Button okButton = new Button();
@@ -139,6 +138,11 @@ namespace GestionClinique
                 // Code to handle the Cancel button click
                 form.Close();
             }
+        }
+        private void select_Click(object sender, EventArgs e)
+        {
+
+            createDGV("CONSULTATION");
 
         }
         FormC f = new FormC();
@@ -228,6 +232,16 @@ namespace GestionClinique
         {
             f.formInstance("GererConsultations");
             this.Hide();
+        }
+
+        private void slctDoc_Click(object sender, EventArgs e)
+        {
+            createDGV("DOCTEUR");
+        }
+
+        private void slctPat_Click(object sender, EventArgs e)
+        {
+            createDGV("PATIENT");
         }
     }
 }
