@@ -68,6 +68,7 @@
             this.PatientsGrid.RowHeadersWidth = 102;
             this.PatientsGrid.RowTemplate.Height = 40;
             this.PatientsGrid.Size = new System.Drawing.Size(506, 507);
+
             this.PatientsGrid.TabIndex = 23;
             // 
             // btnAccueil
@@ -153,6 +154,7 @@
             this.ConsultationGrid.RowHeadersWidth = 102;
             this.ConsultationGrid.RowTemplate.Height = 40;
             this.ConsultationGrid.Size = new System.Drawing.Size(444, 206);
+
             this.ConsultationGrid.TabIndex = 21;
             // 
             // panel2
@@ -302,6 +304,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1302, 556);
+
             this.Controls.Add(this.PatientsGrid);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);

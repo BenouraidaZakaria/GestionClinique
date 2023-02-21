@@ -16,7 +16,10 @@ namespace GestionClinique
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new login());
+
+            Application.Run(new AccueilSecretaire());
+            //Application.Run(new AcceuilDoctors());
+            //Application.Run(new login());
         }
     }
 }

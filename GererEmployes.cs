@@ -94,7 +94,7 @@ namespace GestionClinique
             dgv.AllowUserToAddRows = false;
             // Add the DataGridView to the form
             form.Controls.Add(dgv);
-            //con.remplir(dgv, "EMPLOYEE");
+            con.remplir(dgv, "EMPLOYEE");
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
 

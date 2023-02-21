@@ -103,6 +103,16 @@ namespace GestionClinique
                 deConnecter();
                 dgv.DataSource = dt;
             }
+            else if (TableName.Equals("DOCTEUR"))
+            {
+                connecter();
+                cmd.Connection = con;
+                cmd.CommandText = "SELECT IDDOCTEUR as 'ID',NOM as 'NOM',PRENOM as 'PRENOM',SPECIALITE as 'SPECIALITE' FROM DOCTEUR ";
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+                deConnecter();
+                dgv.DataSource = dt;
+            }
         }
 
 
@@ -119,7 +129,7 @@ namespace GestionClinique
 
             cmd.Parameters.Clear();
 
-            cmd.CommandText = "insert into EMPLOYEE(NOM,PRENOM,IMAGE,DATE_NAISSANCE,GENRE,TELEPHONE,[TYPE],EMAIL,MOT_PASSE) " +
+            cmd.CommandText = "insert into EMPLOYEE(NOM,PRENOM,IMAGE,DATE_NAISSANCE,GENRE,TELEPHONE,TYPE],EMAIL,MOT_PASSE) " +
                                 "values(@nom,@prenom,@image,@date,@genre,@telephone,@type,@email,@motPasse)";
             cmd.Parameters.AddWithValue("@nom", nom);
             cmd.Parameters.AddWithValue("@prenom", prenom);
@@ -145,6 +155,7 @@ namespace GestionClinique
                 {
                     cmd.CommandText = "insert into DOCTEUR(IDDOCTEUR,NOM,PRENOM,SPECIALITE,IMAGE,DATE_NAISSANCE,GENRE,TELEPHONE,EMAIL,MOT_PASSE) " +
                                     "values(@id,@nom,@prenom,@specialite,@image,@date,@genre,@telephone,@email,@motPasse)";
+
                     cmd.Parameters.AddWithValue("@id", id2);
                     cmd.Parameters.AddWithValue("@nom", nom);
                     cmd.Parameters.AddWithValue("@prenom", prenom);

@@ -17,6 +17,15 @@ namespace GestionClinique
         public AcceuilDoctors()
         {
             InitializeComponent();
+            con.remplir(PatientsGrid, "PATIENT");
+            con.remplir(ConsultationGrid, "CONSULTATION");
+            ConsultationGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            PatientsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void AcceuilDoctors_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void AcceuilDoctors_Load(object sender, EventArgs e)
