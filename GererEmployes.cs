@@ -20,7 +20,10 @@ namespace GestionClinique
         {
             InitializeComponent();
         }
-
+        private void GererEmployes_Load(object sender, EventArgs e)
+        {
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+        }
         private void rbDoc_CheckedChanged_1(object sender, EventArgs e)
         {
             if (rbDoc.Checked)
@@ -52,13 +55,6 @@ namespace GestionClinique
 
         }
 
-        
-
-        private void GererEmployes_Load(object sender, EventArgs e)
-        {
-            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
-        }
-
         private void eopen_Click(object sender, EventArgs e)
         {
             eopen.Visible = false;
@@ -72,54 +68,7 @@ namespace GestionClinique
             eclosed.Visible = false;
             Mdptxt.PasswordChar = '*';
         }
-        private void imageEmp_Click(object sender, EventArgs e)
-        {
-            String imageLocation = "";
-            try
-            {
-                OpenFileDialog dialog = new OpenFileDialog();
-                dialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All Files(*.*)|*.*";
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    imageText.Text = dialog.FileName;
-                imageLocation = dialog.FileName;
-                imageEmp.ImageLocation = imageLocation;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("An Error Occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void ajouter_Click(object sender, EventArgs e)
-        {
 
-            if (rbDoc.Checked)
-            {
-                if (Nomtxt.Text != "" && Pretxt.Text != "" && Mdptxt.Text != "" && Specmb.Text != "" && cmbGenre.Text != "" && teletxt.Text != "")
-                {
-                    con.ajouterEmploye(Nomtxt.Text, Pretxt.Text, null, Convert.ToDateTime(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, "docteur", Mailtxt.Text, Mdptxt.Text, Specmb.Text);
-                }
-            }
-            else
-            {
-                if (Nomtxt.Text != "" && Pretxt.Text != "" && Mdptxt.Text != "" && cmbGenre.Text != "" && teletxt.Text != "")
-                {
-                    con.ajouterEmploye(Nomtxt.Text, Pretxt.Text, null, Convert.ToDateTime(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, "secretaire", Mailtxt.Text, Mdptxt.Text, null);
-                }
-            }
-
-            File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\PROFILE\" + Path.GetFileName(imageEmp.ImageLocation));
-
-        }
-
-        private void modifier_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void supprimer_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void select_Click(object sender, EventArgs e)
         {
@@ -145,7 +94,7 @@ namespace GestionClinique
             dgv.AllowUserToAddRows = false;
             // Add the DataGridView to the form
             form.Controls.Add(dgv);
-            con.remplir(dgv, "EMPLOYEE");
+            //con.remplir(dgv, "EMPLOYEE");
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
 
@@ -270,6 +219,37 @@ namespace GestionClinique
             this.Hide();
         }
 
-      
+        private void imageEmp_Click(object sender, EventArgs e)
+        {
+            String imageLocation = "";
+            try
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All Files(*.*)|*.*";
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    imageText.Text = dialog.FileName;
+                imageLocation = dialog.FileName;
+                imageEmp.ImageLocation = imageLocation;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("An Error Occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ajtEmp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\PROFILE\" + Path.GetFileName(imageEmp.ImageLocation));
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+ 
     }
 }

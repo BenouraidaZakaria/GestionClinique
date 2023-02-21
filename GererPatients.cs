@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace GestionClinique
 {
@@ -52,7 +53,7 @@ namespace GestionClinique
             {
                 File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\PROFILE\" + Path.GetFileName(imagePatient.ImageLocation));
                 char[] sexe = cmbSexe.Text.ToCharArray();
-                //c.ajouterPatient(txtNom.Text, txtPrenom.Text, datpickNaissance.Value, sexe[0], txtEmail.Text, txtTelephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileName(imagePatient.ImageLocation));
+                //c.ajouterPatient(txtNom.Text, txtPrenom.Text, datpickNaissance.Value, sexe[0], txtEmail.Text, txtTelephoneephoneephoneephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileName(imagePatient.ImageLocation));
 
             }
             catch (Exception ex)
@@ -86,7 +87,7 @@ namespace GestionClinique
             dgv.AllowUserToAddRows = false;
             // Add the DataGridView to the form
             form.Controls.Add(dgv);
-            con.remplir(dgv, "PATIENT");
+            //con.remplir(dgv, "PATIENT");
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             // Create a new instance of the OK button
@@ -207,6 +208,17 @@ namespace GestionClinique
             this.Hide();
         }
 
-    
+        private void addall_Click(object sender, EventArgs e)
+        {
+            lisAll.Items.Add(cmbAll.SelectedItem.ToString());
+        }
+
+        private void rmvtall_Click(object sender, EventArgs e)
+        {
+            if(lisAll.Items.Count > 0) { 
+                lisAll.Items.RemoveAt(lisAll.SelectedIndex);
+            }
+
+        }
     }
 }

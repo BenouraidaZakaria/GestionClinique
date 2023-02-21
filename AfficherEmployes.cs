@@ -21,7 +21,7 @@ namespace GestionClinique
         private void AfficherEmployes_Load(object sender, EventArgs e)
         {
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
-            con.remplir(EmployesGrid,"EMPLOYEE");
+            //con.remplir(EmployesGrid,"EMPLOYEE");
             EmployesGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
         }
