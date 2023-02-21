@@ -12,9 +12,20 @@ namespace GestionClinique
 {
     public partial class AcceuilDoctors : Form
     {
+        Connection con = new Connection();
+
         public AcceuilDoctors()
         {
             InitializeComponent();
+        }
+
+        private void AcceuilDoctors_Load(object sender, EventArgs e)
+        {
+            con.remplir(PatientsGrid, "PATIENT");
+            PatientsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            con.remplir(ConsultationGrid, "CONSULTATION");
+            ConsultationGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
     }
 }

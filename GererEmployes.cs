@@ -241,8 +241,25 @@ namespace GestionClinique
         {
             try
             {
-                File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\PROFILE\" + Path.GetFileName(imageEmp.ImageLocation));
-
+                DateTime now = DateTime.Now;
+                String imgname = Nomtxt.Text + Pretxt.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
+                File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\PROFILE\" + imgname);
+                if (rbDoc.Checked)
+                {
+                    if (Nomtxt.Text != "" && Pretxt.Text != "" && Mailtxt.Text != "" && Mdptxt.Text != "" && Specmb.Text != "" && cmbGenre.Text != "" && dNaissance.Text != "" && teletxt.Text != "" )
+                    {
+                        con.ajouterEmploye(Nomtxt.Text, Pretxt.Text,imgname, DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, "docteur", Mailtxt.Text, Mdptxt.Text, Specmb.Text);
+                        Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
+                    }
+                }
+                else
+                {
+                    if (Nomtxt.Text != "" && Pretxt.Text != "" && Mailtxt.Text != "" && Mdptxt.Text != "" && Specmb.Text != "" && cmbGenre.Text != "" && dNaissance.Text != "" && teletxt.Text != "")
+                    {
+                        con.ajouterEmploye(Nomtxt.Text, Pretxt.Text, imgname, DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, "secretaire", Mailtxt.Text, Mdptxt.Text, null);
+                        Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
+                    }
+                }
             }
             catch (Exception ex)
             {
