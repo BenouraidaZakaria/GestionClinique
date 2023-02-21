@@ -34,6 +34,7 @@
             this.cmbGenre = new System.Windows.Forms.ComboBox();
             this.dNaissance = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
+
             this.label7 = new System.Windows.Forms.Label();
             this.eopen = new System.Windows.Forms.PictureBox();
             this.eclosed = new System.Windows.Forms.PictureBox();
@@ -57,9 +58,10 @@
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.supprimer = new System.Windows.Forms.Button();
-            this.modifier = new System.Windows.Forms.Button();
-            this.ajouter = new System.Windows.Forms.Button();
+            this.Desactiver = new System.Windows.Forms.Button();
+            this.Activer = new System.Windows.Forms.Button();
+            this.Modifier = new System.Windows.Forms.Button();
+            this.Ajouter = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.select = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -78,7 +80,12 @@
             this.btnConsultation = new System.Windows.Forms.Button();
             this.btnRendezVous = new System.Windows.Forms.Button();
             this.btnReglage = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbSexe = new System.Windows.Forms.ComboBox();
+            this.datpickNaissance = new System.Windows.Forms.DateTimePicker();
             this.groupbox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageEmp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eopen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eclosed)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -96,6 +103,7 @@
             this.groupbox1.Controls.Add(this.cmbGenre);
             this.groupbox1.Controls.Add(this.dNaissance);
             this.groupbox1.Controls.Add(this.label8);
+
             this.groupbox1.Controls.Add(this.label7);
             this.groupbox1.Controls.Add(this.eopen);
             this.groupbox1.Controls.Add(this.eclosed);
@@ -119,10 +127,12 @@
             this.groupbox1.Name = "groupbox1";
             this.groupbox1.Padding = new System.Windows.Forms.Padding(1);
             this.groupbox1.Size = new System.Drawing.Size(750, 507);
+
             this.groupbox1.TabIndex = 31;
             this.groupbox1.TabStop = false;
             this.groupbox1.Text = "Informations de l\'employe";
             // 
+
             // teletxt
             // 
             this.teletxt.Location = new System.Drawing.Point(238, 448);
@@ -176,6 +186,7 @@
             this.label8.Size = new System.Drawing.Size(144, 20);
             this.label8.TabIndex = 50;
             this.label8.Text = "Date de Naissance";
+
             // 
             // label7
             // 
@@ -187,12 +198,14 @@
             this.label7.Size = new System.Drawing.Size(54, 20);
             this.label7.TabIndex = 47;
             this.label7.Text = "Genre";
+
             // 
             // eopen
             // 
             this.eopen.Image = global::GestionClinique.Properties.Resources.open;
             this.eopen.Location = new System.Drawing.Point(502, 264);
             this.eopen.Margin = new System.Windows.Forms.Padding(1);
+
             this.eopen.Name = "eopen";
             this.eopen.Size = new System.Drawing.Size(38, 30);
             this.eopen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -205,6 +218,7 @@
             this.eclosed.Image = global::GestionClinique.Properties.Resources.closed;
             this.eclosed.Location = new System.Drawing.Point(502, 264);
             this.eclosed.Margin = new System.Windows.Forms.Padding(1);
+
             this.eclosed.Name = "eclosed";
             this.eclosed.Size = new System.Drawing.Size(38, 30);
             this.eclosed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -218,6 +232,7 @@
             this.Specmb.FormattingEnabled = true;
             this.Specmb.Location = new System.Drawing.Point(238, 310);
             this.Specmb.Margin = new System.Windows.Forms.Padding(1);
+
             this.Specmb.Name = "Specmb";
             this.Specmb.Size = new System.Drawing.Size(244, 32);
             this.Specmb.TabIndex = 45;
@@ -226,6 +241,7 @@
             // 
             this.Mdptxt.Location = new System.Drawing.Point(238, 264);
             this.Mdptxt.Margin = new System.Windows.Forms.Padding(1);
+
             this.Mdptxt.Name = "Mdptxt";
             this.Mdptxt.PasswordChar = '*';
             this.Mdptxt.ReadOnly = true;
@@ -234,8 +250,10 @@
             // 
             // Mailtxt
             // 
+
             this.Mailtxt.Location = new System.Drawing.Point(238, 221);
             this.Mailtxt.Margin = new System.Windows.Forms.Padding(1);
+
             this.Mailtxt.Name = "Mailtxt";
             this.Mailtxt.ReadOnly = true;
             this.Mailtxt.Size = new System.Drawing.Size(244, 29);
@@ -245,6 +263,7 @@
             // 
             this.Pretxt.Location = new System.Drawing.Point(238, 184);
             this.Pretxt.Margin = new System.Windows.Forms.Padding(1);
+
             this.Pretxt.Name = "Pretxt";
             this.Pretxt.Size = new System.Drawing.Size(244, 29);
             this.Pretxt.TabIndex = 42;
@@ -254,6 +273,7 @@
             // 
             this.Nomtxt.Location = new System.Drawing.Point(238, 142);
             this.Nomtxt.Margin = new System.Windows.Forms.Padding(1);
+
             this.Nomtxt.Name = "Nomtxt";
             this.Nomtxt.Size = new System.Drawing.Size(244, 29);
             this.Nomtxt.TabIndex = 41;
@@ -292,6 +312,7 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label6.Location = new System.Drawing.Point(33, 316);
             this.label6.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 20);
             this.label6.TabIndex = 38;
@@ -303,6 +324,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label5.Location = new System.Drawing.Point(33, 271);
             this.label5.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 20);
             this.label5.TabIndex = 37;
@@ -314,6 +336,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label4.Location = new System.Drawing.Point(33, 230);
             this.label4.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 20);
             this.label4.TabIndex = 36;
@@ -325,6 +348,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label3.Location = new System.Drawing.Point(33, 191);
             this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 20);
             this.label3.TabIndex = 35;
@@ -336,6 +360,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label2.Location = new System.Drawing.Point(33, 148);
             this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 20);
             this.label2.TabIndex = 34;
@@ -415,6 +440,7 @@
             this.groupBox3.Controls.Add(this.ajouter);
             this.groupBox3.Location = new System.Drawing.Point(1022, 212);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(1);
+
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(1);
             this.groupBox3.Size = new System.Drawing.Size(334, 325);
@@ -465,6 +491,7 @@
             this.ajouter.Text = "Ajouter";
             this.ajouter.UseVisualStyleBackColor = true;
             this.ajouter.Click += new System.EventHandler(this.ajouter_Click);
+
             // 
             // label10
             // 
@@ -668,6 +695,44 @@
             this.btnReglage.Text = "Reglages";
             this.btnReglage.UseVisualStyleBackColor = true;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(93, 1254);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(112, 46);
+            this.label8.TabIndex = 50;
+            this.label8.Text = "Sexe";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(97, 1377);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(357, 46);
+            this.label9.TabIndex = 51;
+            this.label9.Text = "Date de Naissance";
+            // 
+            // cmbSexe
+            // 
+            this.cmbSexe.FormattingEnabled = true;
+            this.cmbSexe.Items.AddRange(new object[] {
+            "M",
+            "F"});
+            this.cmbSexe.Location = new System.Drawing.Point(635, 1254);
+            this.cmbSexe.Name = "cmbSexe";
+            this.cmbSexe.Size = new System.Drawing.Size(635, 62);
+            this.cmbSexe.TabIndex = 53;
+            // 
+            // datpickNaissance
+            // 
+            this.datpickNaissance.Location = new System.Drawing.Point(635, 1368);
+            this.datpickNaissance.Name = "datpickNaissance";
+            this.datpickNaissance.Size = new System.Drawing.Size(635, 61);
+            this.datpickNaissance.TabIndex = 52;
+            // 
             // GererEmployes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -685,6 +750,7 @@
             this.Load += new System.EventHandler(this.GererEmployes_Load);
             this.groupbox1.ResumeLayout(false);
             this.groupbox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageEmp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eopen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eclosed)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -706,9 +772,9 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button supprimer;
-        private System.Windows.Forms.Button modifier;
-        private System.Windows.Forms.Button ajouter;
+        private System.Windows.Forms.Button Activer;
+        private System.Windows.Forms.Button Modifier;
+        private System.Windows.Forms.Button Ajouter;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label6;
@@ -749,5 +815,6 @@
         private System.Windows.Forms.ComboBox cmbGenre;
         private System.Windows.Forms.TextBox teletxt;
         private System.Windows.Forms.Label label9;
+
     }
 }

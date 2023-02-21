@@ -120,6 +120,7 @@ namespace GestionClinique
             "NOM ASSURE"});
             this.cmbassur.Location = new System.Drawing.Point(215, 419);
             this.cmbassur.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+
             this.cmbassur.Name = "cmbassur";
             this.cmbassur.Size = new System.Drawing.Size(241, 32);
             this.cmbassur.TabIndex = 29;
@@ -144,6 +145,7 @@ namespace GestionClinique
             "F"});
             this.cmbSexe.Location = new System.Drawing.Point(215, 192);
             this.cmbSexe.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+
             this.cmbSexe.Name = "cmbSexe";
             this.cmbSexe.Size = new System.Drawing.Size(241, 32);
             this.cmbSexe.TabIndex = 25;
@@ -152,6 +154,7 @@ namespace GestionClinique
             // 
             this.datpickNaissance.Location = new System.Drawing.Point(215, 152);
             this.datpickNaissance.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+
             this.datpickNaissance.Name = "datpickNaissance";
             this.datpickNaissance.Size = new System.Drawing.Size(241, 29);
             this.datpickNaissance.TabIndex = 24;
@@ -160,6 +163,7 @@ namespace GestionClinique
             // 
             this.txtAdresse.Location = new System.Drawing.Point(215, 370);
             this.txtAdresse.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+
             this.txtAdresse.Name = "txtAdresse";
             this.txtAdresse.Size = new System.Drawing.Size(241, 29);
             this.txtAdresse.TabIndex = 22;
@@ -168,6 +172,7 @@ namespace GestionClinique
             // 
             this.txtTelephone.Location = new System.Drawing.Point(215, 313);
             this.txtTelephone.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+
             this.txtTelephone.Name = "txtTelephone";
             this.txtTelephone.Size = new System.Drawing.Size(241, 29);
             this.txtTelephone.TabIndex = 21;
@@ -176,6 +181,7 @@ namespace GestionClinique
             // 
             this.txtEmail.Location = new System.Drawing.Point(215, 255);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(241, 29);
             this.txtEmail.TabIndex = 20;
@@ -184,6 +190,7 @@ namespace GestionClinique
             // 
             this.txtPrenom.Location = new System.Drawing.Point(215, 105);
             this.txtPrenom.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+
             this.txtPrenom.Name = "txtPrenom";
             this.txtPrenom.Size = new System.Drawing.Size(241, 29);
             this.txtPrenom.TabIndex = 19;
@@ -224,6 +231,7 @@ namespace GestionClinique
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(56, 419);
             this.label8.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(85, 20);
             this.label8.TabIndex = 16;
@@ -235,6 +243,7 @@ namespace GestionClinique
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(56, 376);
             this.label7.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 20);
             this.label7.TabIndex = 15;
@@ -246,6 +255,7 @@ namespace GestionClinique
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(56, 319);
             this.label6.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 20);
             this.label6.TabIndex = 14;
@@ -257,6 +267,7 @@ namespace GestionClinique
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(56, 261);
             this.label5.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 20);
             this.label5.TabIndex = 13;
@@ -268,6 +279,7 @@ namespace GestionClinique
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(56, 208);
             this.label4.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 20);
             this.label4.TabIndex = 12;
@@ -279,6 +291,7 @@ namespace GestionClinique
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(56, 158);
             this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(144, 20);
             this.label3.TabIndex = 11;
@@ -289,7 +302,7 @@ namespace GestionClinique
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(56, 112);
-            this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 20);
             this.label2.TabIndex = 10;
