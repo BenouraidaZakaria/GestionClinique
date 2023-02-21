@@ -49,6 +49,7 @@ namespace GestionClinique
                 cmd.Parameters.AddWithValue("@motPasse", motPasse);
                 if (cmd.ExecuteScalar() != null)
                     etat = true;
+
                 cmd.Parameters.Clear();
                 deConnecter();
             }
@@ -64,8 +65,30 @@ namespace GestionClinique
                 cmd.Parameters.Clear();
                 deConnecter();
             }
+            else if (TableName.Equals("EMPLOYEE"))
+            {
+                connecter();
+                cmd.Connection = con;
+                cmd.CommandText = "select IDEMPLOYEE,NOM,PRENOM,[TYPE],EMAIL from EMPLOYEE where EMAIL=@email and MOT_PASSE=@motPasse";
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@motPasse", motPasse);
+                if (cmd.ExecuteScalar() != null)
+                {
+                    etat = true;
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        Program.iduser = dr.GetInt32(0);
+                        Program.nameuser = dr.GetString(1);
+                        Program.prenomuser = dr.GetString(2);
+                        Program.typeuser = dr.GetString(3);
+                    }
+                }
 
-            return etat;
+                cmd.Parameters.Clear();
+                deConnecter();
+            }
+                return etat;
         }
 
         public void remplir(DataGridView dgv, string TableName)
