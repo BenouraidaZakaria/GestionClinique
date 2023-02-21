@@ -49,6 +49,7 @@ namespace GestionClinique
                 cmd.Parameters.AddWithValue("@motPasse", motPasse);
                 if (cmd.ExecuteScalar() != null)
                     etat = true;
+                cmd.Parameters.Clear();
                 deConnecter();
             }
             else if (TableName.Equals("DOCTEUR"))
@@ -60,6 +61,7 @@ namespace GestionClinique
                 cmd.Parameters.AddWithValue("@motPasse", motPasse);
                 if (cmd.ExecuteScalar() != null)
                     etat = true;
+                cmd.Parameters.Clear();
                 deConnecter();
             }
 
@@ -151,8 +153,9 @@ namespace GestionClinique
             {
                 if (type == "docteur")
                 {
-                    cmd.CommandText = "insert into DOCTEUR(IDDOCTEUR,NOM,PRENOM,SPECIALITE,IMAGE,DATE_NAISSANCE,GENRE,TELEPHONE,USER]) " +
-                                    "values(@id,@nom,@prenom,@specialite,@image,@date,@genre,@telephone)";
+                    cmd.CommandText = "insert into DOCTEUR(IDDOCTEUR,NOM,PRENOM,SPECIALITE,IMAGE,DATE_NAISSANCE,GENRE,TELEPHONE,EMAIL,MOT_PASSE) " +
+                                    "values(@id,@nom,@prenom,@specialite,@image,@date,@genre,@telephone,@email,@motPasse)";
+
                     cmd.Parameters.AddWithValue("@id", id2);
                     cmd.Parameters.AddWithValue("@nom", nom);
                     cmd.Parameters.AddWithValue("@prenom", prenom);
@@ -161,6 +164,8 @@ namespace GestionClinique
                     cmd.Parameters.AddWithValue("@date", dateNaissance);
                     cmd.Parameters.AddWithValue("@genre", genre);
                     cmd.Parameters.AddWithValue("@telephone", telephone);
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@motPasse", motPasse);
                     cmd.ExecuteNonQuery();
                 }
             }

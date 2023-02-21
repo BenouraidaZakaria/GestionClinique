@@ -51,7 +51,7 @@ namespace GestionClinique
                         if (con.login("DOCTEUR", txtEmail.Text.ToString(), txtPassword.Text.ToString()))
                         {
                             // si docteur connecter avec les donnees correcte on va eregistrer son email
-                            AccueilSecretaire f = new AccueilSecretaire();
+                            AcceuilDoctors f = new AcceuilDoctors();
                             f.Show();
                             this.Hide();
                         }
