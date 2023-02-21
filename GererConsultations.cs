@@ -44,18 +44,26 @@ namespace GestionClinique
         private void adddiag_Click(object sender, EventArgs e)
         {
             listdiag.Items.Add(txtdiag.Text);
+            txtdiag.Text="";
         }
         private void rmvdiag_Click(object sender, EventArgs e)
         {
-            listdiag.Items.RemoveAt(listdiag.SelectedIndex);
+            if (listdiag.Items.Count > 0)
+            {
+                listdiag.Items.RemoveAt(listdiag.SelectedIndex);
+            }
         }
         private void addtrai_Click(object sender, EventArgs e)
         {
             listtrai.Items.Add(txttrai.Text);
+            txttrai.Text = "";
         }
         private void rmvtrai_Click(object sender, EventArgs e)
         {
-            listtrai.Items.RemoveAt(listtrai.SelectedIndex);
+            if (listtrai.Items.Count > 0)
+            {
+                listtrai.Items.RemoveAt(listtrai.SelectedIndex);
+            }
         }
         private void ajouter_Click(object sender, EventArgs e)
         {
@@ -97,7 +105,7 @@ namespace GestionClinique
             dgv.AllowUserToAddRows = false;
             // Add the DataGridView to the form
             form.Controls.Add(dgv);
-            con.remplir(dgv, "CONSULTATION");
+            //con.remplir(dgv, "CONSULTATION");
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
 
