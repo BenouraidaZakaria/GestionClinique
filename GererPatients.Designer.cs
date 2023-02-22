@@ -201,6 +201,7 @@ namespace GestionClinique
             // imagePatient
             // 
             this.imagePatient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imagePatient.Image = global::GestionClinique.Properties.Resources.user;
             this.imagePatient.Location = new System.Drawing.Point(1595, 143);
             this.imagePatient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.imagePatient.Name = "imagePatient";

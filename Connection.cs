@@ -8,7 +8,8 @@ using System.Data;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-
+using System.IO;
+using System.Drawing;
 
 namespace GestionClinique
 {
@@ -111,7 +112,7 @@ namespace GestionClinique
             {
                 connecter();
                 cmd.Connection = con;
-                cmd.CommandText = "SELECT IDPATIENT as 'ID', NOM as 'Nom', PRENOM as 'Prenom', DATENAISSANCE as 'Date de Naissance', GENRE as 'Genre', EMAIL as 'Email', TELEPHONE as 'Telephone', ADRESSE as 'Adresse' FROM PATIENT";
+                cmd.CommandText = "SELECT * FROM PATIENT";
                 da.SelectCommand = cmd;
                 da.Fill(dt);
                 deConnecter();
@@ -179,7 +180,7 @@ namespace GestionClinique
 
                 connecter();
                 cmd.Connection = con;
-                cmd.CommandText = "SELECT DATE as 'Date',TRIM(Nom) as 'Nom Patient',TRIM(PRENOM) as 'Prenom Patient', TRAITEMENT as 'Traitement', PRESCRIPTION as 'Prescription', DIAGNOSTIC as 'Diagnostic' FROM CONSULTATION con " +
+                cmd.CommandText = "SELECT con.* FROM CONSULTATION con " +
                     "inner join REALISER rea on con.IDCONSULTATION=rea.IDCONSULTATION " +
                     "inner join PATIENT pa on pa.IDPATIENT=rea.IDPATIENT " +
                     "where rea.IDDOCTEUR =@id";
@@ -193,7 +194,56 @@ namespace GestionClinique
             }
                 return etat;
         }
+        public Boolean remplir(DataGridView dgv, string TableName, int id,int idp)
+        {
+            DataTable dt = new DataTable();
+            dt.Rows.Clear();
+            Boolean etat = false;
 
+            if (TableName.Equals("CONSULTATION"))
+            {
+                connecter();
+                cmd.Connection = con;
+                cmd.CommandText = "SELECT con.* FROM CONSULTATION con " +
+                    "inner join REALISER rea on con.IDCONSULTATION=rea.IDCONSULTATION " +
+                    "inner join PATIENT pa on pa.IDPATIENT=rea.IDPATIENT " +
+                    "where rea.IDDOCTEUR =@id AND rea.IDPATIENT=@idp";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@idp", idp);
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+                etat = true;
+                cmd.Parameters.Clear();
+                deConnecter();
+                dgv.DataSource = dt;
+            }
+            return etat;
+        }
+        public Boolean rempliraffcon(DataGridView dgv, string TableName, int id,int idc)
+        {
+            DataTable dt = new DataTable();
+            dt.Rows.Clear();
+            Boolean etat = false;
+
+            if (TableName.Equals("CONSULTATION"))
+            {
+                connecter();
+                cmd.Connection = con;
+                cmd.CommandText = "SELECT DATE as 'Date',TRIM(Nom) as 'Nom Patient',TRIM(PRENOM) as 'Prenom Patient', TRAITEMENT as 'Traitement', PRESCRIPTION as 'Prescription', DIAGNOSTIC as 'Diagnostic' FROM CONSULTATION con " +
+                    "inner join REALISER rea on con.IDCONSULTATION=rea.IDCONSULTATION " +
+                    "inner join PATIENT pa on pa.IDPATIENT=rea.IDPATIENT " +
+                    "where rea.IDCONSULTATION=@ids";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@idp", idc);
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+                etat = true;
+                cmd.Parameters.Clear();
+                deConnecter();
+                dgv.DataSource = dt;
+            }
+            return etat;
+        }
         // Secretaire
         // changer ajouterEmployee a la place de methode secretaire et docteur
         public Boolean ajouterEmploye(/*int idSecretaireSup,*/ string nom, string prenom, string image, DateTime dateNaissance, char genre, string telephone, string type, string email, string motPasse, string specialite)
@@ -207,7 +257,7 @@ namespace GestionClinique
 
             cmd.Parameters.Clear();
 
-            cmd.CommandText = "insert into EMPLOYEE(NOM,PRENOM,IMAGE,DATE_NAISSANCE,GENRE,TELEPHONE,TYPE],EMAIL,MOT_PASSE) " +
+            cmd.CommandText = "insert into EMPLOYEE(NOM,PRENOM,IMAGE,DATE_NAISSANCE,GENRE,TELEPHONE,TYPE,EMAIL,MOT_PASSE) " +
                                 "values(@nom,@prenom,@image,@date,@genre,@telephone,@type,@email,@motPasse)";
             cmd.Parameters.AddWithValue("@nom", nom);
             cmd.Parameters.AddWithValue("@prenom", prenom);

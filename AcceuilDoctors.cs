@@ -18,7 +18,6 @@ namespace GestionClinique
 
         // declartion les variables pour afficher contenue d'une champ dans le menu
         static Boolean etatBtnPatient = true;
-        static Boolean etatBtnEmployes = true;
         static Boolean etatBtnConsultation = true;
         public AcceuilDoctors()
         {
@@ -26,13 +25,13 @@ namespace GestionClinique
             //con.remplir(PatientsGrid, "PATIENT");
             con.remplir(PatientsGrid, "PATIENT", Program.iduser);
             //con.remplir(ConsultationGrid, "CONSULTATION");
-            con.remplir(ConsultationGrid, "CONSULTATION",Program.iduser);
-            ConsultationGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //con.remplir(ConsultationGrid, "CONSULTATION",Program.iduser);
+            //ConsultationGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             PatientsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void AcceuilDoctors_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(Program.iduser.ToString());
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
         }
 
         private void btnAccueil_Click(object sender, EventArgs e)
@@ -80,5 +79,42 @@ namespace GestionClinique
             f.formInstance("AfficherConsultations");
             this.Hide();
         }
+
+        private void PatientsGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = PatientsGrid.Rows[e.RowIndex];
+                // rest of the code to get the data from the selected row
+
+                    // create a new instance of the other form
+                    DossierMedicalPatient otherForm = new DossierMedicalPatient();
+
+                    // set the values of the controls in the other form
+                    otherForm.ID = (int)selectedRow.Cells["IDPATIENT"].Value;
+                    otherForm.Nom = selectedRow.Cells["NOM"].Value.ToString();
+                    otherForm.Prenom = selectedRow.Cells["PRENOM"].Value.ToString();
+                    otherForm.DateNaissance = selectedRow.Cells["DATENAISSANCE"].Value.ToString();
+                    otherForm.Adresse = selectedRow.Cells["ADRESSE"].Value.ToString();
+                    otherForm.Telephone = selectedRow.Cells["TELEPHONE"].Value.ToString();
+                    otherForm.Email = selectedRow.Cells["EMAIL"].Value.ToString();
+                    otherForm.Sexe = selectedRow.Cells["GENRE"].Value.ToString();
+                    otherForm.Assurance = selectedRow.Cells["ASSURANCE"].Value.ToString();
+                    //string imageName = selectedRow.Cells["IMAGE"].Value.ToString();
+                    //string imagePath = Path.Combine(Application.StartupPath, "IMAGES", "PROFILE", imageName);
+
+                    //if (File.Exists(imagePath))
+                    //{
+                    //    Image image = Image.FromFile(imagePath);
+                    //    otherForm.MyImage = image;
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("The image file does not exist.");
+                    //}
+                    otherForm.Show();
+                    this.Hide();
+                }
+            }
     }
 }

@@ -19,6 +19,7 @@ namespace GestionClinique
             InitializeComponent();
         }
         private void AfficherConsultations_Load(object sender, EventArgs e)
+
         {
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             if (Program.typeuser == "docteur")
@@ -167,4 +168,4 @@ namespace GestionClinique
             this.Hide();
         }
     }
-}
+    }

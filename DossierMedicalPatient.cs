@@ -12,13 +12,65 @@ namespace GestionClinique
 {
     public partial class DossierMedicalPatient : Form
     {
+        Connection con = new Connection();
+        public int ID;
+       
+        public string Nom
+        {
+            get { return txtnom.Text; }
+            set { txtnom.Text = value; }
+        }
+        public string Prenom
+        {
+            get { return txtprenom.Text; }
+            set { txtprenom.Text = value; }
+        }
+        public string Sexe
+        {
+            get { return txtgenre.Text; }
+            set { txtgenre.Text = value; }
+        }
+        public string DateNaissance
+        {
+            get { return txtdate.Text; }
+            set { txtdate.Text = value; }
+        }
+        public string Adresse
+        {
+            get { return txtadd.Text; }
+            set { txtadd.Text = value; }
+        }
+        public string Telephone
+        {
+            get { return txttel.Text; }
+            set { txttel.Text = value; }
+        }
+        public string Email
+        {
+            get { return txtmail.Text; }
+            set { txtmail.Text = value; }
+        }
+        public string Assurance
+        {
+            get { return txtassu.Text; }
+            set { txtassu.Text = value; }
+        }
+        //public Image MyImage
+        //{
+        //    get { return imgPatient.Image; }
+        //    set { imgPatient.Image = value; }
+        //}
         public DossierMedicalPatient()
         {
             InitializeComponent();
         }
-        private void GererConsultations_Load(object sender, EventArgs e)
+        private void DossierMedicalPatient_Load(object sender, EventArgs e)
         {
+            panel2.Visible=false;
+            
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+            con.remplir(congrid, "CONSULTATION", Program.iduser, ID);
+            congrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         FormC f = new FormC();
 
@@ -27,21 +79,45 @@ namespace GestionClinique
         static Boolean etatBtnConsultation = true;
         private void btnAccueil_Click(object sender, EventArgs e)
         {
-            f.formInstance("AccueilSecretaire");
-            this.Hide();
+            if (Program.typeuser == "docteur")
+            {
+                f.formInstance("AcceuilDoctors");
+                this.Hide();
+            }
+            else if (Program.typeuser == "secretaire")
+            {
+                f.formInstance("AccueilSecretaire");
+                this.Hide();
+            }
         }
 
         private void btnPatients_Click(object sender, EventArgs e)
         {
-            if (etatBtnPatient)
+            if (Program.typeuser == "docteur")
             {
-                panel1.Height += 72;
-                etatBtnPatient = false;
+                if (etatBtnPatient)
+                {
+                    panel1.Height += 36;
+                    etatBtnPatient = false;
+                }
+                else
+                {
+                    panel1.Height -= 36;
+                    etatBtnPatient = true;
+                }
             }
-            else
+            else if (Program.typeuser == "secretaire")
             {
-                panel1.Height -= 72;
-                etatBtnPatient = true;
+                if (etatBtnPatient)
+                {
+                    panel1.Height += 72;
+                    etatBtnPatient = false;
+                }
+                else
+                {
+                    panel1.Height -= 72;
+                    etatBtnPatient = true;
+                }
             }
         }
 
@@ -85,15 +161,31 @@ namespace GestionClinique
 
         private void btnConsultation_Click(object sender, EventArgs e)
         {
-            if (etatBtnConsultation)
+            if (Program.typeuser == "docteur")
             {
-                panel3.Height += 72;
-                etatBtnConsultation = false;
+                if (etatBtnConsultation)
+                {
+                    panel3.Height += 36;
+                    etatBtnPatient = false;
+                }
+                else
+                {
+                    panel3.Height -= 36;
+                    etatBtnPatient = true;
+                }
             }
-            else
+            else if (Program.typeuser == "secretaire")
             {
-                panel3.Height -= 72;
-                etatBtnConsultation = true;
+                if (etatBtnConsultation)
+                {
+                    panel3.Height += 72;
+                    etatBtnPatient = false;
+                }
+                else
+                {
+                    panel3.Height -= 72;
+                    etatBtnPatient = true;
+                }
             }
         }
 
@@ -108,5 +200,43 @@ namespace GestionClinique
             f.formInstance("GererConsultations");
             this.Hide();
         }
+
+        private void congrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = congrid.Rows[e.RowIndex];
+                // rest of the code to get the data from the selected row
+
+                    int idConsultation = (int)selectedRow.Cells["IDCONSULTATION"].Value;
+                    string dateConsultation = selectedRow.Cells["DATE"].Value.ToString();
+                    string traitement = selectedRow.Cells["TRAITEMENT"].Value.ToString();
+                    string diagnostic = selectedRow.Cells["DIAGNOSTIC"].Value.ToString();
+                    // create a new instance of the other form
+                    AfficherConsultation otherForm = new AfficherConsultation();
+
+                    // set the values of the controls in the other form
+                    otherForm.ID = idConsultation;
+                    otherForm.DateConsultation = dateConsultation;
+                    otherForm.Traitement = traitement;
+                    otherForm.Diagnostic = diagnostic;
+                otherForm.ShowDialog();
+
+                //otherForm.PRESCRIPTION = selectedRow.Cells["PRESCRIPTION"].Value.ToString();
+
+                //string imageName = selectedRow.Cells["IMAGE"].Value.ToString();
+                //string imagePath = Path.Combine(Application.StartupPath, "IMAGES", "PROFILE", imageName);
+
+                //if (File.Exists(imagePath))
+                //{
+                //    Image image = Image.FromFile(imagePath);
+                //    otherForm.MyImage = image;
+                //}
+                //else
+                //{
+                //    MessageBox.Show("The image file does not exist.");
+                //}
+            }
+        }
+        }
     }
-}

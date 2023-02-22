@@ -78,6 +78,7 @@ namespace GestionClinique
             this.PatientsGrid.RowTemplate.Height = 40;
             this.PatientsGrid.Size = new System.Drawing.Size(2712, 1247);
             this.PatientsGrid.TabIndex = 7;
+            this.PatientsGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientsGrid_CellClick);
             // 
             // patientsTableAdapter
             // 

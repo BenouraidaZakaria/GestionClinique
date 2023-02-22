@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +15,6 @@ namespace GestionClinique
     public partial class AfficherPatients : Form
     {
         Connection con = new Connection();
-
         public AfficherPatients()
         {
             InitializeComponent();
@@ -22,16 +23,22 @@ namespace GestionClinique
         private void AfficherPatients_Load(object sender, EventArgs e)
         {
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+
+
+            // close the connection
+            con.deConnecter();
+
             if (Program.typeuser == "docteur")
             {
                 con.remplir(PatientsGrid, "PATIENT", Program.iduser);
                 PatientsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-                panel2.Visible= false;
-                btnGerPat.Visible=false;
-                btnGerCon.Visible=false;
 
-            }else if(Program.typeuser == "secretaire")
+                panel2.Visible = false;
+                btnGerPat.Visible = false;
+                btnGerCon.Visible = false;
+
+            } else if (Program.typeuser == "secretaire")
             {
                 con.remplir(PatientsGrid, "PATIENT");
                 PatientsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -166,6 +173,71 @@ namespace GestionClinique
         {
             f.formInstance("GererConsultations");
             this.Hide();
+        }
+        private void PatientsGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = PatientsGrid.Rows[e.RowIndex];
+                // rest of the code to get the data from the selected row
+
+                if (Program.typeuser == "docteur")
+                {
+                    // create a new instance of the other form
+                    DossierMedicalPatient otherForm = new DossierMedicalPatient();
+
+                    // set the values of the controls in the other form
+                    otherForm.ID = (int)selectedRow.Cells["IDPATIENT"].Value;
+                    otherForm.Nom = selectedRow.Cells["NOM"].Value.ToString();
+                    otherForm.Prenom = selectedRow.Cells["PRENOM"].Value.ToString();
+                    otherForm.DateNaissance = selectedRow.Cells["DATENAISSANCE"].Value.ToString();
+                    otherForm.Adresse = selectedRow.Cells["ADRESSE"].Value.ToString();
+                    otherForm.Telephone = selectedRow.Cells["TELEPHONE"].Value.ToString();
+                    otherForm.Email = selectedRow.Cells["EMAIL"].Value.ToString();
+                    otherForm.Sexe = selectedRow.Cells["GENRE"].Value.ToString();
+                    otherForm.Assurance = selectedRow.Cells["ASSURANCE"].Value.ToString();
+                    //string imageName = selectedRow.Cells["IMAGE"].Value.ToString();
+                    //string imagePath = Path.Combine(Application.StartupPath, "IMAGES", "PROFILE", imageName);
+
+                    //if (File.Exists(imagePath))
+                    //{
+                    //    Image image = Image.FromFile(imagePath);
+                    //    otherForm.MyImage = image;
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("The image file does not exist.");
+                    //}
+                    otherForm.Show();
+                    this.Hide();
+                }
+                else if (Program.typeuser == "secretaire")
+                {
+                    // create a new instance of the other form
+                    GererPatients otherForm = new GererPatients();
+
+                    // set the values of the controls in the other form
+                    otherForm.ID = (int)selectedRow.Cells["IDPATIENT"].Value;
+                    otherForm.Nom = selectedRow.Cells["NOM"].Value.ToString();
+                    otherForm.Prenom = selectedRow.Cells["PRENOM"].Value.ToString();
+                    otherForm.DateNaissance = selectedRow.Cells["DATENAISSANCE"].Value.ToString();
+                    otherForm.Adresse = selectedRow.Cells["ADRESSE"].Value.ToString();
+                    otherForm.Telephone = selectedRow.Cells["TELEPHONE"].Value.ToString();
+                    otherForm.Email = selectedRow.Cells["EMAIL"].Value.ToString();
+                    otherForm.Sexe = selectedRow.Cells["GENRE"].Value.ToString();
+                    otherForm.Assurance = selectedRow.Cells["ASSURANCE"].Value.ToString();
+                    // ... set the values of other controls as needed
+
+                    // show the other form
+                    otherForm.Show();
+                    this.Hide();
+                }
+            }
+            else
+            {
+                // handle the case when there are no selected rows
+                MessageBox.Show("Please select a row to view.");
+            }
         }
     }
 }
