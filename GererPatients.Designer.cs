@@ -76,7 +76,7 @@ namespace GestionClinique
             this.btnAffCon = new System.Windows.Forms.Button();
             this.btnConsultation = new System.Windows.Forms.Button();
             this.btnRendezVous = new System.Windows.Forms.Button();
-            this.btnReglage = new System.Windows.Forms.Button();
+            this.btnlogout = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rmvtall)).BeginInit();
@@ -444,7 +444,7 @@ namespace GestionClinique
             this.flowLayoutPanel1.Controls.Add(this.panel2);
             this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Controls.Add(this.btnRendezVous);
-            this.flowLayoutPanel1.Controls.Add(this.btnReglage);
+            this.flowLayoutPanel1.Controls.Add(this.btnlogout);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -620,17 +620,19 @@ namespace GestionClinique
             this.btnRendezVous.TabIndex = 4;
             this.btnRendezVous.Text = "Rendez-Vous";
             this.btnRendezVous.UseVisualStyleBackColor = true;
+            this.btnRendezVous.Visible = false;
             // 
-            // btnReglage
+            // btnlogout
             // 
-            this.btnReglage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReglage.Location = new System.Drawing.Point(8, 691);
-            this.btnReglage.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnReglage.Name = "btnReglage";
-            this.btnReglage.Size = new System.Drawing.Size(581, 114);
-            this.btnReglage.TabIndex = 5;
-            this.btnReglage.Text = "Reglages";
-            this.btnReglage.UseVisualStyleBackColor = true;
+            this.btnlogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlogout.Location = new System.Drawing.Point(8, 691);
+            this.btnlogout.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnlogout.Name = "btnlogout";
+            this.btnlogout.Size = new System.Drawing.Size(581, 114);
+            this.btnlogout.TabIndex = 5;
+            this.btnlogout.Text = "Se Deconnecter";
+            this.btnlogout.UseVisualStyleBackColor = true;
+            this.btnlogout.Click += new System.EventHandler(this.btnlogout_Click);
             // 
             // errorProvider1
             // 
@@ -710,7 +712,7 @@ namespace GestionClinique
         private System.Windows.Forms.Button btnAffCon;
         private System.Windows.Forms.Button btnConsultation;
         private System.Windows.Forms.Button btnRendezVous;
-        private System.Windows.Forms.Button btnReglage;
+        private System.Windows.Forms.Button btnlogout;
         private System.Windows.Forms.ComboBox cmbAll;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ListBox lisAll;

@@ -259,6 +259,7 @@ namespace GestionClinique
             this.btnRendezVous.TabIndex = 4;
             this.btnRendezVous.Text = "Rendez-Vous";
             this.btnRendezVous.UseVisualStyleBackColor = true;
+            this.btnRendezVous.Visible = false;
             // 
             // btnReglage
             // 
