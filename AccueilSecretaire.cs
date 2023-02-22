@@ -24,7 +24,6 @@ namespace GestionClinique
             con.remplir(EmployesGrid, "EMPLOYEE");
             con.remplir(PatientsGrid, "PATIENT");
             con.remplir(consultationGrid, "CONSULTATION");
-            label5.Text = Program.typeuser;
         }
         // instancer la class formC for the menu
         FormC f = new FormC();

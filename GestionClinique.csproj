@@ -70,6 +70,12 @@
     <Compile Include="AcceuilDoctors.Designer.cs">
       <DependentUpon>AcceuilDoctors.cs</DependentUpon>
     </Compile>
+    <Compile Include="AfficherConsultation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AfficherConsultation.Designer.cs">
+      <DependentUpon>AfficherConsultation.cs</DependentUpon>
+    </Compile>
     <Compile Include="AfficherConsultations.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AcceuilDoctors.resx">
       <DependentUpon>AcceuilDoctors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AfficherConsultation.resx">
+      <DependentUpon>AfficherConsultation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AfficherConsultations.resx">
       <DependentUpon>AfficherConsultations.cs</DependentUpon>

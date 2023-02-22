@@ -53,7 +53,6 @@ namespace GestionClinique
             this.btnConsultation = new System.Windows.Forms.Button();
             this.btnRendezVous = new System.Windows.Forms.Button();
             this.btnReglage = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.EmployesGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.consultationGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatientsGrid)).BeginInit();
@@ -344,21 +343,11 @@ namespace GestionClinique
             this.btnReglage.Text = "Reglages";
             this.btnReglage.UseVisualStyleBackColor = true;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(800, 54);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 32);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "label5";
-            // 
             // AccueilSecretaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(3056, 1748);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -412,7 +401,6 @@ namespace GestionClinique
         private System.Windows.Forms.Button btnConsultation;
         private System.Windows.Forms.Button btnRendezVous;
         private System.Windows.Forms.Button btnReglage;
-        private System.Windows.Forms.Label label5;
     }
 }
 

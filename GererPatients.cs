@@ -16,6 +16,58 @@ namespace GestionClinique
     public partial class GererPatients : Form
     {
         Connection con = new Connection();
+        public int ID;
+
+        public string Nom
+        {
+            get { return txtNom.Text; }
+            set { txtNom.Text = value; }
+        }
+        public string Prenom
+        {
+            get { return txtPrenom.Text; }
+            set { txtPrenom.Text = value; }
+        }
+        public string Sexe
+        {
+            get { return cmbSexe.Text; }
+            set { cmbSexe.Text = value; }
+        }
+        public string DateNaissance
+        {
+            get { return datpickNaissance.Text; }
+            set { datpickNaissance.Text = value; }
+        }
+        public string Adresse
+        {
+            get { return txtAdresse.Text; }
+            set { txtAdresse.Text = value; }
+        }
+        public string Telephone
+        {
+            get { return txtTelephone.Text; }
+            set { txtTelephone.Text = value; }
+        }
+        public string Email
+        {
+            get { return txtEmail.Text; }
+            set { txtEmail.Text = value; }
+        }
+        public string Assurance
+        {
+            get { return cmbassur.Text; }
+            set { cmbassur.Text = value; }
+        }
+        public string Allergie
+        {
+            get { return lisAll.Text; }
+            set { lisAll.Items.Add(value); }
+        }
+        //public Image MyImage
+        //{
+        //    get { return imgPatient.Image; }
+        //    set { imgPatient.Image = value; }
+        //}
 
         public GererPatients()
         {
