@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 
 namespace GestionClinique
@@ -137,7 +138,61 @@ namespace GestionClinique
                 dgv.DataSource = dt;
             }
         }
+        public Boolean remplir(DataGridView dgv, string TableName,int id)
+        {
+            DataTable dt = new DataTable();
+            dt.Rows.Clear();
+            Boolean etat = false;
 
+            if (TableName.Equals("PATIENT"))
+            {
+                //connecter();
+                //cmd.Connection = con;
+                //cmd.CommandText = "SELECT PATIENT.* FROM PATIENT INNER JOIN REALISER ON PATIENT.IDPATIENT = REALISER.IDPATIENT WHERE REALISER.IDDOCTEUR=@id";
+                //cmd.Parameters.AddWithValue("@id", id);
+                //if (cmd.ExecuteScalar() != null)
+                //    etat = true;
+                //cmd.Parameters.Clear();
+                //deConnecter();
+
+                connecter();
+                cmd.Connection = con;
+                cmd.CommandText = "SELECT PATIENT.* FROM PATIENT INNER JOIN REALISER ON PATIENT.IDPATIENT = REALISER.IDPATIENT WHERE REALISER.IDDOCTEUR=@id";
+                cmd.Parameters.AddWithValue("@id", id); 
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+                etat = true;
+                cmd.Parameters.Clear();
+                deConnecter();
+                dgv.DataSource = dt;
+            }
+            else if (TableName.Equals("CONSULTATION"))
+            {
+                //connecter();
+                //cmd.Connection = con;
+                //cmd.CommandText = "SELECT DATE as 'Date', IDDOCTEUR as 'ID Docteur', IDPATIENT as 'ID Patient', TRAITEMENT as 'Traitement', PRESCRIPTION as 'Prescription', DIAGNOSTIC as 'Diagnostic' FROM CONSULTATION con inner join REALISER rea on con.IDCONSULTATION=rea.IDCONSULTATION where rea.IDDOCTEUR =@iddoc";
+                //cmd.Parameters.AddWithValue("@iddoc", id);
+                //if (cmd.ExecuteScalar() != null)
+                //    etat = true;
+                //cmd.Parameters.Clear();
+                //deConnecter();
+
+                connecter();
+                cmd.Connection = con;
+                cmd.CommandText = "SELECT DATE as 'Date',TRIM(Nom) as 'Nom Patient',TRIM(PRENOM) as 'Prenom Patient', TRAITEMENT as 'Traitement', PRESCRIPTION as 'Prescription', DIAGNOSTIC as 'Diagnostic' FROM CONSULTATION con " +
+                    "inner join REALISER rea on con.IDCONSULTATION=rea.IDCONSULTATION " +
+                    "inner join PATIENT pa on pa.IDPATIENT=rea.IDPATIENT " +
+                    "where rea.IDDOCTEUR =@id";
+                cmd.Parameters.AddWithValue("@id", id);
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+                etat = true;
+                cmd.Parameters.Clear();
+                deConnecter();
+                dgv.DataSource = dt;
+            }
+                return etat;
+        }
 
         // Secretaire
         // changer ajouterEmployee a la place de methode secretaire et docteur

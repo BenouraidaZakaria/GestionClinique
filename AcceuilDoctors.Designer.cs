@@ -32,11 +32,11 @@
             this.btnAccueil = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAffPat = new System.Windows.Forms.Button();
+            this.btnPatients = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ConsultationGrid = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnGerCon = new System.Windows.Forms.Button();
             this.btnAffCon = new System.Windows.Forms.Button();
             this.btnConsultation = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -44,7 +44,6 @@
             this.btnReglage = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnPatients = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PatientsGrid)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConsultationGrid)).BeginInit();
@@ -74,6 +73,7 @@
             this.btnAccueil.TabIndex = 0;
             this.btnAccueil.Text = "Accueil";
             this.btnAccueil.UseVisualStyleBackColor = true;
+            this.btnAccueil.Click += new System.EventHandler(this.btnAccueil_Click);
             // 
             // panel1
             // 
@@ -84,7 +84,7 @@
             this.panel1.MaximumSize = new System.Drawing.Size(581, 296);
             this.panel1.MinimumSize = new System.Drawing.Size(581, 124);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(581, 128);
+            this.panel1.Size = new System.Drawing.Size(581, 124);
             this.panel1.TabIndex = 1;
             // 
             // btnAffPat
@@ -97,6 +97,19 @@
             this.btnAffPat.TabIndex = 2;
             this.btnAffPat.Text = "Liste des Patients";
             this.btnAffPat.UseVisualStyleBackColor = false;
+            this.btnAffPat.Click += new System.EventHandler(this.btnAffPat_Click);
+            // 
+            // btnPatients
+            // 
+            this.btnPatients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPatients.Location = new System.Drawing.Point(0, 7);
+            this.btnPatients.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnPatients.Name = "btnPatients";
+            this.btnPatients.Size = new System.Drawing.Size(581, 114);
+            this.btnPatients.TabIndex = 1;
+            this.btnPatients.Text = "Patients";
+            this.btnPatients.UseVisualStyleBackColor = true;
+            this.btnPatients.Click += new System.EventHandler(this.btnPatients_Click);
             // 
             // label2
             // 
@@ -126,7 +139,7 @@
             this.ConsultationGrid.Name = "ConsultationGrid";
             this.ConsultationGrid.RowHeadersWidth = 102;
             this.ConsultationGrid.RowTemplate.Height = 40;
-            this.ConsultationGrid.Size = new System.Drawing.Size(1184, 491);
+            this.ConsultationGrid.Size = new System.Drawing.Size(1276, 491);
             this.ConsultationGrid.TabIndex = 21;
             // 
             // label4
@@ -140,17 +153,6 @@
             this.label4.Text = "Rendez-vous";
             this.label4.Visible = false;
             // 
-            // btnGerCon
-            // 
-            this.btnGerCon.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnGerCon.Location = new System.Drawing.Point(0, 210);
-            this.btnGerCon.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnGerCon.Name = "btnGerCon";
-            this.btnGerCon.Size = new System.Drawing.Size(581, 83);
-            this.btnGerCon.TabIndex = 7;
-            this.btnGerCon.Text = "Gerer Consultation";
-            this.btnGerCon.UseVisualStyleBackColor = false;
-            // 
             // btnAffCon
             // 
             this.btnAffCon.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -161,6 +163,7 @@
             this.btnAffCon.TabIndex = 6;
             this.btnAffCon.Text = "Liste des Consultations";
             this.btnAffCon.UseVisualStyleBackColor = false;
+            this.btnAffCon.Click += new System.EventHandler(this.btnAffCon_Click);
             // 
             // btnConsultation
             // 
@@ -172,24 +175,24 @@
             this.btnConsultation.TabIndex = 3;
             this.btnConsultation.Text = "Consultations";
             this.btnConsultation.UseVisualStyleBackColor = true;
+            this.btnConsultation.Click += new System.EventHandler(this.btnConsultation_Click);
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btnGerCon);
             this.panel3.Controls.Add(this.btnAffCon);
             this.panel3.Controls.Add(this.btnConsultation);
-            this.panel3.Location = new System.Drawing.Point(8, 277);
+            this.panel3.Location = new System.Drawing.Point(8, 273);
             this.panel3.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.panel3.MaximumSize = new System.Drawing.Size(581, 296);
             this.panel3.MinimumSize = new System.Drawing.Size(581, 124);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(581, 126);
+            this.panel3.Size = new System.Drawing.Size(581, 124);
             this.panel3.TabIndex = 1;
             // 
             // btnRendezVous
             // 
             this.btnRendezVous.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRendezVous.Location = new System.Drawing.Point(8, 417);
+            this.btnRendezVous.Location = new System.Drawing.Point(8, 411);
             this.btnRendezVous.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnRendezVous.Name = "btnRendezVous";
             this.btnRendezVous.Size = new System.Drawing.Size(581, 114);
@@ -200,7 +203,7 @@
             // btnReglage
             // 
             this.btnReglage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReglage.Location = new System.Drawing.Point(8, 545);
+            this.btnReglage.Location = new System.Drawing.Point(8, 539);
             this.btnReglage.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnReglage.Name = "btnReglage";
             this.btnReglage.Size = new System.Drawing.Size(581, 114);
@@ -233,17 +236,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(595, 1307);
             this.flowLayoutPanel1.TabIndex = 20;
-            // 
-            // btnPatients
-            // 
-            this.btnPatients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPatients.Location = new System.Drawing.Point(0, 7);
-            this.btnPatients.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnPatients.Name = "btnPatients";
-            this.btnPatients.Size = new System.Drawing.Size(581, 114);
-            this.btnPatients.TabIndex = 1;
-            this.btnPatients.Text = "Patients";
-            this.btnPatients.UseVisualStyleBackColor = true;
             // 
             // AcceuilDoctors
             // 
@@ -283,7 +275,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView ConsultationGrid;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnGerCon;
         private System.Windows.Forms.Button btnAffCon;
         private System.Windows.Forms.Button btnConsultation;
         private System.Windows.Forms.Panel panel3;
