@@ -16,7 +16,7 @@ namespace GestionClinique
     public partial class GererPatients : Form
     {
         Connection con = new Connection();
-        public int ID;
+        public int ID=1;
 
         public string Nom
         {
@@ -103,11 +103,21 @@ namespace GestionClinique
         {
             try
             {
-                DateTime now = DateTime.Now;
-                String imgname = txtNom.Text + txtPrenom.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
-                File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\PROFILE\" + imgname);
-                char[] sexe = cmbSexe.Text.ToCharArray();
-                //c.ajouterPatient(txtNom.Text, txtPrenom.Text, datpickNaissance.Value, sexe[0], txtEmail.Text, txtTelephoneephoneephoneephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileName(imagePatient.ImageLocation));
+                if (txtNom.Text != "" && txtPrenom.Text != "" && cmbSexe.Text != "" && txtTelephone.Text != "" && datpickNaissance.Value.Date <= DateTime.Now.Date)
+                {
+                    DateTime now = DateTime.Now;
+                    String imgname = txtNom.Text + txtPrenom.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
+                    File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\PROFILE\" + imgname);
+                    //String allergies = "";
+                    //for (int i = 0; i < lisAll.Items.Count; i++)
+                    //{
+                    //    lisAll.Items[0].ToString().
+                    //    allergies += lisAll.Items[i].ToString();
+                    //}
+                    con.ajouterPatient(txtNom.Text, txtPrenom.Text, DateTime.Parse(datpickNaissance.Text), char.Parse(cmbSexe.Text), txtEmail.Text, txtTelephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileName(imagePatient.ImageLocation), lisAll.Text);
+                    txtNom.Text = txtPrenom.Text = cmbSexe.Text = txtTelephone.Text = datpickNaissance.Text = txtEmail.Text = txtAdresse.Text = cmbassur.Text = "";
+                    lisAll.Items.Clear();
+                }
 
             }
             catch (Exception ex)
@@ -290,6 +300,28 @@ namespace GestionClinique
             Program.typeuser = "";
             f.Show();
             this.Hide();
+        }
+
+        private void modifier_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtNom.Text != "" && txtPrenom.Text != "" && cmbSexe.Text != "" && txtTelephone.Text != "" && datpickNaissance.Value.Date <= DateTime.Now.Date)
+                {
+                    DateTime now = DateTime.Now;
+                    String imgname = txtNom.Text + txtPrenom.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
+                    File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\PROFILE\" + imgname);
+                    con.modifierPatient(ID,txtNom.Text, txtPrenom.Text, DateTime.Parse(datpickNaissance.Text), char.Parse(cmbSexe.Text), txtEmail.Text, txtTelephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileName(imagePatient.ImageLocation), lisAll.Text);
+                    txtNom.Text = txtPrenom.Text = cmbSexe.Text = txtTelephone.Text = datpickNaissance.Text = txtEmail.Text = txtAdresse.Text = cmbassur.Text = "";
+                    lisAll.Items.Clear();
+                    imagePatient.Image = null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
