@@ -558,7 +558,7 @@ namespace GestionClinique
 
             cmd.Parameters.Clear();
 
-            cmd.CommandText = "insert into Patient(NOM,PRENOM,DATENAISSANCE,SEXE,EMAIL,TELEPHONE,ADRESSE,IMAGE,ALLERGIE) values(@nom,@prenom,@da,@s,@email,@tele,@adresse,@assurance,@img,@allergie)";
+            cmd.CommandText = "insert into Patient(NOM,PRENOM,DATENAISSANCE,GENRE,EMAIL,TELEPHONE,ADRESSE,ASSURANCE,IMAGE,ALLERGIE) values(@nom,@prenom,@da,@s,@email,@tele,@adresse,@assurance,@img,@allergie)";
             cmd.Parameters.AddWithValue("@nom", nom);
             cmd.Parameters.AddWithValue("@prenom", prenom);
             cmd.Parameters.AddWithValue("@da", dateNaissance);
@@ -569,6 +569,8 @@ namespace GestionClinique
             cmd.Parameters.AddWithValue("@assurance", assurance);
             cmd.Parameters.AddWithValue("@img", image);
             cmd.Parameters.AddWithValue("@allergie", allergie);
+
+            cmd.ExecuteNonQuery();
 
             cmd.Parameters.Clear();
 
@@ -584,11 +586,11 @@ namespace GestionClinique
             deConnecter();
             return etat;
         }
-        public Boolean modifierPatient(int id, string nom, string prenom, DateTime dateNaissance, char sexe, string email, string tele, string adresse, string assurance, string image)
+        public Boolean modifierPatient(int id, string nom, string prenom, DateTime dateNaissance, char sexe, string email, string tele, string adresse, string assurance, string image, string allergie)
         {
             connecter();
             cmd.Connection = con;
-            cmd.CommandText = "update Patient set NOM=@nom,PRENOM=@prenom,DATENAISSANCE=@da,SEXE=@s,EMAIL=@email,TELEPHONE=@tele,ADRESSE=@adresse,IMAGE=@img where idPatient=@id)";
+            cmd.CommandText = "update Patient set NOM=@nom,PRENOM=@prenom,DATENAISSANCE=@da,GENRE=@s,EMAIL=@email,TELEPHONE=@tele,ADRESSE=@adresse,IMAGE=@img,ALLERGIE=@all,ASSURANCE=@assurance where idPatient=@id";
             cmd.Parameters.AddWithValue("@nom", nom);
             cmd.Parameters.AddWithValue("@prenom", prenom);
             cmd.Parameters.AddWithValue("@da", dateNaissance);
@@ -597,7 +599,11 @@ namespace GestionClinique
             cmd.Parameters.AddWithValue("@tele", tele);
             cmd.Parameters.AddWithValue("@adresse", adresse);
             cmd.Parameters.AddWithValue("@img", image);
+            cmd.Parameters.AddWithValue("@all", allergie);
+            cmd.Parameters.AddWithValue("@assurance", assurance);
             cmd.Parameters.AddWithValue("@id", id);
+
+            cmd.ExecuteNonQuery();
 
             return true;
         }
@@ -607,6 +613,8 @@ namespace GestionClinique
             cmd.Connection = con;
             cmd.CommandText = "delete Patient where idPatient=@id)";
             cmd.Parameters.AddWithValue("@id", id);
+
+            cmd.ExecuteNonQuery();
 
             return true;
         }

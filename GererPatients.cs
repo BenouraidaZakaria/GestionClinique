@@ -16,7 +16,7 @@ namespace GestionClinique
     public partial class GererPatients : Form
     {
         Connection con = new Connection();
-        public int ID;
+        public int ID=1;
 
         public string Nom
         {
@@ -294,6 +294,28 @@ namespace GestionClinique
             Program.typeuser = "";
             f.Show();
             this.Hide();
+        }
+
+        private void modifier_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtNom.Text != "" && txtPrenom.Text != "" && cmbSexe.Text != "" && txtTelephone.Text != "" && datpickNaissance.Value.Date <= DateTime.Now.Date)
+                {
+                    DateTime now = DateTime.Now;
+                    String imgname = txtNom.Text + txtPrenom.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
+                    File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\PROFILE\" + imgname);
+                    con.modifierPatient(ID,txtNom.Text, txtPrenom.Text, DateTime.Parse(datpickNaissance.Text), char.Parse(cmbSexe.Text), txtEmail.Text, txtTelephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileName(imagePatient.ImageLocation), lisAll.Text);
+                    txtNom.Text = txtPrenom.Text = cmbSexe.Text = txtTelephone.Text = datpickNaissance.Text = txtEmail.Text = txtAdresse.Text = cmbassur.Text = "";
+                    lisAll.Items.Clear();
+                    imagePatient.Image = null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
