@@ -167,5 +167,16 @@ namespace GestionClinique
             f.formInstance("GererConsultations");
             this.Hide();
         }
+
+        private void btnlogout_Click(object sender, EventArgs e)
+        {
+            Form f = new login();
+            Program.iduser = 0; ;
+            Program.nameuser = "";
+            Program.prenomuser = "";
+            Program.typeuser = "";
+            f.Show();
+            this.Hide();
+        }
     }
     }

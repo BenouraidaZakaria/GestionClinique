@@ -239,5 +239,16 @@ namespace GestionClinique
                 MessageBox.Show("Please select a row to view.");
             }
         }
+
+        private void btnlogout_Click(object sender, EventArgs e)
+        {
+            Form f = new login();
+            Program.iduser = 0; ;
+            Program.nameuser = "";
+            Program.prenomuser = "";
+            Program.typeuser = "";
+            f.Show();
+            this.Hide();
+        }
     }
 }

@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.slctPat = new System.Windows.Forms.Button();
+            this.slctDoc = new System.Windows.Forms.Button();
+            this.textPat = new System.Windows.Forms.TextBox();
+            this.textDoc = new System.Windows.Forms.TextBox();
             this.rmvtrai = new System.Windows.Forms.PictureBox();
             this.addtrai = new System.Windows.Forms.PictureBox();
             this.rmvdiag = new System.Windows.Forms.PictureBox();
@@ -69,11 +73,7 @@
             this.btnAffCon = new System.Windows.Forms.Button();
             this.btnConsultation = new System.Windows.Forms.Button();
             this.btnRendezVous = new System.Windows.Forms.Button();
-            this.btnReglage = new System.Windows.Forms.Button();
-            this.textDoc = new System.Windows.Forms.TextBox();
-            this.textPat = new System.Windows.Forms.TextBox();
-            this.slctDoc = new System.Windows.Forms.Button();
-            this.slctPat = new System.Windows.Forms.Button();
+            this.btnlogout = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rmvtrai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addtrai)).BeginInit();
@@ -119,6 +119,42 @@
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informations de la Consultation";
+            // 
+            // slctPat
+            // 
+            this.slctPat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.slctPat.Location = new System.Drawing.Point(1072, 306);
+            this.slctPat.Name = "slctPat";
+            this.slctPat.Size = new System.Drawing.Size(297, 59);
+            this.slctPat.TabIndex = 41;
+            this.slctPat.Text = "selectionner";
+            this.slctPat.UseVisualStyleBackColor = true;
+            this.slctPat.Click += new System.EventHandler(this.slctPat_Click);
+            // 
+            // slctDoc
+            // 
+            this.slctDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.slctDoc.Location = new System.Drawing.Point(1072, 164);
+            this.slctDoc.Name = "slctDoc";
+            this.slctDoc.Size = new System.Drawing.Size(297, 66);
+            this.slctDoc.TabIndex = 40;
+            this.slctDoc.Text = "selectionner";
+            this.slctDoc.UseVisualStyleBackColor = true;
+            this.slctDoc.Click += new System.EventHandler(this.slctDoc_Click);
+            // 
+            // textPat
+            // 
+            this.textPat.Location = new System.Drawing.Point(579, 304);
+            this.textPat.Name = "textPat";
+            this.textPat.Size = new System.Drawing.Size(375, 61);
+            this.textPat.TabIndex = 39;
+            // 
+            // textDoc
+            // 
+            this.textDoc.Location = new System.Drawing.Point(579, 169);
+            this.textDoc.Name = "textDoc";
+            this.textDoc.Size = new System.Drawing.Size(375, 61);
+            this.textDoc.TabIndex = 38;
             // 
             // rmvtrai
             // 
@@ -374,7 +410,7 @@
             this.flowLayoutPanel1.Controls.Add(this.panel2);
             this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Controls.Add(this.btnRendezVous);
-            this.flowLayoutPanel1.Controls.Add(this.btnReglage);
+            this.flowLayoutPanel1.Controls.Add(this.btnlogout);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -550,53 +586,19 @@
             this.btnRendezVous.TabIndex = 4;
             this.btnRendezVous.Text = "Rendez-Vous";
             this.btnRendezVous.UseVisualStyleBackColor = true;
+            this.btnRendezVous.Visible = false;
             // 
-            // btnReglage
+            // btnlogout
             // 
-            this.btnReglage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReglage.Location = new System.Drawing.Point(8, 682);
-            this.btnReglage.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnReglage.Name = "btnReglage";
-            this.btnReglage.Size = new System.Drawing.Size(581, 114);
-            this.btnReglage.TabIndex = 5;
-            this.btnReglage.Text = "Reglages";
-            this.btnReglage.UseVisualStyleBackColor = true;
-            // 
-            // textDoc
-            // 
-            this.textDoc.Location = new System.Drawing.Point(579, 169);
-            this.textDoc.Name = "textDoc";
-            this.textDoc.Size = new System.Drawing.Size(375, 61);
-            this.textDoc.TabIndex = 38;
-            // 
-            // textPat
-            // 
-            this.textPat.Location = new System.Drawing.Point(579, 304);
-            this.textPat.Name = "textPat";
-            this.textPat.Size = new System.Drawing.Size(375, 61);
-            this.textPat.TabIndex = 39;
-            // 
-            // slctDoc
-            // 
-            this.slctDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.slctDoc.Location = new System.Drawing.Point(1072, 164);
-            this.slctDoc.Name = "slctDoc";
-            this.slctDoc.Size = new System.Drawing.Size(297, 66);
-            this.slctDoc.TabIndex = 40;
-            this.slctDoc.Text = "selectionner";
-            this.slctDoc.UseVisualStyleBackColor = true;
-            this.slctDoc.Click += new System.EventHandler(this.slctDoc_Click);
-            // 
-            // slctPat
-            // 
-            this.slctPat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.slctPat.Location = new System.Drawing.Point(1072, 306);
-            this.slctPat.Name = "slctPat";
-            this.slctPat.Size = new System.Drawing.Size(297, 59);
-            this.slctPat.TabIndex = 41;
-            this.slctPat.Text = "selectionner";
-            this.slctPat.UseVisualStyleBackColor = true;
-            this.slctPat.Click += new System.EventHandler(this.slctPat_Click);
+            this.btnlogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlogout.Location = new System.Drawing.Point(8, 682);
+            this.btnlogout.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnlogout.Name = "btnlogout";
+            this.btnlogout.Size = new System.Drawing.Size(581, 114);
+            this.btnlogout.TabIndex = 5;
+            this.btnlogout.Text = "Se Deconnecter";
+            this.btnlogout.UseVisualStyleBackColor = true;
+            this.btnlogout.Click += new System.EventHandler(this.btnlogout_Click);
             // 
             // GererConsultations
             // 
@@ -671,7 +673,7 @@
         private System.Windows.Forms.Button btnAffCon;
         private System.Windows.Forms.Button btnConsultation;
         private System.Windows.Forms.Button btnRendezVous;
-        private System.Windows.Forms.Button btnReglage;
+        private System.Windows.Forms.Button btnlogout;
         private System.Windows.Forms.TextBox textPat;
         private System.Windows.Forms.TextBox textDoc;
         private System.Windows.Forms.Button slctPat;

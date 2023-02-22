@@ -66,7 +66,7 @@ namespace GestionClinique
         }
         private void DossierMedicalPatient_Load(object sender, EventArgs e)
         {
-            panel2.Visible=false;
+            //panel2.Visible=false;
             
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             con.remplir(congrid, "CONSULTATION", Program.iduser, ID);
@@ -91,35 +91,35 @@ namespace GestionClinique
             }
         }
 
-        private void btnPatients_Click(object sender, EventArgs e)
-        {
-            if (Program.typeuser == "docteur")
-            {
-                if (etatBtnPatient)
-                {
-                    panel1.Height += 36;
-                    etatBtnPatient = false;
-                }
-                else
-                {
-                    panel1.Height -= 36;
-                    etatBtnPatient = true;
-                }
-            }
-            else if (Program.typeuser == "secretaire")
-            {
-                if (etatBtnPatient)
-                {
-                    panel1.Height += 72;
-                    etatBtnPatient = false;
-                }
-                else
-                {
-                    panel1.Height -= 72;
-                    etatBtnPatient = true;
-                }
-            }
-        }
+        //private void btnPatients_Click(object sender, EventArgs e)
+        //{
+        //    if (Program.typeuser == "docteur")
+        //    {
+        //        if (etatBtnPatient)
+        //        {
+        //            panel1.Height += 36;
+        //            etatBtnPatient = false;
+        //        }
+        //        else
+        //        {
+        //            panel1.Height -= 36;
+        //            etatBtnPatient = true;
+        //        }
+        //    }
+        //    else if (Program.typeuser == "secretaire")
+        //    {
+        //        if (etatBtnPatient)
+        //        {
+        //            panel1.Height += 72;
+        //            etatBtnPatient = false;
+        //        }
+        //        else
+        //        {
+        //            panel1.Height -= 72;
+        //            etatBtnPatient = true;
+        //        }
+        //    }
+        //}
 
         private void btnAffPat_Click(object sender, EventArgs e)
         {
@@ -132,19 +132,19 @@ namespace GestionClinique
             this.Hide();
         }
 
-        private void btnEmployes_Click(object sender, EventArgs e)
-        {
-            if (etatBtnEmployes)
-            {
-                panel2.Height += 72;
-                etatBtnEmployes = false;
-            }
-            else
-            {
-                panel2.Height -= 72;
-                etatBtnEmployes = true;
-            }
-        }
+        //private void btnEmployes_Click(object sender, EventArgs e)
+        //{
+        //    if (etatBtnEmployes)
+        //    {
+        //        panel2.Height += 72;
+        //        etatBtnEmployes = false;
+        //    }
+        //    else
+        //    {
+        //        panel2.Height -= 72;
+        //        etatBtnEmployes = true;
+        //    }
+        //}
 
         private void AffEmp_Click(object sender, EventArgs e)
         {
@@ -159,35 +159,35 @@ namespace GestionClinique
 
         }
 
-        private void btnConsultation_Click(object sender, EventArgs e)
-        {
-            if (Program.typeuser == "docteur")
-            {
-                if (etatBtnConsultation)
-                {
-                    panel3.Height += 36;
-                    etatBtnPatient = false;
-                }
-                else
-                {
-                    panel3.Height -= 36;
-                    etatBtnPatient = true;
-                }
-            }
-            else if (Program.typeuser == "secretaire")
-            {
-                if (etatBtnConsultation)
-                {
-                    panel3.Height += 72;
-                    etatBtnPatient = false;
-                }
-                else
-                {
-                    panel3.Height -= 72;
-                    etatBtnPatient = true;
-                }
-            }
-        }
+        //private void btnConsultation_Click(object sender, EventArgs e)
+        //{
+        //    if (Program.typeuser == "docteur")
+        //    {
+        //        if (etatBtnConsultation)
+        //        {
+        //            panel3.Height += 36;
+        //            etatBtnPatient = false;
+        //        }
+        //        else
+        //        {
+        //            panel3.Height -= 36;
+        //            etatBtnPatient = true;
+        //        }
+        //    }
+        //    else if (Program.typeuser == "secretaire")
+        //    {
+        //        if (etatBtnConsultation)
+        //        {
+        //            panel3.Height += 72;
+        //            etatBtnPatient = false;
+        //        }
+        //        else
+        //        {
+        //            panel3.Height -= 72;
+        //            etatBtnPatient = true;
+        //        }
+        //    }
+        //}
 
         private void btnAffCon_Click(object sender, EventArgs e)
         {
@@ -238,5 +238,16 @@ namespace GestionClinique
                 //}
             }
         }
+
+        private void btnlogout_Click(object sender, EventArgs e)
+        {
+            Form f = new login();
+            Program.iduser = 0; ;
+            Program.nameuser = "";
+            Program.prenomuser = "";
+            Program.typeuser = "";
+            f.Show();
+            this.Hide();
         }
+    }
     }
