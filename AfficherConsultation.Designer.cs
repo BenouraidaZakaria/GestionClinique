@@ -140,7 +140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1337, 1145);
+            this.ClientSize = new System.Drawing.Size(1544, 1412);
             this.Controls.Add(this.groupBox1);
             this.Name = "AfficherConsultation";
             this.Text = "AfficherConsultation";

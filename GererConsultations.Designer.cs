@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GererConsultations));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.slctPat = new System.Windows.Forms.Button();
             this.slctDoc = new System.Windows.Forms.Button();
@@ -235,6 +236,7 @@
             // imagePrescription
             // 
             this.imagePrescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imagePrescription.Image = ((System.Drawing.Image)(resources.GetObject("imagePrescription.Image")));
             this.imagePrescription.Location = new System.Drawing.Point(599, 1345);
             this.imagePrescription.Name = "imagePrescription";
             this.imagePrescription.Size = new System.Drawing.Size(355, 229);

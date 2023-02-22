@@ -74,6 +74,7 @@ namespace GestionClinique
             this.ConsultationsGrid.RowTemplate.Height = 40;
             this.ConsultationsGrid.Size = new System.Drawing.Size(2968, 1247);
             this.ConsultationsGrid.TabIndex = 8;
+            this.ConsultationsGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ConsultationsGrid_CellClick);
             // 
             // flowLayoutPanel1
             // 
@@ -300,7 +301,6 @@ namespace GestionClinique
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView ConsultationsGrid;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnAccueil;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnGerPat;
@@ -316,5 +316,6 @@ namespace GestionClinique
         private System.Windows.Forms.Button btnConsultation;
         private System.Windows.Forms.Button btnRendezVous;
         private System.Windows.Forms.Button btnlogout;
+        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

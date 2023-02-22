@@ -114,5 +114,50 @@ namespace GestionClinique
             f.formInstance("GererConsultations");
             this.Hide();
         }
+
+        private void EmployesGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = EmployesGrid.Rows[e.RowIndex];
+                // rest of the code to get the data from the selected row
+
+
+                // create a new instance of the other form
+                GererEmployes otherForm = new GererEmployes();
+
+                // set the values of the controls in the other form
+                otherForm.ID = (int)selectedRow.Cells["IDEMPLOYEE"].Value;
+                otherForm.Type = selectedRow.Cells["TYPE"].Value.ToString();
+                otherForm.Nom = selectedRow.Cells["NOM"].Value.ToString();
+                otherForm.Prenom = selectedRow.Cells["PRENOM"].Value.ToString();
+                otherForm.DateNaissance = selectedRow.Cells["DATE_NAISSANCE"].Value.ToString();
+                otherForm.Telephone = selectedRow.Cells["TELEPHONE"].Value.ToString();
+                otherForm.Mail = selectedRow.Cells["EMAIL"].Value.ToString();
+                otherForm.MDP = selectedRow.Cells["MOT_PASSE"].Value.ToString();
+                otherForm.Genre = selectedRow.Cells["GENRE"].Value.ToString();
+                //otherForm.Specailite = selectedRow.Cells["SPECIALITE"].Value.ToString();
+                // ... set the values of other controls as needed
+                MessageBox.Show(otherForm.Type);
+                if (otherForm.Type == "docteur")
+                {
+                    otherForm.IsDoc = true;
+                    otherForm.IsSec= false;
+                }
+                else if (otherForm.Type == "secretaire")
+                {
+                    otherForm.IsDoc = false;
+                    otherForm.IsDoc = true;
+                }
+                // show the other form
+                otherForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                // handle the case when there are no selected rows
+                MessageBox.Show("Please select a row to view.");
+            }
+        }
     }
 }

@@ -39,7 +39,10 @@ namespace GestionClinique
             }
             else if (nomForm == "GererConsultations")
             {
-                f = new GererConsultations();
+                //get the now DATETIME?
+                DateTime now = DateTime.Now;
+
+                f = new GererConsultations(0,0,0,now,"","");
                 f.Show();
             }
             else if (nomForm == "GererEmployes")

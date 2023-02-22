@@ -22,21 +22,11 @@ namespace GestionClinique
 
         {
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
-            if (Program.typeuser == "docteur")
-            {
-                con.remplir(ConsultationsGrid, "CONSULTATION", Program.iduser);
-                ConsultationsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-                panel2.Visible = false;
-                btnGerPat.Visible = false;
-                btnGerCon.Visible = false;
-
-            }
-            else if (Program.typeuser == "secretaire")
-            {
+       
+         
                 con.remplir(ConsultationsGrid, "CONSULTATION");
                 ConsultationsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            }
+            
 
         }
         FormC f = new FormC();
@@ -178,5 +168,79 @@ namespace GestionClinique
             f.Show();
             this.Hide();
         }
+        private void ConsultationsGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = ConsultationsGrid.Rows[e.RowIndex];
+                // rest of the code to get the data from the selected row
+
+                // create a new instance of the GererConsultations form
+                GererConsultations existingForm = Application.OpenForms.OfType<GererConsultations>().FirstOrDefault();
+
+                if (existingForm != null)
+                {
+                    // if an instance of the GererConsultations form already exists, pass the data to it
+                    existingForm.ID = (int)selectedRow.Cells["ID"].Value;
+                    existingForm.IDP = (int)selectedRow.Cells["ID Patient"].Value;
+                    existingForm.IDD = (int)selectedRow.Cells["ID Docteur"].Value;
+
+                    existingForm.DateConsultation = (DateTime)selectedRow.Cells["Date"].Value;
+                    existingForm.Traitement = selectedRow.Cells["Traitement"].Value.ToString();
+                    existingForm.Diagnostic = selectedRow.Cells["DIAGNOSTIC"].Value.ToString();
+                    // ... set the values of other controls as needed
+                    int selectedPatientID = (int)selectedRow.Cells["ID Patient"].Value;
+                    DataTable patientTable = new DataTable();
+                    con.select("PATIENT", selectedPatientID, patientTable);
+                    existingForm.NameP = patientTable.Rows[0]["NOM"].ToString();
+                    existingForm.PreP = patientTable.Rows[0]["PRENOM"].ToString();
+                    int selectedDoctorID = (int)selectedRow.Cells["ID DOCTEUR"].Value;
+                    DataTable doctorTable = new DataTable();
+                    con.select("DOCTEUR", selectedDoctorID, doctorTable);
+                    existingForm.NomD = doctorTable.Rows[0]["NOM"].ToString();
+                    existingForm.PreD = doctorTable.Rows[0]["PRENOM"].ToString();
+                }
+                else
+                {
+                    // if an instance of the GererConsultations form does not exist, create a new one and pass the data to it
+                    GererConsultations newForm = new GererConsultations((int)selectedRow.Cells["ID"].Value, (int)selectedRow.Cells["ID Patient"].Value, (int)selectedRow.Cells["ID Docteur"].Value, (DateTime)selectedRow.Cells["Date"].Value, selectedRow.Cells["Traitement"].Value.ToString(), selectedRow.Cells["DIAGNOSTIC"].Value.ToString());
+                    newForm.Show();
+                }
+                this.Hide();
+            }
+            else
+            {
+                // handle the case when there are no selected rows
+                MessageBox.Show("Please select a row to view.");
+            }
+        }
+        //if (e.RowIndex >= 0)
+        //{
+        //    DataGridViewRow selectedRow = ConsultationsGrid.Rows[e.RowIndex];
+        //    // rest of the code to get the data from the selected row
+
+
+        //    // create a new instance of the other form
+        //    GererConsultations otherForm = new GererConsultations();
+
+        //    // set the values of the controls in the other form
+        //    otherForm.ID = (int)selectedRow.Cells["ID"].Value;
+        //    //otherForm.IDP = (int)selectedRow.Cells["ID Patient"].Value;
+        //    //otherForm.IDD = (int)selectedRow.Cells["ID Docteur"].Value;
+        //    otherForm.DateConsultation = (DateTime)selectedRow.Cells["Date"].Value;
+        //    otherForm.Traitement = selectedRow.Cells["Traitement"].Value.ToString();
+        //    otherForm.Diagnostic = selectedRow.Cells["DIAGNOSTIC"].Value.ToString();
+        //    // ... set the values of other controls as needed
+
+        //    // show the other form
+        //    otherForm.Show();
+        //    this.Hide();
+        //}
+        //else
+        //{
+        //    // handle the case when there are no selected rows
+        //    MessageBox.Show("Please select a row to view.");
+        //}
     }
     }
+    

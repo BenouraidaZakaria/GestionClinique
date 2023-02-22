@@ -231,8 +231,10 @@ namespace GestionClinique
             // datpickNaissance
             // 
             this.datpickNaissance.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datpickNaissance.Location = new System.Drawing.Point(215, 152);
-            this.datpickNaissance.Margin = new System.Windows.Forms.Padding(1);
+
+            this.datpickNaissance.Location = new System.Drawing.Point(573, 362);
+            this.datpickNaissance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
             this.datpickNaissance.Name = "datpickNaissance";
             this.datpickNaissance.Size = new System.Drawing.Size(241, 29);
             this.datpickNaissance.TabIndex = 24;
@@ -641,7 +643,9 @@ namespace GestionClinique
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1299, 620);
+
+            this.ClientSize = new System.Drawing.Size(3684, 1523);
+
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.select);
             this.Controls.Add(this.label10);
