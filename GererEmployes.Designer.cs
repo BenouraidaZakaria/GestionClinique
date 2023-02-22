@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.imgEmp = new System.Windows.Forms.GroupBox();
-            this.imageEmp = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.imageText = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -39,8 +38,6 @@
             this.cmbGenre = new System.Windows.Forms.ComboBox();
             this.dNaissance = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.eopen = new System.Windows.Forms.PictureBox();
-            this.eclosed = new System.Windows.Forms.PictureBox();
             this.Specmb = new System.Windows.Forms.ComboBox();
             this.Mdptxt = new System.Windows.Forms.TextBox();
             this.Mailtxt = new System.Windows.Forms.TextBox();
@@ -87,10 +84,11 @@
             this.btnRendezVous = new System.Windows.Forms.Button();
             this.btnlogout = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.imageEmp = new System.Windows.Forms.PictureBox();
+            this.eopen = new System.Windows.Forms.PictureBox();
+            this.eclosed = new System.Windows.Forms.PictureBox();
             this.imgEmp.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageEmp)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eopen)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eclosed)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -98,6 +96,10 @@
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageEmp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eopen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eclosed)).BeginInit();
             this.SuspendLayout();
             // 
             // imgEmp
@@ -136,18 +138,6 @@
             this.imgEmp.TabIndex = 31;
             this.imgEmp.TabStop = false;
             this.imgEmp.Text = "Informations de l\'employe";
-            // 
-            // imageEmp
-            // 
-            this.imageEmp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imageEmp.Location = new System.Drawing.Point(635, 210);
-            this.imageEmp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.imageEmp.Name = "imageEmp";
-            this.imageEmp.Size = new System.Drawing.Size(354, 229);
-            this.imageEmp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imageEmp.TabIndex = 58;
-            this.imageEmp.TabStop = false;
-            this.imageEmp.Click += new System.EventHandler(this.imageEmp_Click);
             // 
             // label11
             // 
@@ -229,31 +219,6 @@
             this.label7.Size = new System.Drawing.Size(112, 46);
             this.label7.TabIndex = 47;
             this.label7.Text = "Sexe";
-            // 
-            // eopen
-            // 
-            this.eopen.Image = global::GestionClinique.Properties.Resources.open;
-            this.eopen.Location = new System.Drawing.Point(1339, 758);
-            this.eopen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.eopen.Name = "eopen";
-            this.eopen.Size = new System.Drawing.Size(101, 72);
-            this.eopen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.eopen.TabIndex = 46;
-            this.eopen.TabStop = false;
-            this.eopen.Click += new System.EventHandler(this.eopen_Click);
-            // 
-            // eclosed
-            // 
-            this.eclosed.Image = global::GestionClinique.Properties.Resources.closed;
-            this.eclosed.Location = new System.Drawing.Point(1339, 758);
-            this.eclosed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.eclosed.Name = "eclosed";
-            this.eclosed.Size = new System.Drawing.Size(101, 72);
-            this.eclosed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.eclosed.TabIndex = 46;
-            this.eclosed.TabStop = false;
-            this.eclosed.Visible = false;
-            this.eclosed.Click += new System.EventHandler(this.eclosed_Click);
             // 
             // Specmb
             // 
@@ -445,6 +410,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.pictureBox1);
             this.groupBox3.Controls.Add(this.desEmp);
             this.groupBox3.Controls.Add(this.actEmp);
             this.groupBox3.Controls.Add(this.modEmp);
@@ -454,7 +420,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(669, 670);
+            this.groupBox3.Size = new System.Drawing.Size(669, 832);
             this.groupBox3.TabIndex = 32;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Operations";
@@ -754,6 +720,54 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GestionClinique.Properties.Resources.refresh;
+            this.pictureBox1.Location = new System.Drawing.Point(168, 697);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(116, 89);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 60;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // imageEmp
+            // 
+            this.imageEmp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imageEmp.Location = new System.Drawing.Point(635, 210);
+            this.imageEmp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.imageEmp.Name = "imageEmp";
+            this.imageEmp.Size = new System.Drawing.Size(354, 229);
+            this.imageEmp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imageEmp.TabIndex = 58;
+            this.imageEmp.TabStop = false;
+            this.imageEmp.Click += new System.EventHandler(this.imageEmp_Click);
+            // 
+            // eopen
+            // 
+            this.eopen.Image = global::GestionClinique.Properties.Resources.open;
+            this.eopen.Location = new System.Drawing.Point(1339, 758);
+            this.eopen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eopen.Name = "eopen";
+            this.eopen.Size = new System.Drawing.Size(101, 72);
+            this.eopen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.eopen.TabIndex = 46;
+            this.eopen.TabStop = false;
+            this.eopen.Click += new System.EventHandler(this.eopen_Click);
+            // 
+            // eclosed
+            // 
+            this.eclosed.Image = global::GestionClinique.Properties.Resources.closed;
+            this.eclosed.Location = new System.Drawing.Point(1339, 758);
+            this.eclosed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eclosed.Name = "eclosed";
+            this.eclosed.Size = new System.Drawing.Size(101, 72);
+            this.eclosed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.eclosed.TabIndex = 46;
+            this.eclosed.TabStop = false;
+            this.eclosed.Visible = false;
+            this.eclosed.Click += new System.EventHandler(this.eclosed_Click);
+            // 
             // GererEmployes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -771,9 +785,6 @@
             this.Load += new System.EventHandler(this.GererEmployes_Load);
             this.imgEmp.ResumeLayout(false);
             this.imgEmp.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageEmp)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eopen)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eclosed)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -781,6 +792,10 @@
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageEmp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eopen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eclosed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -845,6 +860,7 @@
         private System.Windows.Forms.Button ajtEmp;
         private System.Windows.Forms.Button desEmp;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.PictureBox pictureBox1;
         //private System.Windows.Forms.Label label9;
 
     }

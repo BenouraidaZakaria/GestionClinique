@@ -139,6 +139,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectionnerDocteur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectionnerDocteur.Designer.cs">
+      <DependentUpon>SelectionnerDocteur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectionnerPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectionnerPatient.Designer.cs">
+      <DependentUpon>SelectionnerPatient.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AcceuilDoctors.resx">
       <DependentUpon>AcceuilDoctors.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +194,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SelectionnerDocteur.resx">
+      <DependentUpon>SelectionnerDocteur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectionnerPatient.resx">
+      <DependentUpon>SelectionnerPatient.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DB_CliniqueDataSet.xsc">
       <DependentUpon>DB_CliniqueDataSet.xsd</DependentUpon>
     </None>
@@ -207,6 +225,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Icons\refresh.png" />
     <None Include="Icons\plus.png" />
     <None Include="Icons\minus.png" />
     <None Include="Icons\login arrow.png" />

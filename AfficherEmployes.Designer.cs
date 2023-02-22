@@ -74,6 +74,7 @@ namespace GestionClinique
             this.EmployesGrid.RowTemplate.Height = 40;
             this.EmployesGrid.Size = new System.Drawing.Size(2968, 1247);
             this.EmployesGrid.TabIndex = 9;
+            this.EmployesGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EmployesGrid_CellClick);
             // 
             // flowLayoutPanel1
             // 
@@ -299,7 +300,6 @@ namespace GestionClinique
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView EmployesGrid;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnAccueil;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnGerPat;
@@ -315,5 +315,6 @@ namespace GestionClinique
         private System.Windows.Forms.Button btnConsultation;
         private System.Windows.Forms.Button btnRendezVous;
         private System.Windows.Forms.Button btnReglage;
+        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

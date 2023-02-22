@@ -15,7 +15,71 @@ namespace GestionClinique
     public partial class GererEmployes : Form
     {
         Connection con = new Connection();
-        String mailext="@docteur.ma";
+        public int ID;
+        public string Type;
+        public bool IsDoc
+        {
+            get { return rbDoc.Checked; }
+            set { rbDoc.Checked = value; }
+        }
+
+        public bool IsSec
+        {
+            get { return rbSec.Checked; }
+            set { rbSec.Checked = value; }
+        }
+        public string Nom
+        {
+            get { return Nomtxt.Text; }
+            set { Nomtxt.Text = value; }
+        }
+        public string Prenom
+        {
+            get { return Pretxt.Text; }
+            set { Pretxt.Text = value; }
+        }
+        public string Mail
+        {
+            get { return Mailtxt.Text; }
+            set { Mailtxt.Text = value; }
+        }
+      
+        public string DateNaissance
+        {
+            get { return dNaissance.Text; }
+            set { dNaissance.Text = value; }
+        }
+        public string MDP
+        {
+            get { return Mdptxt.Text; }
+            set { Mdptxt.Text = value; }
+        }
+        public string Telephone
+        {
+            get { return teletxt.Text; }
+            set { teletxt.Text = value; }
+        }
+        //public string Specailite
+        //{
+        //    get { return Specmb.Text; }
+        //    set { Specmb.Text = value; }
+        //}
+        public string Genre
+        {
+            get { return cmbGenre.Text; }
+            set { cmbGenre.Text = value; }
+        }
+
+
+        //public Image MyImage
+        //{
+        //    get { return imgPatient.Image; }
+        //    set { imgPatient.Image = value; }
+        //}
+
+
+
+        String mailext ="@docteur.ma";
         public GererEmployes()
         {
             InitializeComponent();
@@ -23,6 +87,22 @@ namespace GestionClinique
         private void GererEmployes_Load(object sender, EventArgs e)
         {
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+
+            if (Type == "docteur")
+            {
+                rbDoc.Checked = true;
+                rbSec.Enabled = false;
+                ajtEmp.Enabled = false;
+            }
+            else if (Type == "secretaire")
+            {
+                rbSec.Checked = true;
+                Specmb.SelectedIndex = -1;
+                Specmb.Enabled = false;
+                rbDoc.Enabled = false;
+                ajtEmp.Enabled = false;
+            }
+
         }
         private void rbDoc_CheckedChanged_1(object sender, EventArgs e)
         {
@@ -72,62 +152,12 @@ namespace GestionClinique
 
         private void select_Click(object sender, EventArgs e)
         {
-            // Create a new form to contain the DataGridView, label, and buttons
-            Form form = new Form();
-            form.ClientSize = new Size(1000, 630);
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.Text = "Liste d'Employés";
-
-            // Create a new instance of the Label
-            Label label = new Label();
-            label.Text = "Sélectionnez un employé";
-            label.Location = new Point(25, 25);
-            label.Size = new Size(200, 25);
-            // Add the Label to the form
-            form.Controls.Add(label);
-
-            // Create a new instance of the DataGridView
-            DataGridView dgv = new DataGridView();
-            // Set the properties of the DataGridView
-            dgv.Size = new Size(950, 500);
-            dgv.Location = new Point(25, 50);
-            dgv.AllowUserToAddRows = false;
-            // Add the DataGridView to the form
-            form.Controls.Add(dgv);
-            con.remplir(dgv, "EMPLOYEE");
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-
-
-            // Create a new instance of the OK button
-            Button okButton = new Button();
-            okButton.Text = "OK";
-            okButton.DialogResult = DialogResult.OK;
-            okButton.Location = new Point(450, 570);
-            // Add the OK button to the form
-            form.Controls.Add(okButton);
-
-            // Create a new instance of the Cancel button
-            Button cancelButton = new Button();
-            cancelButton.Text = "Cancel";
-            cancelButton.DialogResult = DialogResult.Cancel;
-            cancelButton.Location = new Point(550, 570);
-            // Add the Cancel button to the form
-            form.Controls.Add(cancelButton);
-
-            // Show the form as a modal dialog
-            DialogResult result = form.ShowDialog();
-
-            if (result == DialogResult.OK)
-            {
-                // Code to handle the OK button click
-                int selectedId = Convert.ToInt32(dgv.SelectedRows[0].Cells[0].Value);
-            }
-            else if (result == DialogResult.Cancel)
-            {
-                // Code to handle the Cancel button click
-                form.Close();
-            }
+            AfficherEmployes f = new AfficherEmployes();
+            //f.SetInvisibilityAndTriggerEvent(); // Call the method to set invisibility and trigger event
+            f.flowLayoutPanel1.Visible = false;
+            f.Show();
+            //f.SetInvisibilityAndTriggerEvent();
+            this.Hide();
         }
         FormC f = new FormC();
 
@@ -276,6 +306,24 @@ namespace GestionClinique
             Program.typeuser = "";
             f.Show();
             this.Hide();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            ajtEmp.Enabled = true;
+            Nomtxt.Text = "";
+            Pretxt.Text = "";
+            Mailtxt.Text = "";
+            Mdptxt.Text = "";
+            Specmb.SelectedIndex = -1;
+            cmbGenre.Text = "";
+            dNaissance.Text = "";
+            teletxt.Text = "";
+            rbDoc.Enabled = true;
+            rbDoc.Checked = true;
+            rbSec.Enabled = true;
+            rbSec.Checked = false;
+
         }
     }
 }

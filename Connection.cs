@@ -92,7 +92,31 @@ namespace GestionClinique
             }
                 return etat;
         }
+        public void select(string TableName, int id, DataTable dt)
+        {
+            dt.Clear();
 
+            if (TableName.Equals("PATIENT"))
+            {
+                connecter();
+                cmd.Connection = con;
+                cmd.CommandText = "SELECT * FROM PATIENT where IDPATIENT=@idp";
+                cmd.Parameters.AddWithValue("@idp", id);
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+                deConnecter();
+            }
+            else if (TableName.Equals("DOCTEUR"))
+            {
+                connecter();
+                cmd.Connection = con;
+                cmd.CommandText = "SELECT * FROM DOCTEUR where IDDOCTEUR=@idd";
+                cmd.Parameters.AddWithValue("@idd", id);
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+                deConnecter();
+            }
+        }
         public void remplir(DataGridView dgv, string TableName)
         {
             DataTable dt = new DataTable();
@@ -102,7 +126,7 @@ namespace GestionClinique
             {
                 connecter();
                 cmd.Connection = con;
-                cmd.CommandText = "SELECT IDEMPLOYEE as 'ID', NOM as 'Nom', PRENOM as 'Prenom', DATE_NAISSANCE as 'Date de Naissance', GENRE as 'Genre', TELEPHONE as 'Telephone', TYPE as 'Type', EMAIL as 'Emial' FROM EMPLOYEE";
+                cmd.CommandText = "SELECT * FROM EMPLOYEE";
                 da.SelectCommand = cmd;
                 da.Fill(dt);
                 deConnecter();

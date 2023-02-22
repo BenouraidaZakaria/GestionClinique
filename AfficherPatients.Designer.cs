@@ -312,7 +312,6 @@ namespace GestionClinique
         private System.Windows.Forms.DataGridView PatientsGrid;
         private System.Windows.Forms.BindingSource patientsBindingSource;
         private DB_CliniqueDataSetTableAdapters.PatientsTableAdapter patientsTableAdapter;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnAccueil;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnGerPat;
@@ -328,5 +327,6 @@ namespace GestionClinique
         private System.Windows.Forms.Button btnConsultation;
         private System.Windows.Forms.Button btnRendezVous;
         private System.Windows.Forms.Button btnlogout;
+        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

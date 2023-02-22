@@ -14,11 +14,61 @@ namespace GestionClinique
 {
     public partial class GererConsultations : Form
     {
+        public int ID;
+        public int IDP;
+        public int IDD;
+        public string NomD
+        {
+            get { return textDoc.Text; }
+            set { textDoc.Text +=value; }
+        }
+        public string PreD
+        {
+            get { return textDoc.Text; }
+            set { textDoc.Text += " " + value; }
+        }
+        public string NameP
+        {
+            get { return textPat.Text; }
+            set { textPat.Text += value; }
+        }
+        public string PreP
+        {
+            get { return textPat.Text; }
+            set { textPat.Text +=" " +value; }
+        }
+        public DateTime DateConsultation
+        {
+            get { return dateTimePicker1.Value; }
+            set { dateTimePicker1.Value = value; }
+        }
+
+        public string Traitement
+        {
+            get { return listtrai.Text; }
+            set { listtrai.Items.Add(value); }
+        }
+        public string Diagnostic
+        {
+            get { return listdiag.Text; }
+            set
+            {
+                listdiag.Items.Add(value);
+            }
+        }
         Connection con = new Connection();
 
-        public GererConsultations()
+        public GererConsultations(int id, int idP, int idD, DateTime date, string traitement, string diagnostic)
         {
             InitializeComponent();
+            // set the values of the controls in the GererConsultations form
+            this.ID = id;
+            this.IDP = idP;
+            this.IDD = idD;
+            this.DateConsultation = date;
+            this.Traitement = traitement;
+            this.Diagnostic = diagnostic;
+            // ... set the values of other controls as needed
         }
         private void imagePrescription_Click(object sender, EventArgs e)
         {
@@ -141,8 +191,11 @@ namespace GestionClinique
         }
         private void select_Click(object sender, EventArgs e)
         {
-
-            createDGV("CONSULTATION");
+            AfficherConsultations f = new  AfficherConsultations();
+            //f.SetInvisibilityAndTriggerEvent(); // Call the method to set invisibility and trigger event
+            f.flowLayoutPanel1.Visible = false;
+            f.Show();
+            //f.SetInvisibilityAndTriggerEvent();
 
         }
         FormC f = new FormC();
@@ -236,12 +289,18 @@ namespace GestionClinique
 
         private void slctDoc_Click(object sender, EventArgs e)
         {
-            createDGV("DOCTEUR");
+            SelectionnerDocteur f = new SelectionnerDocteur();
+            //f.SetInvisibilityAndTriggerEvent(); // Call the method to set invisibility and trigger event
+            f.Show();
+            //f.SetInvisibilityAndTriggerEvent();
         }
 
         private void slctPat_Click(object sender, EventArgs e)
         {
-            createDGV("PATIENT");
+            SelectionnerPatient f = new SelectionnerPatient();
+            //f.SetInvisibilityAndTriggerEvent(); // Call the method to set invisibility and trigger event
+            f.Show();
+            //f.SetInvisibilityAndTriggerEvent();
         }
 
         private void btnlogout_Click(object sender, EventArgs e)
