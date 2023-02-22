@@ -21,8 +21,21 @@ namespace GestionClinique
         private void AfficherConsultations_Load(object sender, EventArgs e)
         {
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
-            con.remplir(ConsultationsGrid, "CONSULTATION");
-            ConsultationsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            if (Program.typeuser == "docteur")
+            {
+                con.remplir(ConsultationsGrid, "CONSULTATION", Program.iduser);
+                ConsultationsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                panel2.Visible = false;
+                btnGerPat.Visible = false;
+                btnGerCon.Visible = false;
+
+            }
+            else if (Program.typeuser == "secretaire")
+            {
+                con.remplir(ConsultationsGrid, "CONSULTATION");
+                ConsultationsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
 
         }
         FormC f = new FormC();
@@ -32,21 +45,45 @@ namespace GestionClinique
         static Boolean etatBtnConsultation = true;
         private void btnAccueil_Click(object sender, EventArgs e)
         {
-            f.formInstance("AccueilSecretaire");
-            this.Hide();
+            if (Program.typeuser == "docteur")
+            {
+                f.formInstance("AcceuilDoctors");
+                this.Hide();
+            }
+            else if (Program.typeuser == "secretaire")
+            {
+                f.formInstance("AccueilSecretaire");
+                this.Hide();
+            }
         }
 
         private void btnPatients_Click(object sender, EventArgs e)
         {
-            if (etatBtnPatient)
+            if (Program.typeuser == "docteur")
             {
-                panel1.Height += 72;
-                etatBtnPatient = false;
+                if (etatBtnPatient)
+                {
+                    panel1.Height += 36;
+                    etatBtnPatient = false;
+                }
+                else
+                {
+                    panel1.Height -= 36;
+                    etatBtnPatient = true;
+                }
             }
-            else
+            else if (Program.typeuser == "secretaire")
             {
-                panel1.Height -= 72;
-                etatBtnPatient = true;
+                if (etatBtnPatient)
+                {
+                    panel1.Height += 72;
+                    etatBtnPatient = false;
+                }
+                else
+                {
+                    panel1.Height -= 72;
+                    etatBtnPatient = true;
+                }
             }
         }
 
@@ -90,15 +127,31 @@ namespace GestionClinique
 
         private void btnConsultation_Click(object sender, EventArgs e)
         {
-            if (etatBtnConsultation)
+            if (Program.typeuser == "docteur")
             {
-                panel3.Height += 72;
-                etatBtnConsultation = false;
+                if (etatBtnConsultation)
+                {
+                    panel3.Height += 36;
+                    etatBtnPatient = false;
+                }
+                else
+                {
+                    panel3.Height -= 36;
+                    etatBtnPatient = true;
+                }
             }
-            else
+            else if (Program.typeuser == "secretaire")
             {
-                panel3.Height -= 72;
-                etatBtnConsultation = true;
+                if (etatBtnConsultation)
+                {
+                    panel3.Height += 72;
+                    etatBtnPatient = false;
+                }
+                else
+                {
+                    panel3.Height -= 72;
+                    etatBtnPatient = true;
+                }
             }
         }
 

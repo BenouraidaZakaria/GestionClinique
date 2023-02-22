@@ -50,6 +50,7 @@ namespace GestionClinique
                         // si l'email contient '@docteur.ma' on va cherecher dans la table docteur
                         if (con.login("EMPLOYEE", txtEmail.Text.ToString(), txtPassword.Text.ToString()))
                         {
+                            MessageBox.Show(Program.iduser.ToString());
                             // si docteur connecter avec les donnees correcte on va eregistrer son email
                             AcceuilDoctors f = new AcceuilDoctors();
                             f.Show();

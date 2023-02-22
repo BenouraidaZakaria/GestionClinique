@@ -17,6 +17,11 @@ namespace GestionClinique
                 f = new AccueilSecretaire();
                 f.Show();
             }
+            else if (nomForm == "AcceuilDoctors")
+            {
+                f = new AcceuilDoctors();
+                f.Show();
+            }
             else if (nomForm == "AfficherConsultations")
             {
                 f = new AfficherConsultations();
