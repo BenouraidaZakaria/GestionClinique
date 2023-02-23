@@ -194,11 +194,15 @@ namespace GestionClinique
                     con.select("PATIENT", selectedPatientID, patientTable);
                     existingForm.NameP = patientTable.Rows[0]["NOM"].ToString();
                     existingForm.PreP = patientTable.Rows[0]["PRENOM"].ToString();
-                    int selectedDoctorID = (int)selectedRow.Cells["ID Docteur"].Value;
+
+                    existingForm.textPat.Text = existingForm.NameP.Trim() + ' ' + existingForm.PreP.Trim();
+                    int selectedDoctorID = (int)selectedRow.Cells["ID DOCTEUR"].Value;
+
                     DataTable doctorTable = new DataTable();
                     con.select("DOCTEUR", selectedDoctorID, doctorTable);
                     existingForm.NomD = doctorTable.Rows[0]["NOM"].ToString();
                     existingForm.PreD = doctorTable.Rows[0]["PRENOM"].ToString();
+                    existingForm.textDoc.Text = existingForm.NomD.Trim() + ' ' + existingForm.PreD.Trim();
                 }
                 else
                 {

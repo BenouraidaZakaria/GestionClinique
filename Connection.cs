@@ -497,7 +497,7 @@ namespace GestionClinique
 
 
         // consultation
-        public Boolean ajouterConsultation(int idSecretaire, int idDocteur, int idPatient, DateTime date, string traitement, string prescription, string diagnostic)
+        public Boolean ajouterConsultation(int idSecretaire, int idDocteur, int idPatient, DateTime date, string heure, string traitement, string prescription, string diagnostic)
         {
             Boolean etat = false;
 
@@ -508,9 +508,10 @@ namespace GestionClinique
 
             cmd.Parameters.Clear();
 
-            cmd.CommandText = "insert into CONSULTATION(DATE,TRAITEMENT,PRESCRIPTION,DIAGNOSTIC) " +
-                                "values(@date,@trait,@presc,@diagno)";
+            cmd.CommandText = "insert into CONSULTATION(DATE,HEURE,TRAITEMENT,PRESCRIPTION,DIAGNOSTIC) " +
+                                "values(@date,convert(hour,@heure),@trait,@presc,@diagno)";
             cmd.Parameters.AddWithValue("@date", date);
+            cmd.Parameters.AddWithValue("@heure", date);
             cmd.Parameters.AddWithValue("@trait", traitement);
             cmd.Parameters.AddWithValue("@presc", prescription);
             cmd.Parameters.AddWithValue("@diagno", diagnostic);
