@@ -17,26 +17,15 @@ namespace GestionClinique
         public int ID;
         public int IDP;
         public int IDD;
-        public string NomD
-        {
-            get { return textDoc.Text; }
-            set { textDoc.Text +=value; }
-        }
-        public string PreD
-        {
-            get { return textDoc.Text; }
-            set { textDoc.Text += " " + value; }
-        }
-        public string NameP
-        {
-            get { return textPat.Text; }
-            set { textPat.Text += value; }
-        }
-        public string PreP
-        {
-            get { return textPat.Text; }
-            set { textPat.Text +=" " +value; }
-        }
+        public string NomD;
+
+        public string PreD;
+
+        public string NameP;
+
+        public string PreP;
+
+
         public DateTime DateConsultation
         {
             get { return dateTimePicker1.Value; }
@@ -120,6 +109,21 @@ namespace GestionClinique
             DateTime now = DateTime.Now;
             String imgname = now.ToString("yyyyMMddHHmmssfff") + ".jpg";
             File.Copy(imagePrescText.Text, Application.StartupPath + @"\IMAGES\PRESCRIPTION\" + imgname);
+            string traitements = "";
+            string diagnostics = "";
+            for (int i = 0; i < listtrai.Items.Count; i++)
+            {
+                traitements += listtrai.Items[i].ToString() + "\n";
+            }
+            for (int i = 0; i < listdiag.Items.Count; i++)
+            {
+                diagnostics += listdiag.Items[i].ToString() + "\n";
+            }
+            con.ajouterConsultation(Program.iduser, IDD, IDP, DateTime.Parse(dateTimePicker1.Text), dateTimePicker2.Text.ToString(), traitements, imgname, diagnostics);
+            textDoc.Text = textPat.Text = dateTimePicker1.Text = dateTimePicker2.Text = "";
+            imagePrescription.Image = null;
+            listtrai.Items.Clear();
+            listdiag.Items.Clear();
         }
 
         private void modifier_Click(object sender, EventArgs e)
