@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -136,9 +137,13 @@ namespace GestionClinique
                 otherForm.Mail = selectedRow.Cells["EMAIL"].Value.ToString();
                 otherForm.MDP = selectedRow.Cells["MOT_PASSE"].Value.ToString();
                 otherForm.Genre = selectedRow.Cells["GENRE"].Value.ToString();
+
+                string ImgPath = Path.Combine(Application.StartupPath, "IMAGES", selectedRow.Cells["IMAGE"].Value.ToString());
+
+                Image image = Image.FromFile(ImgPath + ".jpg");
+                otherForm.imageEmp.Image = image;
                 //otherForm.Specailite = selectedRow.Cells["SPECIALITE"].Value.ToString();
                 // ... set the values of other controls as needed
-                MessageBox.Show(otherForm.Type);
                 if (otherForm.Type == "docteur")
                 {
                     otherForm.IsDoc = true;

@@ -198,8 +198,13 @@ namespace GestionClinique
                         {
                             string imagePath = Path.Combine(Application.StartupPath, "IMAGES", imageName + ".jpg");
 
-                            Image image = Image.FromFile(imagePath);
-                            row["IMAGE_DISPLAY"] = image;
+                            Image originalImage = Image.FromFile(imagePath);
+
+                            // Create a new image with the desired size
+                            Image resizedImage = new Bitmap(originalImage, new Size(50, 50));
+
+                            // Set the "IMAGE_DISPLAY" column value to the resized image
+                            row["IMAGE_DISPLAY"] = resizedImage; ;
                         }
                         catch (Exception ex)
                         {
@@ -207,7 +212,13 @@ namespace GestionClinique
                         }
                     }
                 }
-
+                if (tableName.Equals("EMPLOYEE")){
+                    dgv.DataSource = dt;
+                    dgv.Columns["MOT_PASSE"].Visible = false;
+                    dgv.Columns["IMAGE"].Visible = false;
+                }
+                dgv.DataSource = dt;
+                dgv.Columns["IMAGE"].Visible= false;
                 // Remove the original IMAGE column
                 //dt.Columns.Remove("IMAGE");
             }
@@ -223,7 +234,7 @@ namespace GestionClinique
                 
                 // Add new column for displaying images
                 dt.Columns.Add("PRESCRIPTION_IMG", typeof(Image));
-                dt.Columns["PRESCRIPTION_IMG"].SetOrdinal(0);
+                dt.Columns["PRESCRIPTION_IMG"].SetOrdinal(4);
                 // Loop through the rows and load images into new column
                 foreach (DataRow row in dt.Rows)
                 {
@@ -234,8 +245,13 @@ namespace GestionClinique
                         {
                             string imagePath = Path.Combine(Application.StartupPath, "IMAGES", imageName + ".jpg");
 
-                            Image image = Image.FromFile(imagePath);
-                            row["PRESCRIPTION_IMG"] = image;
+                            Image originalImage = Image.FromFile(imagePath);
+
+                            // Create a new image with the desired size
+                            Image resizedImage = new Bitmap(originalImage, new Size(50, 50));
+
+                            // Set the "IMAGE_DISPLAY" column value to the resized image
+                            row["PRESCRIPTION_IMG"] = resizedImage;
                         }
                         catch (Exception ex)
                         {
@@ -245,10 +261,10 @@ namespace GestionClinique
                 }
 
                 // Remove the original IMAGE column
-                dt.Columns.Remove("PRESCRIPTION");
+                //dt.Columns.Remove("PRESCRIPTION");
+                dgv.DataSource = dt;
+                dgv.Columns["PRESCRIPTION"].Visible=false;
             }
-        
-            dgv.DataSource = dt;
         }
 
 

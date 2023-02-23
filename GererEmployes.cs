@@ -316,13 +316,15 @@ namespace GestionClinique
             Mailtxt.Text = "";
             Mdptxt.Text = "";
             Specmb.SelectedIndex = -1;
-            cmbGenre.Text = "";
-            dNaissance.Text = "";
+            cmbGenre.SelectedIndex = -1;
+            dNaissance.Value = new DateTime(2000,1,1);
             teletxt.Text = "";
             rbDoc.Enabled = true;
             rbDoc.Checked = true;
             rbSec.Enabled = true;
             rbSec.Checked = false;
+            imageEmp.Image= null;
+
 
         }
     }

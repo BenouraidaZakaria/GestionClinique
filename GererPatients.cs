@@ -323,5 +323,19 @@ namespace GestionClinique
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            txtNom.Text = "";
+            txtPrenom.Text = "";
+            cmbSexe.SelectedIndex = -1;
+            txtTelephone.Text = "";
+            datpickNaissance.Value=DateTime.Now;
+            txtEmail.Text = "";
+            txtAdresse.Text = "";
+            cmbassur.SelectedIndex = -1; ;
+            lisAll.Items.Clear();
+            imagePatient.Image = null;
+        }
     }
 }
