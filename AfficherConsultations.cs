@@ -181,7 +181,7 @@ namespace GestionClinique
                 if (existingForm != null)
                 {
                     // if an instance of the GererConsultations form already exists, pass the data to it
-                    existingForm.ID = (int)selectedRow.Cells["ID"].Value;
+                    existingForm.ID = (int)selectedRow.Cells["IDCONSULTATION"].Value;
                     existingForm.IDP = (int)selectedRow.Cells["ID Patient"].Value;
                     existingForm.IDD = (int)selectedRow.Cells["ID Docteur"].Value;
 
@@ -194,7 +194,7 @@ namespace GestionClinique
                     con.select("PATIENT", selectedPatientID, patientTable);
                     existingForm.NameP = patientTable.Rows[0]["NOM"].ToString();
                     existingForm.PreP = patientTable.Rows[0]["PRENOM"].ToString();
-                    int selectedDoctorID = (int)selectedRow.Cells["ID DOCTEUR"].Value;
+                    int selectedDoctorID = (int)selectedRow.Cells["ID Docteur"].Value;
                     DataTable doctorTable = new DataTable();
                     con.select("DOCTEUR", selectedDoctorID, doctorTable);
                     existingForm.NomD = doctorTable.Rows[0]["NOM"].ToString();
