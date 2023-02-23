@@ -186,9 +186,9 @@ namespace GestionClinique
                 DataGridViewRow selectedRow = PatientsGrid.Rows[e.RowIndex];
                 // rest of the code to get the data from the selected row
 
-               
-                    // create a new instance of the other form
-                    GererPatients otherForm = new GererPatients();
+
+                // create a new instance of the other form
+                GererPatients otherForm = new GererPatients();
 
                     // set the values of the controls in the other form
                     otherForm.ID = (int)selectedRow.Cells["IDPATIENT"].Value;
@@ -200,10 +200,14 @@ namespace GestionClinique
                     otherForm.Email = selectedRow.Cells["EMAIL"].Value.ToString();
                     otherForm.Sexe = selectedRow.Cells["GENRE"].Value.ToString();
                     otherForm.Assurance = selectedRow.Cells["ASSURANCE"].Value.ToString();
-                    // ... set the values of other controls as needed
+                    otherForm.Allergie= selectedRow.Cells["ALLERGIE"].Value.ToString();
+                // ... set the values of other controls as needed
+                string patImgPath = Path.Combine(Application.StartupPath, "IMAGES", selectedRow.Cells["IMAGE"].Value.ToString());
 
-                    // show the other form
-                    otherForm.Show();
+                Image patientImage = Image.FromFile(patImgPath + ".jpg");
+                otherForm.imagePatient.Image = patientImage;
+                // show the other form
+                otherForm.Show();
                     this.Hide();
                 }
             else

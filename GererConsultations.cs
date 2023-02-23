@@ -18,9 +18,9 @@ namespace GestionClinique
         public int IDP;
         public int IDD;
         public string NomD;
-
+        public string prescription;
         public string PreD;
-
+        private Timer timer;
         public string NameP;
 
         public string PreP;
@@ -57,6 +57,10 @@ namespace GestionClinique
             this.DateConsultation = date;
             this.Traitement = traitement;
             this.Diagnostic = diagnostic;
+            timer = new Timer();
+            timer.Interval = 1000;
+            timer.Tick += Timer_Tick;
+            timer.Start();
             // ... set the values of other controls as needed
         }
         private void imagePrescription_Click(object sender, EventArgs e)
@@ -278,7 +282,14 @@ namespace GestionClinique
                 etatBtnConsultation = true;
             }
         }
-
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            // Check the condition and update UI
+            if (textDoc.Text != "" && textPat.Text != "")
+            {
+                select.Enabled = false;
+            }
+        }
         private void btnAffCon_Click(object sender, EventArgs e)
         {
             f.formInstance("AfficherConsultations");
@@ -289,7 +300,7 @@ namespace GestionClinique
         {
             f.formInstance("GererConsultations");
             this.Hide();
-        }
+                  }
 
         private void slctDoc_Click(object sender, EventArgs e)
         {
@@ -316,6 +327,17 @@ namespace GestionClinique
             Program.typeuser = "";
             f.Show();
             this.Hide();
+        }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            textDoc.Text = "";
+            textPat.Text = "";
+            dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker2.Value= DateTime.Now;
+            listdiag.Items.Clear();
+            listtrai.Items.Clear();
+            imagePrescription.Image = null;
+            select.Enabled = true;
         }
     }
 }

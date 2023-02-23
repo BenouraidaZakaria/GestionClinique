@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -180,6 +181,10 @@ namespace GestionClinique
 
                 if (existingForm != null)
                 {
+                    string prescriptionImagePath = Path.Combine(Application.StartupPath, "IMAGES", selectedRow.Cells["PRESCRIPTION"].Value.ToString());
+
+                    Image prescriptionImage = Image.FromFile(prescriptionImagePath + ".jpg");
+                    existingForm.imagePrescription.Image = prescriptionImage;
                     // if an instance of the GererConsultations form already exists, pass the data to it
                     existingForm.ID = (int)selectedRow.Cells["ID"].Value;
                     existingForm.IDP = (int)selectedRow.Cells["ID Patient"].Value;

@@ -78,6 +78,7 @@ namespace GestionClinique
             this.btnRendezVous = new System.Windows.Forms.Button();
             this.btnlogout = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rmvtall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addall)).BeginInit();
@@ -88,6 +89,7 @@ namespace GestionClinique
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -229,7 +231,7 @@ namespace GestionClinique
             // datpickNaissance
             // 
             this.datpickNaissance.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datpickNaissance.Location = new System.Drawing.Point(1528, 863);
+            this.datpickNaissance.Location = new System.Drawing.Point(573, 362);
             this.datpickNaissance.Margin = new System.Windows.Forms.Padding(8, 5, 8, 5);
             this.datpickNaissance.Name = "datpickNaissance";
             this.datpickNaissance.Size = new System.Drawing.Size(636, 61);
@@ -408,6 +410,7 @@ namespace GestionClinique
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Controls.Add(this.supprimer);
             this.groupBox2.Controls.Add(this.modifier);
             this.groupBox2.Controls.Add(this.ajouter);
@@ -643,6 +646,17 @@ namespace GestionClinique
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GestionClinique.Properties.Resources.refresh;
+            this.pictureBox1.Location = new System.Drawing.Point(177, 609);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(116, 89);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 61;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // GererPatients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -669,6 +683,7 @@ namespace GestionClinique
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -677,7 +692,6 @@ namespace GestionClinique
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox imagePatient;
         private System.Windows.Forms.ComboBox cmbSexe;
         private System.Windows.Forms.DateTimePicker datpickNaissance;
         private System.Windows.Forms.TextBox txtAdresse;
@@ -724,5 +738,7 @@ namespace GestionClinique
         private System.Windows.Forms.PictureBox rmvtall;
         private System.Windows.Forms.PictureBox addall;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        public System.Windows.Forms.PictureBox imagePatient;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

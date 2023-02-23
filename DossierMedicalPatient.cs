@@ -223,7 +223,6 @@ namespace GestionClinique
                 string dateConsultation = selectedRow.Cells["DATE"].Value.ToString();
                 string traitement = selectedRow.Cells["TRAITEMENT"].Value.ToString();
                 string diagnostic = selectedRow.Cells["DIAGNOSTIC"].Value.ToString();
-                string prescriptionImagePath = Path.Combine(Application.StartupPath, "IMAGES", selectedRow.Cells["PRESCRIPTION"].Value.ToString());
                 string nomP = selectedRow.Cells["NOM PATIENT"].Value.ToString();
                 string prenomP = selectedRow.Cells["PRENOM PATIENT"].Value.ToString();
 
@@ -237,6 +236,8 @@ namespace GestionClinique
                 otherForm.Diagnostic = diagnostic;
                 otherForm.Npat = nomP;
                 otherForm.Ppat = prenomP;
+                string prescriptionImagePath = Path.Combine(Application.StartupPath, "IMAGES", selectedRow.Cells["PRESCRIPTION"].Value.ToString());
+
                 Image prescriptionImage = Image.FromFile(prescriptionImagePath+".jpg");
                      otherForm.prescImg.Image = prescriptionImage;
                 //use the value int prescription to display the image in other form and get it from bin/debug/IMAGES

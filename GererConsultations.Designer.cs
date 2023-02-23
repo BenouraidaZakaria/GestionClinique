@@ -74,6 +74,7 @@
             this.btnConsultation = new System.Windows.Forms.Button();
             this.btnRendezVous = new System.Windows.Forms.Button();
             this.btnlogout = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rmvtrai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addtrai)).BeginInit();
@@ -85,6 +86,7 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -360,6 +362,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Controls.Add(this.supprimer);
             this.groupBox2.Controls.Add(this.modifier);
             this.groupBox2.Controls.Add(this.ajouter);
@@ -624,11 +627,22 @@
             this.btnlogout.UseVisualStyleBackColor = true;
             this.btnlogout.Click += new System.EventHandler(this.btnlogout_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GestionClinique.Properties.Resources.refresh;
+            this.pictureBox1.Location = new System.Drawing.Point(168, 619);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(116, 89);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 61;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // GererConsultations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(3379, 1653);
+            this.ClientSize = new System.Drawing.Size(3572, 1653);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.select);
             this.Controls.Add(this.label10);
@@ -651,6 +665,7 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -671,7 +686,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.PictureBox imagePrescription;
         private System.Windows.Forms.TextBox imagePrescText;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.ListBox listtrai;
@@ -703,5 +717,7 @@
         private System.Windows.Forms.Button slctDoc;
         public System.Windows.Forms.TextBox textPat;
         public System.Windows.Forms.TextBox textDoc;
+        public System.Windows.Forms.PictureBox imagePrescription;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
