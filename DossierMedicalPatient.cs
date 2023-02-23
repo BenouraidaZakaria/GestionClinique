@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Data.SqlTypes;
 
 namespace GestionClinique
 {
@@ -14,7 +17,12 @@ namespace GestionClinique
     {
         Connection con = new Connection();
         public int ID;
-       
+        public string patImage;
+        public string PatImage
+        {
+            get { return patImage; }
+            set { patImage = value; }
+        }
         public string Nom
         {
             get { return txtnom.Text; }
@@ -55,11 +63,14 @@ namespace GestionClinique
             get { return txtassu.Text; }
             set { txtassu.Text = value; }
         }
-        //public Image MyImage
-        //{
-        //    get { return imgPatient.Image; }
-        //    set { imgPatient.Image = value; }
-        //}
+        public string Allergies
+        {
+            get { return listAll.Text; }
+            set
+            {
+                listAll.Items.Add(value);
+            }
+        }
         public DossierMedicalPatient()
         {
             InitializeComponent();
@@ -74,9 +85,9 @@ namespace GestionClinique
         }
         FormC f = new FormC();
 
-        static Boolean etatBtnPatient = true;
-        static Boolean etatBtnEmployes = true;
-        static Boolean etatBtnConsultation = true;
+        //static Boolean etatBtnPatient = true;
+        //static Boolean etatBtnEmployes = true;
+        //static Boolean etatBtnConsultation = true;
         private void btnAccueil_Click(object sender, EventArgs e)
         {
             if (Program.typeuser == "docteur")
@@ -208,34 +219,30 @@ namespace GestionClinique
                 DataGridViewRow selectedRow = congrid.Rows[e.RowIndex];
                 // rest of the code to get the data from the selected row
 
-                    int idConsultation = (int)selectedRow.Cells["IDCONSULTATION"].Value;
-                    string dateConsultation = selectedRow.Cells["DATE"].Value.ToString();
-                    string traitement = selectedRow.Cells["TRAITEMENT"].Value.ToString();
-                    string diagnostic = selectedRow.Cells["DIAGNOSTIC"].Value.ToString();
-                    // create a new instance of the other form
-                    AfficherConsultation otherForm = new AfficherConsultation();
+                int idConsultation = (int)selectedRow.Cells["IDCONSULTATION"].Value;
+                string dateConsultation = selectedRow.Cells["DATE"].Value.ToString();
+                string traitement = selectedRow.Cells["TRAITEMENT"].Value.ToString();
+                string diagnostic = selectedRow.Cells["DIAGNOSTIC"].Value.ToString();
+                string prescriptionImagePath = Path.Combine(Application.StartupPath, "IMAGES", selectedRow.Cells["PRESCRIPTION"].Value.ToString());
+                string nomP = selectedRow.Cells["NOM PATIENT"].Value.ToString();
+                string prenomP = selectedRow.Cells["PRENOM PATIENT"].Value.ToString();
 
-                    // set the values of the controls in the other form
-                    otherForm.ID = idConsultation;
-                    otherForm.DateConsultation = dateConsultation;
-                    otherForm.Traitement = traitement;
-                    otherForm.Diagnostic = diagnostic;
+                // create a new instance of the other form
+                AfficherConsultation otherForm = new AfficherConsultation();
+                otherForm.Height = 570;
+                // set the values of the controls in the other form
+                otherForm.ID = idConsultation;
+                otherForm.DateConsultation = dateConsultation;
+                otherForm.Traitement = traitement;
+                otherForm.Diagnostic = diagnostic;
+                otherForm.Npat = nomP;
+                otherForm.Ppat = prenomP;
+                Image prescriptionImage = Image.FromFile(prescriptionImagePath+".jpg");
+                     otherForm.prescImg.Image = prescriptionImage;
+                //use the value int prescription to display the image in other form and get it from bin/debug/IMAGES
                 otherForm.ShowDialog();
-
-                //otherForm.PRESCRIPTION = selectedRow.Cells["PRESCRIPTION"].Value.ToString();
-
-                //string imageName = selectedRow.Cells["IMAGE"].Value.ToString();
-                //string imagePath = Path.Combine(Application.StartupPath, "IMAGES", "PROFILE", imageName);
-
-                //if (File.Exists(imagePath))
-                //{
-                //    Image image = Image.FromFile(imagePath);
-                //    otherForm.MyImage = image;
-                //}
-                //else
-                //{
-                //    MessageBox.Show("The image file does not exist.");
-                //}
+    
+           
             }
         }
 

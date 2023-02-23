@@ -48,7 +48,7 @@
             this.PatientsGrid.Name = "PatientsGrid";
             this.PatientsGrid.RowHeadersWidth = 102;
             this.PatientsGrid.RowTemplate.Height = 40;
-            this.PatientsGrid.Size = new System.Drawing.Size(2619, 375);
+            this.PatientsGrid.Size = new System.Drawing.Size(2619, 494);
             this.PatientsGrid.TabIndex = 23;
             this.PatientsGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientsGrid_CellClick);
             // 

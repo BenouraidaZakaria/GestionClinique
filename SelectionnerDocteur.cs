@@ -37,7 +37,7 @@ namespace GestionClinique
                 GererConsultations otherForm = Application.OpenForms.OfType<GererConsultations>().FirstOrDefault();
 
                 // set the values of the controls in the other form
-                otherForm.IDD = (int)selectedRow.Cells["ID"].Value;
+                otherForm.IDD = (int)selectedRow.Cells["IDDOCTEUR"].Value;
                 otherForm.NomD = (string)selectedRow.Cells["NOM"].Value;
                 otherForm.PreD = (string)selectedRow.Cells["PRENOM"].Value;
                 // ... set the values of other controls as needed
