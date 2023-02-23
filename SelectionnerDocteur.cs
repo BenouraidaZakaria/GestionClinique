@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Xml.Linq;
 
 namespace GestionClinique
 {
@@ -40,6 +42,7 @@ namespace GestionClinique
                 otherForm.PreD = (string)selectedRow.Cells["PRENOM"].Value;
                 // ... set the values of other controls as needed
                 // show the other form
+                otherForm.textDoc.Text = otherForm.NomD + ' ' + otherForm.PreD;
                 otherForm.Show();
                 this.Hide();
             }

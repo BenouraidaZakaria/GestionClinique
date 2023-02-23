@@ -38,6 +38,10 @@ namespace GestionClinique
                 consultationsForm.IDP = (int)selectedRow.Cells["IDPATIENT"].Value;
                 consultationsForm.NameP = (string)selectedRow.Cells["NOM"].Value;
                 consultationsForm.PreP = (string)selectedRow.Cells["PRENOM"].Value;
+
+                consultationsForm.textPat.Text = consultationsForm.NameP.Trim() + ' ' + consultationsForm.PreP.Trim();
+
+
                 // ... set the values of other controls as needed
                 // show the GererConsultations form
                 consultationsForm.Show();
