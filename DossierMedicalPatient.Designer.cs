@@ -32,7 +32,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.congrid = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtall = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.txtassu = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -54,6 +53,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAccueil = new System.Windows.Forms.Button();
             this.btnlogout = new System.Windows.Forms.Button();
+            this.listAll = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.congrid)).BeginInit();
@@ -97,7 +97,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtall);
+            this.groupBox2.Controls.Add(this.listAll);
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.txtassu);
             this.groupBox2.Controls.Add(this.label15);
@@ -122,15 +122,6 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Infos";
-            // 
-            // txtall
-            // 
-            this.txtall.AutoSize = true;
-            this.txtall.Location = new System.Drawing.Point(401, 1232);
-            this.txtall.Name = "txtall";
-            this.txtall.Size = new System.Drawing.Size(128, 39);
-            this.txtall.TabIndex = 18;
-            this.txtall.Text = "label18";
             // 
             // label17
             // 
@@ -330,6 +321,16 @@
             this.btnlogout.UseVisualStyleBackColor = true;
             this.btnlogout.Click += new System.EventHandler(this.btnlogout_Click);
             // 
+            // listAll
+            // 
+            this.listAll.Enabled = false;
+            this.listAll.FormattingEnabled = true;
+            this.listAll.ItemHeight = 38;
+            this.listAll.Location = new System.Drawing.Point(411, 1241);
+            this.listAll.Name = "listAll";
+            this.listAll.Size = new System.Drawing.Size(408, 156);
+            this.listAll.TabIndex = 18;
+            // 
             // DossierMedicalPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -354,14 +355,12 @@
 
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox imgPatient;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView congrid;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnAccueil;
         private System.Windows.Forms.Button btnlogout;
-        private System.Windows.Forms.Label txtall;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label txtassu;
         private System.Windows.Forms.Label label15;
@@ -379,5 +378,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label txtnom;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.PictureBox imgPatient;
+        private System.Windows.Forms.ListBox listAll;
     }
 }

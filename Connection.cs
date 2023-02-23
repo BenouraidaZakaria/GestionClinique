@@ -173,14 +173,15 @@ namespace GestionClinique
             DataTable dt = new DataTable();
             dt.Rows.Clear();
           
-                connecter();
+          
+            if (tableName.Equals("PATIENT") || tableName.Equals("EMPLOYEE") || tableName.Equals("DOCTEUR") || tableName.Equals("SECRETAIRE"))
+            {
+            connecter();
             cmd.Connection = con;
             cmd.CommandText = $"SELECT * FROM {tableName}";
             da.SelectCommand = cmd;
             da.Fill(dt);
             deConnecter();
-            if (tableName.Equals("PATIENT") || tableName.Equals("EMPLOYEE") || tableName.Equals("DOCTEUR") || tableName.Equals("SECRETAIRE"))
-            {
                 // Add new column for displaying images and set DataGridViewImageCellLayout.Zoom?
                 dt.Columns.Add("IMAGE_DISPLAY", typeof(Image));
                 dt.Columns["IMAGE_DISPLAY"].SetOrdinal(3);
@@ -208,13 +209,21 @@ namespace GestionClinique
                 }
 
                 // Remove the original IMAGE column
-                dt.Columns.Remove("IMAGE");
+                //dt.Columns.Remove("IMAGE");
             }
             else if (tableName.Equals("CONSULTATION"))
             {
+                
+                    connecter();
+                    cmd.Connection = con;
+                    cmd.CommandText = "SELECT con.IDCONSULTATION as 'ID', DATE as 'Date', IDDOCTEUR as 'ID Docteur', IDPATIENT as 'ID Patient', TRAITEMENT as 'Traitement', PRESCRIPTION as 'Prescription', DIAGNOSTIC as 'Diagnostic' FROM CONSULTATION con inner join REALISER rea on con.IDCONSULTATION=rea.IDCONSULTATION";
+                    da.SelectCommand = cmd;
+                    da.Fill(dt);
+                    deConnecter();
+                
                 // Add new column for displaying images
                 dt.Columns.Add("PRESCRIPTION_IMG", typeof(Image));
-                dt.Columns["PRESCRIPTION_IMG"].SetOrdinal(3);
+                dt.Columns["PRESCRIPTION_IMG"].SetOrdinal(0);
                 // Loop through the rows and load images into new column
                 foreach (DataRow row in dt.Rows)
                 {
@@ -243,72 +252,113 @@ namespace GestionClinique
         }
 
 
-        public Boolean remplir(DataGridView dgv, string TableName,int id)
+        public void remplir(DataGridView dgv, string TableName,int id)
         {
             DataTable dt = new DataTable();
             dt.Rows.Clear();
-            Boolean etat = false;
 
             if (TableName.Equals("PATIENT"))
             {
-                //connecter();
-                //cmd.Connection = con;
-                //cmd.CommandText = "SELECT PATIENT.* FROM PATIENT INNER JOIN REALISER ON PATIENT.IDPATIENT = REALISER.IDPATIENT WHERE REALISER.IDDOCTEUR=@id";
-                //cmd.Parameters.AddWithValue("@id", id);
-                //if (cmd.ExecuteScalar() != null)
-                //    etat = true;
-                //cmd.Parameters.Clear();
-                //deConnecter();
-
                 connecter();
                 cmd.Connection = con;
                 cmd.CommandText = "SELECT PATIENT.* FROM PATIENT INNER JOIN REALISER ON PATIENT.IDPATIENT = REALISER.IDPATIENT WHERE REALISER.IDDOCTEUR=@id";
-                cmd.Parameters.AddWithValue("@id", id); 
+                cmd.Parameters.AddWithValue("@id", id);
                 da.SelectCommand = cmd;
                 da.Fill(dt);
-                etat = true;
                 cmd.Parameters.Clear();
                 deConnecter();
+
+                dt.Columns.Add("IMAGE_DISPLAY", typeof(Image));
+                dt.Columns["IMAGE_DISPLAY"].SetOrdinal(3);
+
+
+
+                // Loop through the rows and load images into new column
+                foreach (DataRow row in dt.Rows)
+                {
+                    string imageName = row["IMAGE"].ToString();
+                    if (!string.IsNullOrEmpty(imageName))
+                    {
+                        try
+                        {
+                            string imagePath = Path.Combine(Application.StartupPath, "IMAGES", imageName + ".jpg");
+
+                            Image image = Image.FromFile(imagePath);
+                            row["IMAGE_DISPLAY"] = image;
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                    }
+                }
+                // Remove the original IMAGE column
+                //dt.Columns.Remove("IMAGE");
                 dgv.DataSource = dt;
+                dgv.Columns["IDPATIENT"].Visible= false;
+                dgv.Columns["IMAGE"].Visible= false;
+                dgv.Columns["EMAIL"].Visible = false;
+                dgv.Columns["ADRESSE"].Visible = false; 
+                dgv.Columns["TELEPHONE"].Visible = false;
             }
             else if (TableName.Equals("CONSULTATION"))
             {
-                //connecter();
-                //cmd.Connection = con;
-                //cmd.CommandText = "SELECT DATE as 'Date', IDDOCTEUR as 'ID Docteur', IDPATIENT as 'ID Patient', TRAITEMENT as 'Traitement', PRESCRIPTION as 'Prescription', DIAGNOSTIC as 'Diagnostic' FROM CONSULTATION con inner join REALISER rea on con.IDCONSULTATION=rea.IDCONSULTATION where rea.IDDOCTEUR =@iddoc";
-                //cmd.Parameters.AddWithValue("@iddoc", id);
-                //if (cmd.ExecuteScalar() != null)
-                //    etat = true;
-                //cmd.Parameters.Clear();
-                //deConnecter();
 
                 connecter();
                 cmd.Connection = con;
-                cmd.CommandText = "SELECT con.* FROM CONSULTATION con " +
+                cmd.CommandText = "SELECT con.* , pa.NOM as 'NOM PATIENT' , pa.PRENOM as 'PRENOM PATIENT' FROM CONSULTATION con " +
                     "inner join REALISER rea on con.IDCONSULTATION=rea.IDCONSULTATION " +
                     "inner join PATIENT pa on pa.IDPATIENT=rea.IDPATIENT " +
                     "where rea.IDDOCTEUR =@id";
                 cmd.Parameters.AddWithValue("@id", id);
                 da.SelectCommand = cmd;
                 da.Fill(dt);
-                etat = true;
                 cmd.Parameters.Clear();
                 deConnecter();
+
+                // Add new column for displaying images
+                dt.Columns.Add("PRESCRIPTION_IMG", typeof(Image));
+                dt.Columns["PRESCRIPTION_IMG"].SetOrdinal(3);
+                // Loop through the rows and load images into new column
+                foreach (DataRow row in dt.Rows)
+                {
+                    string imageName = row["PRESCRIPTION"].ToString();
+                    if (!string.IsNullOrEmpty(imageName))
+                    {
+                        try
+                        {
+                            string imagePath = Path.Combine(Application.StartupPath, "IMAGES", imageName + ".jpg");
+
+                            Image image = Image.FromFile(imagePath);
+                            row["PRESCRIPTION_IMG"] = image;
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                    }
+                }
+                // Remove the original IMAGE column
+                //dt.Columns.Remove("PRESCRIPTION");
                 dgv.DataSource = dt;
+                dgv.Columns["IDCONSULTATION"].Visible = false;
+                dgv.Columns["PRESCRIPTION"].Visible = false;
             }
-                return etat;
+
+
+
         }
-        public Boolean remplir(DataGridView dgv, string TableName, int id,int idp)
+
+
+
+        public void remplir(DataGridView dgv, string TableName, int id,int idp)
         {
             DataTable dt = new DataTable();
             dt.Rows.Clear();
-            Boolean etat = false;
-
-            if (TableName.Equals("CONSULTATION"))
-            {
+           
                 connecter();
                 cmd.Connection = con;
-                cmd.CommandText = "SELECT con.* FROM CONSULTATION con " +
+                cmd.CommandText = "SELECT con.*,pa.NOM as 'NOM PATIENT' , pa.PRENOM as 'PRENOM PATIENT' FROM CONSULTATION con " +
                     "inner join REALISER rea on con.IDCONSULTATION=rea.IDCONSULTATION " +
                     "inner join PATIENT pa on pa.IDPATIENT=rea.IDPATIENT " +
                     "where rea.IDDOCTEUR =@id AND rea.IDPATIENT=@idp";
@@ -316,12 +366,39 @@ namespace GestionClinique
                 cmd.Parameters.AddWithValue("@idp", idp);
                 da.SelectCommand = cmd;
                 da.Fill(dt);
-                etat = true;
                 cmd.Parameters.Clear();
                 deConnecter();
-                dgv.DataSource = dt;
+
+            dt.Columns.Add("PRESCRIPTION_IMG", typeof(Image));
+            dt.Columns["PRESCRIPTION_IMG"].SetOrdinal(3);
+            // Loop through the rows and load images into new column
+            foreach (DataRow row in dt.Rows)
+            {
+                string imageName = row["PRESCRIPTION"].ToString();
+                if (!string.IsNullOrEmpty(imageName))
+                {
+                    try
+                    {
+                        string imagePath = Path.Combine(Application.StartupPath, "IMAGES", imageName + ".jpg");
+
+                        Image image = Image.FromFile(imagePath);
+                        row["PRESCRIPTION_IMG"] = image;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
             }
-            return etat;
+            // Remove the original IMAGE column
+            //dt.Columns.Remove("PRESCRIPTION");
+
+
+            dgv.DataSource = dt;
+            dgv.Columns["PRESCRIPTION"].Visible= false;
+            dgv.Columns["NOM PATIENT"].Visible = false;
+            dgv.Columns["PRENOM PATIENT"].Visible = false;
+
         }
         public Boolean rempliraffcon(DataGridView dgv, string TableName, int id,int idc)
         {

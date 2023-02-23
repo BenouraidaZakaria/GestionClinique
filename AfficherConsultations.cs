@@ -181,7 +181,7 @@ namespace GestionClinique
                 if (existingForm != null)
                 {
                     // if an instance of the GererConsultations form already exists, pass the data to it
-                    existingForm.ID = (int)selectedRow.Cells["IDCONSULTATION"].Value;
+                    existingForm.ID = (int)selectedRow.Cells["ID"].Value;
                     existingForm.IDP = (int)selectedRow.Cells["ID Patient"].Value;
                     existingForm.IDD = (int)selectedRow.Cells["ID Docteur"].Value;
 

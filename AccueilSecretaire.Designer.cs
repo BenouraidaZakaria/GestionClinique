@@ -35,8 +35,6 @@ namespace GestionClinique
             this.label2 = new System.Windows.Forms.Label();
             this.PatientsGrid = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
-            this.rendezVousGrid = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAccueil = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -56,7 +54,6 @@ namespace GestionClinique
             ((System.ComponentModel.ISupportInitialize)(this.EmployesGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.consultationGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatientsGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rendezVousGrid)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -125,27 +122,6 @@ namespace GestionClinique
             this.label3.Size = new System.Drawing.Size(341, 95);
             this.label3.TabIndex = 10;
             this.label3.Text = "Patients";
-            // 
-            // rendezVousGrid
-            // 
-            this.rendezVousGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.rendezVousGrid.Location = new System.Drawing.Point(2219, 1047);
-            this.rendezVousGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rendezVousGrid.Name = "rendezVousGrid";
-            this.rendezVousGrid.RowHeadersWidth = 102;
-            this.rendezVousGrid.RowTemplate.Height = 40;
-            this.rendezVousGrid.Size = new System.Drawing.Size(1387, 529);
-            this.rendezVousGrid.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(2203, 920);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(530, 95);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Rendez-vous";
             // 
             // flowLayoutPanel1
             // 
@@ -351,12 +327,10 @@ namespace GestionClinique
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(3056, 1748);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.consultationGrid);
-            this.Controls.Add(this.rendezVousGrid);
             this.Controls.Add(this.PatientsGrid);
             this.Controls.Add(this.EmployesGrid);
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
@@ -368,7 +342,6 @@ namespace GestionClinique
             ((System.ComponentModel.ISupportInitialize)(this.EmployesGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.consultationGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatientsGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rendezVousGrid)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -385,8 +358,6 @@ namespace GestionClinique
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView PatientsGrid;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView rendezVousGrid;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnAccueil;
         private System.Windows.Forms.Panel panel1;

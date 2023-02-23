@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,16 +23,17 @@ namespace GestionClinique
         public AcceuilDoctors()
         {
             InitializeComponent();
+      
+        }
+        private void AcceuilDoctors_Load(object sender, EventArgs e)
+        {
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             //con.remplir(PatientsGrid, "PATIENT");
             con.remplir(PatientsGrid, "PATIENT", Program.iduser);
             //con.remplir(ConsultationGrid, "CONSULTATION");
             con.remplir(Consultationgrid, "CONSULTATION", Program.iduser);
             Consultationgrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             PatientsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        }
-        private void AcceuilDoctors_Load(object sender, EventArgs e)
-        {
-            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
         }
 
         private void btnAccueil_Click(object sender, EventArgs e)
@@ -86,6 +88,7 @@ namespace GestionClinique
             {
                 DataGridViewRow selectedRow = PatientsGrid.Rows[e.RowIndex];
                 // rest of the code to get the data from the selected row
+                string patImgPath = Path.Combine(Application.StartupPath, "IMAGES", selectedRow.Cells["IMAGE"].Value.ToString());
 
                 // create a new instance of the other form
                 DossierMedicalPatient otherForm = new DossierMedicalPatient();
@@ -100,18 +103,14 @@ namespace GestionClinique
                 otherForm.Email = selectedRow.Cells["EMAIL"].Value.ToString();
                 otherForm.Sexe = selectedRow.Cells["GENRE"].Value.ToString();
                 otherForm.Assurance = selectedRow.Cells["ASSURANCE"].Value.ToString();
-                //string imageName = selectedRow.Cells["IMAGE"].Value.ToString();
-                //string imagePath = Path.Combine(Application.StartupPath, "IMAGES", "PROFILE", imageName);
+                otherForm.Allergies= selectedRow.Cells["ALLERGIE"].Value.ToString();
 
-                //if (File.Exists(imagePath))
-                //{
-                //    Image image = Image.FromFile(imagePath);
-                //    otherForm.MyImage = image;
-                //}
-                //else
-                //{
-                //    MessageBox.Show("The image file does not exist.");
-                //}
+
+
+
+                Image patientImage = Image.FromFile(patImgPath + ".jpg");
+                otherForm.imgPatient.Image = patientImage;
+              
                 otherForm.Show();
                 this.Hide();
             }
@@ -128,14 +127,24 @@ namespace GestionClinique
                 string dateConsultation = selectedRow.Cells["DATE"].Value.ToString();
                 string traitement = selectedRow.Cells["TRAITEMENT"].Value.ToString();
                 string diagnostic = selectedRow.Cells["DIAGNOSTIC"].Value.ToString();
+                string nomP= selectedRow.Cells["NOM PATIENT"].Value.ToString();
+                string prenomP = selectedRow.Cells["PRENOM PATIENT"].Value.ToString();
+                string prescriptionImagePath = Path.Combine(Application.StartupPath, "IMAGES", selectedRow.Cells["PRESCRIPTION"].Value.ToString());
+
                 // create a new instance of the other form
                 AfficherConsultation otherForm = new AfficherConsultation();
-
+                otherForm.Height = 570;
                 // set the values of the controls in the other form
                 otherForm.ID = idConsultation;
                 otherForm.DateConsultation = dateConsultation;
                 otherForm.Traitement = traitement;
                 otherForm.Diagnostic = diagnostic;
+                otherForm.Npat = nomP;
+                otherForm.Ppat = prenomP;
+
+                Image prescriptionImage = Image.FromFile(prescriptionImagePath + ".jpg");
+                otherForm.prescImg.Image = prescriptionImage;
+
                 otherForm.ShowDialog();
             }
         }
