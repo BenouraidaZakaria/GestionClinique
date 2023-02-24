@@ -337,5 +337,17 @@ namespace GestionClinique
             lisAll.Items.Clear();
             imagePatient.Image = null;
         }
+
+        private void supprimer_Click(object sender, EventArgs e)
+        {
+            if (con.supprimerPatient(ID))
+            {
+                MessageBox.Show("suppression avec succès");
+            }
+            else
+            {
+                MessageBox.Show("Selectionner un patinet");
+            }
+        }
     }
 }
