@@ -588,6 +588,24 @@ namespace GestionClinique
             return true;
         }
 
+        // methode activer et desactiver
+        public void activerEmploye(int idEmploye)
+        {
+            connecter();
+            cmd.Connection = con;
+            cmd.CommandText = "UPDATE EMPLOYEE SET ACTIVER=1 WHERE IDEMPLOYEE=@id";
+            cmd.Parameters.AddWithValue("@id",idEmploye);
+            deConnecter();
+        }
+        public void desactiverEmploye(int idEmploye)
+        {
+            connecter();
+            cmd.Connection = con;
+            cmd.CommandText = "UPDATE EMPLOYEE SET ACTIVER=0 WHERE IDEMPLOYEE=@id";
+            cmd.Parameters.AddWithValue("@id", idEmploye);
+            deConnecter();
+        }
+
 
         // consultation
         public Boolean ajouterConsultation(int idSecretaire, int idDocteur, int idPatient, DateTime date, string heure, string traitement, string prescription, string diagnostic)
@@ -634,11 +652,8 @@ namespace GestionClinique
         {
             connecter();
             cmd.Connection = con;
-            cmd.CommandText = "update CONSULTATION set IDSECRETAIRE=@idU, IDDOCTEUR=@idD, IDPATIENT=@idP, DATE=@date, HEURE=@heure, TRAITEMENT=@trait, PRESCRIPTION=@presc, " +
+            cmd.CommandText = "update CONSULTATION set DATE=@date, HEURE=@heure, TRAITEMENT=@trait, PRESCRIPTION=@presc, " +
                 "DIAGNOSTIC=@diagno where IDCONSULTATION=@id";
-            cmd.Parameters.AddWithValue("@idU", idSecretaire);
-            cmd.Parameters.AddWithValue("@idD", idDocteur);
-            cmd.Parameters.AddWithValue("@idP", idPatient);
             cmd.Parameters.AddWithValue("@date", date);
             cmd.Parameters.AddWithValue("@HEURE", heure);
             cmd.Parameters.AddWithValue("@trait", traitement);
@@ -646,31 +661,32 @@ namespace GestionClinique
             cmd.Parameters.AddWithValue("@diagno", diagnostic);
             cmd.Parameters.AddWithValue("@id", id);
             cmd.ExecuteNonQuery();
+
+            cmd.Parameters.Clear();
+
+            cmd.CommandText = "update REALISER set IDSECRETAIRE=@secretaire,IDDOCTEUR=@docteur,IDPATIENT=@patient " +
+                                " where IDCONSULTATION=@consultation";
+            cmd.Parameters.AddWithValue("@secretaire", idSecretaire);
+            cmd.Parameters.AddWithValue("@docteur", idDocteur);
+            cmd.Parameters.AddWithValue("@consultation", id);
+            cmd.Parameters.AddWithValue("@patient", idPatient);
+            cmd.ExecuteNonQuery();
+
             deConnecter();
 
             return true;
         }
         public Boolean supprimerConsultation(int id)
         {
-            Boolean etat = false;
-
             connecter();
             cmd.Connection = con;
             cmd.CommandText = "delete CONSULTATION where IDCONSULTATION=@id";
             cmd.Parameters.AddWithValue("@id", id);
             cmd.ExecuteNonQuery();
 
-            cmd.Parameters.Clear();
-            cmd.CommandText = "select IDCONSULTATION from CONSULTATION where IDCONSULTATION=@id";
-            cmd.Parameters.AddWithValue("@id", id);
-
-            if (cmd.ExecuteScalar().ToString() == null)
-            {
-                etat = true;
-            }
             deConnecter();
 
-            return etat;
+            return true;
         }
 
 

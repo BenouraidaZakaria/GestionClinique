@@ -273,12 +273,12 @@ namespace GestionClinique
             {
                 DateTime now = DateTime.Now;
                 String imgname = Nomtxt.Text + Pretxt.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
-                File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\PROFILE\" + imgname);
+                File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\" + imgname + ".jpg");
                 if (rbDoc.Checked)
                 {
-                    if (Nomtxt.Text != "" && Pretxt.Text != "" && Mailtxt.Text != "" && Mdptxt.Text != "" && Specmb.Text != "" && cmbGenre.Text != "" && dNaissance.Text != "" && teletxt.Text != "" )
+                    if (Nomtxt.Text != "" && Pretxt.Text != "" && Mailtxt.Text != "" && Mdptxt.Text != "" && Specmb.Text != "" && cmbGenre.Text != "" && dNaissance.Text != "" && teletxt.Text != "")
                     {
-                        con.ajouterEmploye(Nomtxt.Text, Pretxt.Text,imgname, DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, "docteur", Mailtxt.Text, Mdptxt.Text, Specmb.Text);
+                        con.ajouterEmploye(Nomtxt.Text, Pretxt.Text, imgname, DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, "docteur", Mailtxt.Text, Mdptxt.Text, Specmb.Text);
                         Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
                     }
                 }
@@ -326,6 +326,59 @@ namespace GestionClinique
             imageEmp.Image= null;
 
 
+        }
+
+        private void modEmp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime now = DateTime.Now;
+                String imgname = Nomtxt.Text + Pretxt.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
+                File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\" + imgname + ".jpg");
+                if (Nomtxt.Text != "" && Pretxt.Text != "" && Mailtxt.Text != "" && Mdptxt.Text != "" && Specmb.Text != "" && cmbGenre.Text != "" && dNaissance.Text != "" && teletxt.Text != "")
+                {
+                    if (rbDoc.Checked)
+                    {
+                        con.modifierDocteur(ID, Nomtxt.Text, Pretxt.Text, imgname, DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, Mdptxt.Text, Specmb.Text);
+                        Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
+                    }
+                    else
+                    {
+                        con.modifierSecretaire(ID, Nomtxt.Text, Pretxt.Text, imgname, DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, Mdptxt.Text);
+                        Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void actEmp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                con.activerEmploye(ID);
+                MessageBox.Show("Employe est Active");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void desEmp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                con.desactiverEmploye(ID);
+                MessageBox.Show("Employe est Desactive");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
