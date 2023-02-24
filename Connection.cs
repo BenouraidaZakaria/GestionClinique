@@ -602,9 +602,9 @@ namespace GestionClinique
             cmd.Parameters.Clear();
 
             cmd.CommandText = "insert into CONSULTATION(DATE,HEURE,TRAITEMENT,PRESCRIPTION,DIAGNOSTIC) " +
-                                "values(@date,convert(hour,@heure),@trait,@presc,@diagno)";
+                                "values(convert(date,@date),convert(time,@heure),@trait,@presc,@diagno)";
             cmd.Parameters.AddWithValue("@date", date);
-            cmd.Parameters.AddWithValue("@heure", date);
+            cmd.Parameters.AddWithValue("@heure", heure);
             cmd.Parameters.AddWithValue("@trait", traitement);
             cmd.Parameters.AddWithValue("@presc", prescription);
             cmd.Parameters.AddWithValue("@diagno", diagnostic);
@@ -630,13 +630,17 @@ namespace GestionClinique
 
             return etat;
         }
-        public Boolean modifierConsultation(int id, DateTime date, string traitement, string prescription, string diagnostic)
+        public Boolean modifierConsultation(int id, int idSecretaire, int idDocteur, int idPatient, DateTime date, string heure, string traitement, string prescription, string diagnostic)
         {
             connecter();
             cmd.Connection = con;
-            cmd.CommandText = "update CONSULTATION set DATE=@date, TRAITEMENT=@trait, PRESCRIPTION=@presc, " +
+            cmd.CommandText = "update CONSULTATION set IDSECRETAIRE=@idU, IDDOCTEUR=@idD, IDPATIENT=@idP, DATE=@date, HEURE=@heure, TRAITEMENT=@trait, PRESCRIPTION=@presc, " +
                 "DIAGNOSTIC=@diagno where IDCONSULTATION=@id";
+            cmd.Parameters.AddWithValue("@idU", idSecretaire);
+            cmd.Parameters.AddWithValue("@idD", idDocteur);
+            cmd.Parameters.AddWithValue("@idP", idPatient);
             cmd.Parameters.AddWithValue("@date", date);
+            cmd.Parameters.AddWithValue("@HEURE", heure);
             cmd.Parameters.AddWithValue("@trait", traitement);
             cmd.Parameters.AddWithValue("@presc", prescription);
             cmd.Parameters.AddWithValue("@diagno", diagnostic);
