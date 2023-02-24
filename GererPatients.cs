@@ -333,7 +333,7 @@ namespace GestionClinique
             datpickNaissance.Value=DateTime.Now;
             txtEmail.Text = "";
             txtAdresse.Text = "";
-            cmbassur.SelectedIndex = -1; ;
+            cmbassur.SelectedIndex = -1;
             lisAll.Items.Clear();
             imagePatient.Image = null;
         }
