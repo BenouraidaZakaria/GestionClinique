@@ -22,8 +22,9 @@ namespace GestionClinique
         public string PreD;
         private Timer timer;
         public string NameP;
-
         public string PreP;
+
+        public int idConsultationSelectionner;
 
 
         public DateTime DateConsultation
@@ -132,12 +133,35 @@ namespace GestionClinique
 
         private void modifier_Click(object sender, EventArgs e)
         {
-
+            DateTime now = DateTime.Now;
+            String imgname = now.ToString("yyyyMMddHHmmssfff") + ".jpg";
+            File.Copy(imagePrescText.Text, Application.StartupPath + @"\IMAGES\PRESCRIPTION\" + imgname);
+            string traitements = "";
+            string diagnostics = "";
+            for (int i = 0; i < listtrai.Items.Count; i++)
+            {
+                traitements += listtrai.Items[i].ToString() + "\n";
+            }
+            for (int i = 0; i < listdiag.Items.Count; i++)
+            {
+                diagnostics += listdiag.Items[i].ToString() + "\n";
+            }
+            con.modifierConsultation(ID, Program.iduser, IDD, IDP, DateTime.Parse(dateTimePicker1.Text), dateTimePicker2.Text.ToString(), traitements, imgname, diagnostics);
+            textDoc.Text = textPat.Text = dateTimePicker1.Text = dateTimePicker2.Text = "";
+            imagePrescription.Image = null;
+            listtrai.Items.Clear();
+            listdiag.Items.Clear();
         }
 
         private void supprimer_Click(object sender, EventArgs e)
         {
-
+            if (ID != 0)
+            {
+                if (con.supprimerConsultation(ID))
+                    MessageBox.Show("suppression avec succès");
+            }
+            else
+                MessageBox.Show("Selectionneer consultation");
         }
 
         private void createDGV(string table)
