@@ -113,7 +113,7 @@ namespace GestionClinique
         {
             DateTime now = DateTime.Now;
             String imgname = now.ToString("yyyyMMddHHmmssfff") + ".jpg";
-            File.Copy(imagePrescText.Text, Application.StartupPath + @"\IMAGES\PRESCRIPTION\" + imgname);
+            File.Copy(imagePrescText.Text, Application.StartupPath + @"\IMAGES\" + imgname + ".jpg");
             string traitements = "";
             string diagnostics = "";
             for (int i = 0; i < listtrai.Items.Count; i++)
@@ -135,7 +135,7 @@ namespace GestionClinique
         {
             DateTime now = DateTime.Now;
             String imgname = now.ToString("yyyyMMddHHmmssfff") + ".jpg";
-            File.Copy(imagePrescText.Text, Application.StartupPath + @"\IMAGES\PRESCRIPTION\" + imgname);
+            File.Copy(imagePrescText.Text, Application.StartupPath + @"\IMAGES\" + imgname + ".jpg");
             string traitements = "";
             string diagnostics = "";
             for (int i = 0; i < listtrai.Items.Count; i++)
