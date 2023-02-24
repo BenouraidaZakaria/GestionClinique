@@ -157,7 +157,7 @@ namespace GestionClinique
             f.flowLayoutPanel1.Visible = false;
             f.Show();
             //f.SetInvisibilityAndTriggerEvent();
-            this.Hide();
+            //this.Hide();
         }
         FormC f = new FormC();
 

@@ -125,7 +125,7 @@ namespace GestionClinique
 
 
                 // create a new instance of the other form
-                GererEmployes otherForm = new GererEmployes();
+                GererEmployes otherForm = Application.OpenForms.OfType<GererEmployes>().FirstOrDefault();
 
                 // set the values of the controls in the other form
                 otherForm.ID = (int)selectedRow.Cells["IDEMPLOYEE"].Value;

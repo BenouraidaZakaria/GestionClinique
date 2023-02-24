@@ -134,7 +134,7 @@ namespace GestionClinique
             f.flowLayoutPanel1.Visible = false;
             f.Show();
             //f.SetInvisibilityAndTriggerEvent();
-            this.Hide();
+            //this.Hide();
             //// Create a new form to contain the DataGridView, label, and buttons
             //Form form = new Form();
             //form.ClientSize = new Size(1000, 630);
