@@ -678,25 +678,15 @@ namespace GestionClinique
         }
         public Boolean supprimerConsultation(int id)
         {
-            Boolean etat = false;
-
             connecter();
             cmd.Connection = con;
             cmd.CommandText = "delete CONSULTATION where IDCONSULTATION=@id";
             cmd.Parameters.AddWithValue("@id", id);
             cmd.ExecuteNonQuery();
 
-            cmd.Parameters.Clear();
-            cmd.CommandText = "select IDCONSULTATION from CONSULTATION where IDCONSULTATION=@id";
-            cmd.Parameters.AddWithValue("@id", id);
-
-            if (cmd.ExecuteScalar().ToString() == null)
-            {
-                etat = true;
-            }
             deConnecter();
 
-            return etat;
+            return true;
         }
 
 
