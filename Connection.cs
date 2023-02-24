@@ -829,7 +829,7 @@ namespace GestionClinique
         {
             connecter();
             cmd.Connection = con;
-            cmd.CommandText = "delete Patient where idPatient=@id)";
+            cmd.CommandText = "delete Patient where idPatient=@id";
             cmd.Parameters.AddWithValue("@id", id);
 
             cmd.ExecuteNonQuery();
