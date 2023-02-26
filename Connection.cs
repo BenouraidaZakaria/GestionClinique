@@ -42,55 +42,28 @@ namespace GestionClinique
         {
             Boolean etat = false;
 
-            if (TableName.Equals("SECRETAIRE"))
+            connecter();
+            cmd.Connection = con;
+            cmd.CommandText = "select IDEMPLOYEE,NOM,PRENOM,[TYPE],EMAIL from EMPLOYEE where EMAIL=@email and MOT_PASSE=@motPasse";
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@motPasse", motPasse);
+            if (cmd.ExecuteScalar() != null)
             {
-                connecter();
-                cmd.Connection = con;
-                cmd.CommandText = "select EMAIL from SECRETAIRE where EMAIL=@email and MOT_PASSE=@motPasse";
-                cmd.Parameters.AddWithValue("@email", email);
-                cmd.Parameters.AddWithValue("@motPasse", motPasse);
-                if (cmd.ExecuteScalar() != null)
-                    etat = true;
-
-                cmd.Parameters.Clear();
-                deConnecter();
-            }
-            else if (TableName.Equals("DOCTEUR"))
-            {
-                connecter();
-                cmd.Connection = con;
-                cmd.CommandText = "select EMAIL from DOCTEUR where EMAIL=@email and MOT_PASSE=@motPasse";
-                cmd.Parameters.AddWithValue("@email", email);
-                cmd.Parameters.AddWithValue("@motPasse", motPasse);
-                if (cmd.ExecuteScalar() != null)
-                    etat = true;
-                cmd.Parameters.Clear();
-                deConnecter();
-            }
-            else if (TableName.Equals("EMPLOYEE"))
-            {
-                connecter();
-                cmd.Connection = con;
-                cmd.CommandText = "select IDEMPLOYEE,NOM,PRENOM,[TYPE],EMAIL from EMPLOYEE where EMAIL=@email and MOT_PASSE=@motPasse";
-                cmd.Parameters.AddWithValue("@email", email);
-                cmd.Parameters.AddWithValue("@motPasse", motPasse);
-                if (cmd.ExecuteScalar() != null)
+                etat = true;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
                 {
-                    etat = true;
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        Program.iduser = dr.GetInt32(0);
-                        Program.nameuser = dr.GetString(1);
-                        Program.prenomuser = dr.GetString(2);
-                        Program.typeuser = dr.GetString(3);
-                    }
+                    Program.iduser = dr.GetInt32(0);
+                    Program.nameuser = dr.GetString(1);
+                    Program.prenomuser = dr.GetString(2);
+                    Program.typeuser = dr.GetString(3);
                 }
-
-                cmd.Parameters.Clear();
-                deConnecter();
             }
-                return etat;
+
+            cmd.Parameters.Clear();
+            deConnecter();
+
+            return etat;
         }
         public void select(string TableName, int id, DataTable dt)
         {
