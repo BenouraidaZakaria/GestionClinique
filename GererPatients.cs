@@ -107,7 +107,9 @@ namespace GestionClinique
                 {
                     DateTime now = DateTime.Now;
                     String imgname = txtNom.Text + txtPrenom.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
+
                     File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\" + imgname);
+
                     //String allergies = "";
                     //for (int i = 0; i < lisAll.Items.Count; i++)
                     //{
@@ -257,8 +259,10 @@ namespace GestionClinique
                 {
                     DateTime now = DateTime.Now;
                     String imgname = txtNom.Text + txtPrenom.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
+
                     File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\" + imgname);
                     con.modifierPatient(ID,txtNom.Text, txtPrenom.Text, DateTime.Parse(datpickNaissance.Text), char.Parse(cmbSexe.Text), txtEmail.Text, txtTelephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileNameWithoutExtension(imgname), lisAll.Text);
+
                     txtNom.Text = txtPrenom.Text = cmbSexe.Text = txtTelephone.Text = datpickNaissance.Text = txtEmail.Text = txtAdresse.Text = cmbassur.Text = "";
                     lisAll.Items.Clear();
                     imagePatient.Image = null;
