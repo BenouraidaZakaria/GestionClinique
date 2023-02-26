@@ -310,6 +310,7 @@ namespace GestionClinique
 
             if (cmbAll.Text != "")
                 lisAll.Items.Add(cmbAll.SelectedItem.ToString());
+                cmbAll.Text = "";
             else
                 errorProvider1.SetError(cmbAll, "selectionner ou saisir allergie");
         }
