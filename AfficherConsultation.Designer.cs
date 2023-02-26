@@ -129,6 +129,7 @@
             this.prescImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.prescImg.TabIndex = 7;
             this.prescImg.TabStop = false;
+            this.prescImg.Click += new System.EventHandler(this.prescImg_Click);
             // 
             // listtrai
             // 

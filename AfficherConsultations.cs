@@ -183,7 +183,7 @@ namespace GestionClinique
                 {
                     string prescriptionImagePath = Path.Combine(Application.StartupPath, "IMAGES", selectedRow.Cells["PRESCRIPTION"].Value.ToString());
 
-                    Image prescriptionImage = Image.FromFile(prescriptionImagePath + ".jpg");
+                    Image prescriptionImage = Image.FromFile(prescriptionImagePath);
                     existingForm.imagePrescription.Image = prescriptionImage;
                     // if an instance of the GererConsultations form already exists, pass the data to it
                     existingForm.ID = (int)selectedRow.Cells["ID"].Value;
