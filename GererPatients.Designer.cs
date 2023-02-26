@@ -119,11 +119,13 @@ namespace GestionClinique
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.imageText);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(234, 60);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(1);
+
+            this.groupBox1.Location = new System.Drawing.Point(624, 143);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(1);
-            this.groupBox1.Size = new System.Drawing.Size(750, 574);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(2000, 1369);
+
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informations du Patients";
@@ -131,10 +133,11 @@ namespace GestionClinique
             // rmvtall
             // 
             this.rmvtall.Image = global::GestionClinique.Properties.Resources.minus;
-            this.rmvtall.Location = new System.Drawing.Point(655, 459);
-            this.rmvtall.Margin = new System.Windows.Forms.Padding(1);
+            this.rmvtall.Location = new System.Drawing.Point(1747, 1114);
+            this.rmvtall.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
             this.rmvtall.Name = "rmvtall";
-            this.rmvtall.Size = new System.Drawing.Size(50, 27);
+            this.rmvtall.Size = new System.Drawing.Size(133, 64);
             this.rmvtall.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.rmvtall.TabIndex = 39;
             this.rmvtall.TabStop = false;
@@ -143,10 +146,11 @@ namespace GestionClinique
             // addall
             // 
             this.addall.Image = global::GestionClinique.Properties.Resources.plus;
-            this.addall.Location = new System.Drawing.Point(603, 459);
-            this.addall.Margin = new System.Windows.Forms.Padding(1);
+            this.addall.Location = new System.Drawing.Point(1608, 1114);
+            this.addall.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
             this.addall.Name = "addall";
-            this.addall.Size = new System.Drawing.Size(50, 27);
+            this.addall.Size = new System.Drawing.Size(133, 64);
             this.addall.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.addall.TabIndex = 38;
             this.addall.TabStop = false;
@@ -155,11 +159,13 @@ namespace GestionClinique
             // lisAll
             // 
             this.lisAll.FormattingEnabled = true;
-            this.lisAll.ItemHeight = 24;
-            this.lisAll.Location = new System.Drawing.Point(215, 460);
-            this.lisAll.Margin = new System.Windows.Forms.Padding(1);
+
+            this.lisAll.ItemHeight = 54;
+            this.lisAll.Location = new System.Drawing.Point(573, 1116);
+            this.lisAll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
             this.lisAll.Name = "lisAll";
-            this.lisAll.Size = new System.Drawing.Size(241, 28);
+            this.lisAll.Size = new System.Drawing.Size(636, 112);
             this.lisAll.TabIndex = 32;
             // 
             // cmbAll
@@ -174,20 +180,21 @@ namespace GestionClinique
             "Latex",
             "Métaux ",
             "Produits chimiques"});
-            this.cmbAll.Location = new System.Drawing.Point(472, 460);
-            this.cmbAll.Margin = new System.Windows.Forms.Padding(1);
+            this.cmbAll.Location = new System.Drawing.Point(1259, 1116);
+            this.cmbAll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
             this.cmbAll.Name = "cmbAll";
-            this.cmbAll.Size = new System.Drawing.Size(109, 32);
+            this.cmbAll.Size = new System.Drawing.Size(284, 62);
             this.cmbAll.TabIndex = 31;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(56, 460);
-            this.label11.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label11.Location = new System.Drawing.Point(149, 1116);
+
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(69, 20);
+            this.label11.Size = new System.Drawing.Size(173, 46);
             this.label11.TabIndex = 30;
             this.label11.Text = "Allergies";
             // 
@@ -199,20 +206,22 @@ namespace GestionClinique
             "AMO",
             "CNSS",
             "RAMED",
-            "NON ASSURE"});
-            this.cmbassur.Location = new System.Drawing.Point(215, 411);
-            this.cmbassur.Margin = new System.Windows.Forms.Padding(1);
+            "NOM ASSURE"});
+            this.cmbassur.Location = new System.Drawing.Point(573, 999);
+            this.cmbassur.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
             this.cmbassur.Name = "cmbassur";
-            this.cmbassur.Size = new System.Drawing.Size(241, 32);
+            this.cmbassur.Size = new System.Drawing.Size(636, 62);
             this.cmbassur.TabIndex = 29;
             // 
             // imagePatient
             // 
             this.imagePatient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imagePatient.Location = new System.Drawing.Point(598, 60);
-            this.imagePatient.Margin = new System.Windows.Forms.Padding(1);
+            this.imagePatient.Location = new System.Drawing.Point(1595, 143);
+            this.imagePatient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
             this.imagePatient.Name = "imagePatient";
-            this.imagePatient.Size = new System.Drawing.Size(134, 97);
+            this.imagePatient.Size = new System.Drawing.Size(354, 229);
             this.imagePatient.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imagePatient.TabIndex = 26;
             this.imagePatient.TabStop = false;
@@ -225,70 +234,74 @@ namespace GestionClinique
             this.cmbSexe.Items.AddRange(new object[] {
             "M",
             "F"});
-            this.cmbSexe.Location = new System.Drawing.Point(215, 192);
-            this.cmbSexe.Margin = new System.Windows.Forms.Padding(1);
+            this.cmbSexe.Location = new System.Drawing.Point(573, 458);
+            this.cmbSexe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
             this.cmbSexe.Name = "cmbSexe";
-            this.cmbSexe.Size = new System.Drawing.Size(241, 32);
+            this.cmbSexe.Size = new System.Drawing.Size(636, 62);
             this.cmbSexe.TabIndex = 25;
             // 
             // datpickNaissance
             // 
             this.datpickNaissance.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datpickNaissance.Location = new System.Drawing.Point(215, 152);
-            this.datpickNaissance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.datpickNaissance.Location = new System.Drawing.Point(573, 362);
+            this.datpickNaissance.Margin = new System.Windows.Forms.Padding(8, 5, 8, 5);
             this.datpickNaissance.Name = "datpickNaissance";
-            this.datpickNaissance.Size = new System.Drawing.Size(241, 29);
+            this.datpickNaissance.Size = new System.Drawing.Size(636, 61);
             this.datpickNaissance.TabIndex = 24;
             // 
             // txtAdresse
             // 
-            this.txtAdresse.Location = new System.Drawing.Point(215, 362);
-            this.txtAdresse.Margin = new System.Windows.Forms.Padding(1);
+            this.txtAdresse.Location = new System.Drawing.Point(573, 882);
+            this.txtAdresse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
             this.txtAdresse.Name = "txtAdresse";
-            this.txtAdresse.Size = new System.Drawing.Size(241, 29);
+            this.txtAdresse.Size = new System.Drawing.Size(636, 61);
             this.txtAdresse.TabIndex = 22;
             // 
             // txtTelephone
             // 
-            this.txtTelephone.Location = new System.Drawing.Point(215, 305);
-            this.txtTelephone.Margin = new System.Windows.Forms.Padding(1);
-            this.txtTelephone.MaxLength = 10;
+            this.txtTelephone.Location = new System.Drawing.Point(573, 746);
+            this.txtTelephone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
             this.txtTelephone.Name = "txtTelephone";
-            this.txtTelephone.Size = new System.Drawing.Size(241, 29);
+            this.txtTelephone.Size = new System.Drawing.Size(636, 61);
             this.txtTelephone.TabIndex = 21;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(215, 247);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(1);
+            this.txtEmail.Location = new System.Drawing.Point(573, 608);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(241, 29);
+            this.txtEmail.Size = new System.Drawing.Size(636, 61);
             this.txtEmail.TabIndex = 20;
             // 
             // txtPrenom
             // 
-            this.txtPrenom.Location = new System.Drawing.Point(215, 105);
-            this.txtPrenom.Margin = new System.Windows.Forms.Padding(1);
+            this.txtPrenom.Location = new System.Drawing.Point(573, 250);
+            this.txtPrenom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
             this.txtPrenom.Name = "txtPrenom";
-            this.txtPrenom.Size = new System.Drawing.Size(241, 29);
+            this.txtPrenom.Size = new System.Drawing.Size(636, 61);
             this.txtPrenom.TabIndex = 19;
             // 
             // txtNom
             // 
-            this.txtNom.Location = new System.Drawing.Point(215, 56);
-            this.txtNom.Margin = new System.Windows.Forms.Padding(1);
+            this.txtNom.Location = new System.Drawing.Point(573, 134);
+            this.txtNom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
             this.txtNom.Name = "txtNom";
-            this.txtNom.Size = new System.Drawing.Size(241, 29);
+            this.txtNom.Size = new System.Drawing.Size(636, 61);
             this.txtNom.TabIndex = 18;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(508, 62);
-            this.label9.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label9.Location = new System.Drawing.Point(1355, 148);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 20);
+            this.label9.Size = new System.Drawing.Size(129, 46);
             this.label9.TabIndex = 17;
             this.label9.Text = "Image";
             // 
@@ -296,10 +309,9 @@ namespace GestionClinique
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(56, 62);
-            this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label1.Location = new System.Drawing.Point(149, 148);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 20);
+            this.label1.Size = new System.Drawing.Size(105, 46);
             this.label1.TabIndex = 9;
             this.label1.Text = "Nom";
             // 
@@ -307,10 +319,10 @@ namespace GestionClinique
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(56, 411);
-            this.label8.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label8.Location = new System.Drawing.Point(149, 999);
+
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 20);
+            this.label8.Size = new System.Drawing.Size(209, 46);
             this.label8.TabIndex = 16;
             this.label8.Text = "Assurance";
             // 
@@ -318,10 +330,10 @@ namespace GestionClinique
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(56, 368);
-            this.label7.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label7.Location = new System.Drawing.Point(149, 897);
+
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 20);
+            this.label7.Size = new System.Drawing.Size(166, 46);
             this.label7.TabIndex = 15;
             this.label7.Text = "Adresse";
             // 
@@ -329,10 +341,10 @@ namespace GestionClinique
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(56, 311);
-            this.label6.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label6.Location = new System.Drawing.Point(149, 761);
+
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 20);
+            this.label6.Size = new System.Drawing.Size(208, 46);
             this.label6.TabIndex = 14;
             this.label6.Text = "Telephone";
             // 
@@ -340,10 +352,10 @@ namespace GestionClinique
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(56, 253);
-            this.label5.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label5.Location = new System.Drawing.Point(149, 622);
+
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 20);
+            this.label5.Size = new System.Drawing.Size(120, 46);
             this.label5.TabIndex = 13;
             this.label5.Text = "Email";
             // 
@@ -351,10 +363,10 @@ namespace GestionClinique
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(56, 198);
-            this.label4.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label4.Location = new System.Drawing.Point(149, 496);
+
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 20);
+            this.label4.Size = new System.Drawing.Size(112, 46);
             this.label4.TabIndex = 12;
             this.label4.Text = "Sexe";
             // 
@@ -362,10 +374,9 @@ namespace GestionClinique
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(56, 158);
-            this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label3.Location = new System.Drawing.Point(149, 377);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(144, 20);
+            this.label3.Size = new System.Drawing.Size(357, 46);
             this.label3.TabIndex = 11;
             this.label3.Text = "Date de Naissance";
             // 
@@ -373,26 +384,29 @@ namespace GestionClinique
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(56, 112);
+            this.label2.Location = new System.Drawing.Point(149, 267);
+            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 20);
+            this.label2.Size = new System.Drawing.Size(160, 46);
             this.label2.TabIndex = 10;
             this.label2.Text = "Prenom";
             // 
             // imageText
             // 
-            this.imageText.Location = new System.Drawing.Point(634, 102);
-            this.imageText.Margin = new System.Windows.Forms.Padding(1);
+            this.imageText.Location = new System.Drawing.Point(1691, 243);
+            this.imageText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
             this.imageText.Name = "imageText";
-            this.imageText.Size = new System.Drawing.Size(40, 29);
+            this.imageText.Size = new System.Drawing.Size(100, 61);
             this.imageText.TabIndex = 28;
             // 
             // supprimer
             // 
-            this.supprimer.Location = new System.Drawing.Point(63, 184);
-            this.supprimer.Margin = new System.Windows.Forms.Padding(1);
+            this.supprimer.Location = new System.Drawing.Point(168, 439);
+            this.supprimer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
             this.supprimer.Name = "supprimer";
-            this.supprimer.Size = new System.Drawing.Size(207, 36);
+            this.supprimer.Size = new System.Drawing.Size(552, 86);
             this.supprimer.TabIndex = 2;
             this.supprimer.Text = "Supprimer";
             this.supprimer.UseVisualStyleBackColor = true;
@@ -400,10 +414,11 @@ namespace GestionClinique
             // 
             // modifier
             // 
-            this.modifier.Location = new System.Drawing.Point(63, 125);
-            this.modifier.Margin = new System.Windows.Forms.Padding(1);
+            this.modifier.Location = new System.Drawing.Point(168, 298);
+            this.modifier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
             this.modifier.Name = "modifier";
-            this.modifier.Size = new System.Drawing.Size(207, 36);
+            this.modifier.Size = new System.Drawing.Size(552, 86);
             this.modifier.TabIndex = 1;
             this.modifier.Text = "Modifier";
             this.modifier.UseVisualStyleBackColor = true;
@@ -411,10 +426,11 @@ namespace GestionClinique
             // 
             // ajouter
             // 
-            this.ajouter.Location = new System.Drawing.Point(63, 68);
-            this.ajouter.Margin = new System.Windows.Forms.Padding(1);
+            this.ajouter.Location = new System.Drawing.Point(168, 162);
+            this.ajouter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
             this.ajouter.Name = "ajouter";
-            this.ajouter.Size = new System.Drawing.Size(207, 36);
+            this.ajouter.Size = new System.Drawing.Size(552, 86);
             this.ajouter.TabIndex = 0;
             this.ajouter.Text = "Ajouter";
             this.ajouter.UseVisualStyleBackColor = true;
@@ -426,11 +442,12 @@ namespace GestionClinique
             this.groupBox2.Controls.Add(this.supprimer);
             this.groupBox2.Controls.Add(this.modifier);
             this.groupBox2.Controls.Add(this.ajouter);
-            this.groupBox2.Location = new System.Drawing.Point(1022, 212);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(1);
+            this.groupBox2.Location = new System.Drawing.Point(2725, 506);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(1);
-            this.groupBox2.Size = new System.Drawing.Size(334, 325);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(891, 775);
+
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Operations";
@@ -438,10 +455,11 @@ namespace GestionClinique
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GestionClinique.Properties.Resources.refresh;
-            this.pictureBox1.Location = new System.Drawing.Point(66, 255);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(1);
+            this.pictureBox1.Location = new System.Drawing.Point(176, 608);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(44, 37);
+            this.pictureBox1.Size = new System.Drawing.Size(117, 88);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 61;
             this.pictureBox1.TabStop = false;
@@ -451,19 +469,19 @@ namespace GestionClinique
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(1018, 129);
-            this.label10.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label10.Location = new System.Drawing.Point(2715, 308);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(187, 26);
+            this.label10.Size = new System.Drawing.Size(452, 61);
             this.label10.TabIndex = 33;
             this.label10.Text = "Selection Patients";
             // 
             // select
             // 
-            this.select.Location = new System.Drawing.Point(1280, 120);
-            this.select.Margin = new System.Windows.Forms.Padding(1);
+            this.select.Location = new System.Drawing.Point(3413, 286);
+            this.select.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
             this.select.Name = "select";
-            this.select.Size = new System.Drawing.Size(77, 34);
+            this.select.Size = new System.Drawing.Size(205, 81);
             this.select.TabIndex = 34;
             this.select.Text = "selectionner";
             this.select.UseVisualStyleBackColor = true;
@@ -479,16 +497,18 @@ namespace GestionClinique
             this.flowLayoutPanel1.Controls.Add(this.btnRendezVous);
             this.flowLayoutPanel1.Controls.Add(this.btnlogout);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(223, 751);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(595, 1791);
             this.flowLayoutPanel1.TabIndex = 35;
             // 
             // btnAccueil
             // 
             this.btnAccueil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccueil.Location = new System.Drawing.Point(3, 3);
+            this.btnAccueil.Location = new System.Drawing.Point(8, 7);
+            this.btnAccueil.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnAccueil.Name = "btnAccueil";
-            this.btnAccueil.Size = new System.Drawing.Size(218, 48);
+            this.btnAccueil.Size = new System.Drawing.Size(581, 114);
             this.btnAccueil.TabIndex = 0;
             this.btnAccueil.Text = "Accueil";
             this.btnAccueil.UseVisualStyleBackColor = true;
@@ -499,19 +519,21 @@ namespace GestionClinique
             this.panel1.Controls.Add(this.btnGerPat);
             this.panel1.Controls.Add(this.btnAffPat);
             this.panel1.Controls.Add(this.btnPatients);
-            this.panel1.Location = new System.Drawing.Point(3, 57);
-            this.panel1.MaximumSize = new System.Drawing.Size(218, 124);
-            this.panel1.MinimumSize = new System.Drawing.Size(218, 52);
+            this.panel1.Location = new System.Drawing.Point(8, 135);
+            this.panel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.panel1.MaximumSize = new System.Drawing.Size(581, 296);
+            this.panel1.MinimumSize = new System.Drawing.Size(581, 124);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(218, 53);
+            this.panel1.Size = new System.Drawing.Size(581, 126);
             this.panel1.TabIndex = 1;
             // 
             // btnGerPat
             // 
             this.btnGerPat.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnGerPat.Location = new System.Drawing.Point(-1, 87);
+            this.btnGerPat.Location = new System.Drawing.Point(-3, 207);
+            this.btnGerPat.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnGerPat.Name = "btnGerPat";
-            this.btnGerPat.Size = new System.Drawing.Size(218, 35);
+            this.btnGerPat.Size = new System.Drawing.Size(581, 83);
             this.btnGerPat.TabIndex = 3;
             this.btnGerPat.Text = "Gerer Patient";
             this.btnGerPat.UseVisualStyleBackColor = false;
@@ -520,9 +542,10 @@ namespace GestionClinique
             // btnAffPat
             // 
             this.btnAffPat.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnAffPat.Location = new System.Drawing.Point(-1, 53);
+            this.btnAffPat.Location = new System.Drawing.Point(-3, 126);
+            this.btnAffPat.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnAffPat.Name = "btnAffPat";
-            this.btnAffPat.Size = new System.Drawing.Size(218, 35);
+            this.btnAffPat.Size = new System.Drawing.Size(581, 83);
             this.btnAffPat.TabIndex = 2;
             this.btnAffPat.Text = "Liste des Patients";
             this.btnAffPat.UseVisualStyleBackColor = false;
@@ -531,9 +554,10 @@ namespace GestionClinique
             // btnPatients
             // 
             this.btnPatients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPatients.Location = new System.Drawing.Point(0, 3);
+            this.btnPatients.Location = new System.Drawing.Point(0, 7);
+            this.btnPatients.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnPatients.Name = "btnPatients";
-            this.btnPatients.Size = new System.Drawing.Size(218, 48);
+            this.btnPatients.Size = new System.Drawing.Size(581, 114);
             this.btnPatients.TabIndex = 1;
             this.btnPatients.Text = "Patients";
             this.btnPatients.UseVisualStyleBackColor = true;
@@ -544,19 +568,21 @@ namespace GestionClinique
             this.panel2.Controls.Add(this.GerEmp);
             this.panel2.Controls.Add(this.AffEmp);
             this.panel2.Controls.Add(this.btnEmployes);
-            this.panel2.Location = new System.Drawing.Point(3, 116);
-            this.panel2.MaximumSize = new System.Drawing.Size(218, 124);
-            this.panel2.MinimumSize = new System.Drawing.Size(218, 52);
+            this.panel2.Location = new System.Drawing.Point(8, 275);
+            this.panel2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.panel2.MaximumSize = new System.Drawing.Size(581, 296);
+            this.panel2.MinimumSize = new System.Drawing.Size(581, 124);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(218, 55);
+            this.panel2.Size = new System.Drawing.Size(581, 131);
             this.panel2.TabIndex = 2;
             // 
             // GerEmp
             // 
             this.GerEmp.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.GerEmp.Location = new System.Drawing.Point(0, 88);
+            this.GerEmp.Location = new System.Drawing.Point(0, 210);
+            this.GerEmp.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.GerEmp.Name = "GerEmp";
-            this.GerEmp.Size = new System.Drawing.Size(218, 35);
+            this.GerEmp.Size = new System.Drawing.Size(581, 83);
             this.GerEmp.TabIndex = 5;
             this.GerEmp.Text = "Gerer Employes";
             this.GerEmp.UseVisualStyleBackColor = false;
@@ -565,9 +591,10 @@ namespace GestionClinique
             // AffEmp
             // 
             this.AffEmp.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.AffEmp.Location = new System.Drawing.Point(0, 54);
+            this.AffEmp.Location = new System.Drawing.Point(0, 129);
+            this.AffEmp.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.AffEmp.Name = "AffEmp";
-            this.AffEmp.Size = new System.Drawing.Size(218, 35);
+            this.AffEmp.Size = new System.Drawing.Size(581, 83);
             this.AffEmp.TabIndex = 4;
             this.AffEmp.Text = "Liste des Employes";
             this.AffEmp.UseVisualStyleBackColor = false;
@@ -576,9 +603,10 @@ namespace GestionClinique
             // btnEmployes
             // 
             this.btnEmployes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmployes.Location = new System.Drawing.Point(0, 3);
+            this.btnEmployes.Location = new System.Drawing.Point(0, 7);
+            this.btnEmployes.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnEmployes.Name = "btnEmployes";
-            this.btnEmployes.Size = new System.Drawing.Size(218, 48);
+            this.btnEmployes.Size = new System.Drawing.Size(581, 114);
             this.btnEmployes.TabIndex = 2;
             this.btnEmployes.Text = "Employes";
             this.btnEmployes.UseVisualStyleBackColor = true;
@@ -589,19 +617,21 @@ namespace GestionClinique
             this.panel3.Controls.Add(this.btnGerCon);
             this.panel3.Controls.Add(this.btnAffCon);
             this.panel3.Controls.Add(this.btnConsultation);
-            this.panel3.Location = new System.Drawing.Point(3, 177);
-            this.panel3.MaximumSize = new System.Drawing.Size(218, 124);
-            this.panel3.MinimumSize = new System.Drawing.Size(218, 52);
+            this.panel3.Location = new System.Drawing.Point(8, 420);
+            this.panel3.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.panel3.MaximumSize = new System.Drawing.Size(581, 296);
+            this.panel3.MinimumSize = new System.Drawing.Size(581, 124);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(218, 54);
+            this.panel3.Size = new System.Drawing.Size(581, 129);
             this.panel3.TabIndex = 1;
             // 
             // btnGerCon
             // 
             this.btnGerCon.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnGerCon.Location = new System.Drawing.Point(0, 88);
+            this.btnGerCon.Location = new System.Drawing.Point(0, 210);
+            this.btnGerCon.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnGerCon.Name = "btnGerCon";
-            this.btnGerCon.Size = new System.Drawing.Size(218, 35);
+            this.btnGerCon.Size = new System.Drawing.Size(581, 83);
             this.btnGerCon.TabIndex = 7;
             this.btnGerCon.Text = "Gerer Consultation";
             this.btnGerCon.UseVisualStyleBackColor = false;
@@ -610,9 +640,10 @@ namespace GestionClinique
             // btnAffCon
             // 
             this.btnAffCon.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnAffCon.Location = new System.Drawing.Point(0, 54);
+            this.btnAffCon.Location = new System.Drawing.Point(0, 129);
+            this.btnAffCon.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnAffCon.Name = "btnAffCon";
-            this.btnAffCon.Size = new System.Drawing.Size(218, 35);
+            this.btnAffCon.Size = new System.Drawing.Size(581, 83);
             this.btnAffCon.TabIndex = 6;
             this.btnAffCon.Text = "Liste des Consultations";
             this.btnAffCon.UseVisualStyleBackColor = false;
@@ -621,9 +652,10 @@ namespace GestionClinique
             // btnConsultation
             // 
             this.btnConsultation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultation.Location = new System.Drawing.Point(0, 3);
+            this.btnConsultation.Location = new System.Drawing.Point(0, 7);
+            this.btnConsultation.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnConsultation.Name = "btnConsultation";
-            this.btnConsultation.Size = new System.Drawing.Size(218, 48);
+            this.btnConsultation.Size = new System.Drawing.Size(581, 114);
             this.btnConsultation.TabIndex = 3;
             this.btnConsultation.Text = "Consultations";
             this.btnConsultation.UseVisualStyleBackColor = true;
@@ -632,9 +664,10 @@ namespace GestionClinique
             // btnRendezVous
             // 
             this.btnRendezVous.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRendezVous.Location = new System.Drawing.Point(3, 237);
+            this.btnRendezVous.Location = new System.Drawing.Point(8, 563);
+            this.btnRendezVous.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnRendezVous.Name = "btnRendezVous";
-            this.btnRendezVous.Size = new System.Drawing.Size(218, 48);
+            this.btnRendezVous.Size = new System.Drawing.Size(581, 114);
             this.btnRendezVous.TabIndex = 4;
             this.btnRendezVous.Text = "Rendez-Vous";
             this.btnRendezVous.UseVisualStyleBackColor = true;
@@ -643,9 +676,10 @@ namespace GestionClinique
             // btnlogout
             // 
             this.btnlogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnlogout.Location = new System.Drawing.Point(3, 291);
+            this.btnlogout.Location = new System.Drawing.Point(8, 691);
+            this.btnlogout.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnlogout.Name = "btnlogout";
-            this.btnlogout.Size = new System.Drawing.Size(218, 48);
+            this.btnlogout.Size = new System.Drawing.Size(581, 114);
             this.btnlogout.TabIndex = 5;
             this.btnlogout.Text = "Se Deconnecter";
             this.btnlogout.UseVisualStyleBackColor = true;
@@ -657,15 +691,17 @@ namespace GestionClinique
             // 
             // GererPatients
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1299, 585);
+            this.ClientSize = new System.Drawing.Size(3464, 1349);
+
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.select);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
-            this.Margin = new System.Windows.Forms.Padding(1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
             this.Name = "GererPatients";
             this.Text = "Gerer Patients";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -732,11 +768,11 @@ namespace GestionClinique
         private System.Windows.Forms.Button btnlogout;
         private System.Windows.Forms.ComboBox cmbAll;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ListBox lisAll;
         private System.Windows.Forms.PictureBox rmvtall;
         private System.Windows.Forms.PictureBox addall;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         public System.Windows.Forms.PictureBox imagePatient;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.ListBox lisAll;
     }
 }

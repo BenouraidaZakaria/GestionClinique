@@ -183,7 +183,7 @@ namespace GestionClinique
                 {
                     string prescriptionImagePath = Path.Combine(Application.StartupPath, "IMAGES", selectedRow.Cells["PRESCRIPTION"].Value.ToString());
 
-                    Image prescriptionImage = Image.FromFile(prescriptionImagePath);
+                    Image prescriptionImage = Image.FromFile(prescriptionImagePath+".jpg");
                     existingForm.imagePrescription.Image = prescriptionImage;
                     // if an instance of the GererConsultations form already exists, pass the data to it
                     existingForm.ID = (int)selectedRow.Cells["ID"].Value;
@@ -191,8 +191,31 @@ namespace GestionClinique
                     existingForm.IDD = (int)selectedRow.Cells["ID Docteur"].Value;
 
                     existingForm.DateConsultation = (DateTime)selectedRow.Cells["Date"].Value;
-                    existingForm.Traitement = selectedRow.Cells["Traitement"].Value.ToString();
-                    existingForm.Diagnostic = selectedRow.Cells["DIAGNOSTIC"].Value.ToString();
+
+                    //existingForm.Traitement = selectedRow.Cells["Traitement"].Value.ToString();
+                    //existingForm.Diagnostic = selectedRow.Cells["DIAGNOSTIC"].Value.ToString();
+                    string traitstring= selectedRow.Cells["Traitement"].Value.ToString();
+
+                    if (!string.IsNullOrEmpty(traitstring))
+                    {
+                        string[] traitArray = traitstring.Split(',');
+                        foreach (string trait in traitArray)
+                        {
+                            existingForm.listtrai.Items.Add(trait.Trim());
+                        }
+                    }
+                    string diagstring= selectedRow.Cells["DIAGNOSTIC"].Value.ToString();
+
+                    if (!string.IsNullOrEmpty(diagstring))
+                    {
+                        string[] diagArray = diagstring.Split(',');
+                        foreach (string diag in diagArray)
+                        {
+                            existingForm.listdiag.Items.Add(diag.Trim());
+                        }
+                    }
+
+
                     // ... set the values of other controls as needed
                     int selectedPatientID = (int)selectedRow.Cells["ID Patient"].Value;
                     DataTable patientTable = new DataTable();

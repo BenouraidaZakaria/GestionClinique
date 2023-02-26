@@ -98,7 +98,6 @@ namespace GestionClinique
                 MessageBox.Show("An Error Occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void ajouter_Click(object sender, EventArgs e)
         {
             errorProvider1.Dispose();
@@ -124,12 +123,17 @@ namespace GestionClinique
                         String imgname = txtNom.Text + txtPrenom.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
                         File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\" + imgname);
 
-                        //String allergies = "";
-                        //for (int i = 0; i < lisAll.Items.Count; i++)
-                        //{
-                        //    lisAll.Items[0].ToString().
-                        //    allergies += lisAll.Items[i].ToString();
-                        //}
+
+                    string allergies = "";
+                    foreach (string item in lisAll.Items)
+                    {
+                        allergies += item + ",";
+                    }
+                    //Remove the trailing comma from the end of the string
+                    allergies = allergies.TrimEnd(','); 
+                   
+
+                       
                         con.ajouterPatient(txtNom.Text, txtPrenom.Text, DateTime.Parse(datpickNaissance.Text), char.Parse(cmbSexe.Text), txtEmail.Text, txtTelephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileNameWithoutExtension(imgname), lisAll.Text);
                         txtNom.Text = txtPrenom.Text = cmbSexe.Text = txtTelephone.Text = datpickNaissance.Text = txtEmail.Text = txtAdresse.Text = cmbassur.Text = "";
                         lisAll.Items.Clear();
@@ -158,6 +162,7 @@ namespace GestionClinique
                     {
                         errorProvider1.SetError(datpickNaissance, "Date de Naissance n'est pas Valide");
                     }
+
                 }
             }
             catch (Exception ex)
@@ -166,7 +171,34 @@ namespace GestionClinique
             }
 
         }
-      
+        private void modifier_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtNom.Text != "" && txtPrenom.Text != "" && cmbSexe.Text != "" && txtTelephone.Text != "" && datpickNaissance.Value.Date <= DateTime.Now.Date)
+                {
+                    DateTime now = DateTime.Now;
+                    String imgname = txtNom.Text + txtPrenom.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
+
+                    File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\" + imgname);
+                    string allergies = "";
+                    foreach (string item in lisAll.Items)
+                    {
+                        allergies += item + ",";
+                    }
+                    con.modifierPatient(ID, txtNom.Text, txtPrenom.Text, DateTime.Parse(datpickNaissance.Text), char.Parse(cmbSexe.Text), txtEmail.Text, txtTelephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileNameWithoutExtension(imgname), allergies);
+
+                    txtNom.Text = txtPrenom.Text = cmbSexe.Text = txtTelephone.Text = datpickNaissance.Text = txtEmail.Text = txtAdresse.Text = cmbassur.Text = "";
+                    lisAll.Items.Clear();
+                    imagePatient.Image = null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void select_Click(object sender, EventArgs e)
         {
             errorProvider1.Dispose();
@@ -305,29 +337,7 @@ namespace GestionClinique
             this.Hide();
         }
 
-        private void modifier_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (txtNom.Text != "" && txtPrenom.Text != "" && cmbSexe.Text != "" && txtTelephone.Text != "" && datpickNaissance.Value.Date <= DateTime.Now.Date)
-                {
-                    DateTime now = DateTime.Now;
-                    String imgname = txtNom.Text + txtPrenom.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
-
-                    File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\" + imgname);
-                    con.modifierPatient(ID,txtNom.Text, txtPrenom.Text, DateTime.Parse(datpickNaissance.Text), char.Parse(cmbSexe.Text), txtEmail.Text, txtTelephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileNameWithoutExtension(imgname), lisAll.Text);
-
-                    txtNom.Text = txtPrenom.Text = cmbSexe.Text = txtTelephone.Text = datpickNaissance.Text = txtEmail.Text = txtAdresse.Text = cmbassur.Text = "";
-                    lisAll.Items.Clear();
-                    imagePatient.Image = null;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+  
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
