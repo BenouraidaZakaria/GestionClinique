@@ -337,14 +337,17 @@ namespace GestionClinique
                 DateTime now = DateTime.Now;
                 String imgname = Nomtxt.Text + Pretxt.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
                 File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\" + imgname);
-                if (Nomtxt.Text != "" && Pretxt.Text != "" && Mailtxt.Text != "" && Mdptxt.Text != "" && Specmb.Text != "" && cmbGenre.Text != "" && dNaissance.Text != "" && teletxt.Text != "")
+                if (rbDoc.Checked)
                 {
-                    if (rbDoc.Checked)
+                    if (Nomtxt.Text != "" && Pretxt.Text != "" && Mailtxt.Text != "" && Mdptxt.Text != "" && Specmb.Text != "" && cmbGenre.Text != "" && dNaissance.Text != "" && teletxt.Text != "")
                     {
                         con.modifierDocteur(ID, Nomtxt.Text, Pretxt.Text, Path.GetFileNameWithoutExtension(imgname), DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, Mdptxt.Text, Specmb.Text);
                         Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
                     }
-                    else
+                }
+                else
+                {
+                    if (Nomtxt.Text != "" && Pretxt.Text != "" && Mailtxt.Text != "" && Mdptxt.Text != "" && cmbGenre.Text != "" && dNaissance.Text != "" && teletxt.Text != "")
                     {
                         con.modifierSecretaire(ID, Nomtxt.Text, Pretxt.Text, Path.GetFileNameWithoutExtension(imgname), DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, Mdptxt.Text);
                         Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
