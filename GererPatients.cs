@@ -122,12 +122,7 @@ namespace GestionClinique
                     {
                         DateTime now = DateTime.Now;
                         String imgname = txtNom.Text + txtPrenom.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
-
-                        if (imagePatient.Image != null)
-                            File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\" + imgname);
-                        else
-                        {
-                        }
+                        File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\" + imgname);
 
                         //String allergies = "";
                         //for (int i = 0; i < lisAll.Items.Count; i++)
