@@ -92,6 +92,31 @@ namespace GestionClinique
         {
 
         }
+
+        private void prescImg_Click(object sender, EventArgs e)
+        {
+            // Create an instance of the form to display the larger image
+            Form largerImageForm = new Form();
+
+            // Set the form's properties
+            largerImageForm.Text = "Larger Image";
+            largerImageForm.ClientSize = new Size(800, 600); // Set the form's size
+            largerImageForm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            largerImageForm.MaximizeBox = false;
+
+            // Create a PictureBox control to display the larger image
+            PictureBox largerPictureBox = new PictureBox();
+            largerPictureBox.Image = prescImg.Image; // Set the image to display
+            largerPictureBox.SizeMode = PictureBoxSizeMode.Zoom; // Set the size mode to zoom
+            largerPictureBox.Dock = DockStyle.Fill; // Fill the entire form with the picture box
+            largerPictureBox.BorderStyle = BorderStyle.FixedSingle; // Add a border to the picture box
+
+            // Add the PictureBox to the form
+            largerImageForm.Controls.Add(largerPictureBox);
+
+            // Show the form
+            largerImageForm.ShowDialog();
+        }
     }
      
 }

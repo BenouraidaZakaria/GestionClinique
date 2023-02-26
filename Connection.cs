@@ -298,9 +298,12 @@ namespace GestionClinique
                         try
                         {
                             string imagePath = Path.Combine(Application.StartupPath, "IMAGES", imageName + ".jpg");
+                            Image originalImage = Image.FromFile(imagePath);
 
+                            // Create a new image with the desired size
+                            Image resizedImage = new Bitmap(originalImage, new Size(50, 50));
                             Image image = Image.FromFile(imagePath);
-                            row["IMAGE_DISPLAY"] = image;
+                            row["IMAGE_DISPLAY"] = resizedImage;
                         }
                         catch (Exception ex)
                         {
@@ -344,9 +347,12 @@ namespace GestionClinique
                         try
                         {
                             string imagePath = Path.Combine(Application.StartupPath, "IMAGES", imageName + ".jpg");
+                            Image originalImage = Image.FromFile(imagePath);
 
+                            // Create a new image with the desired size
+                            Image resizedImage = new Bitmap(originalImage, new Size(50, 50));
                             Image image = Image.FromFile(imagePath);
-                            row["PRESCRIPTION_IMG"] = image;
+                            row["PRESCRIPTION_IMG"] = resizedImage;
                         }
                         catch (Exception ex)
                         {

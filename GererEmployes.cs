@@ -157,7 +157,7 @@ namespace GestionClinique
             f.flowLayoutPanel1.Visible = false;
             f.Show();
             //f.SetInvisibilityAndTriggerEvent();
-            //this.Hide();
+            this.Hide();
         }
         FormC f = new FormC();
 
@@ -273,21 +273,23 @@ namespace GestionClinique
             {
                 DateTime now = DateTime.Now;
                 String imgname = Nomtxt.Text + Pretxt.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
-                File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\" + imgname + ".jpg");
+                File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\" + imgname);
                 if (rbDoc.Checked)
                 {
                     if (Nomtxt.Text != "" && Pretxt.Text != "" && Mailtxt.Text != "" && Mdptxt.Text != "" && Specmb.Text != "" && cmbGenre.Text != "" && dNaissance.Text != "" && teletxt.Text != "")
                     {
-                        con.ajouterEmploye(Nomtxt.Text, Pretxt.Text, imgname, DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, "docteur", Mailtxt.Text, Mdptxt.Text, Specmb.Text);
+                        con.ajouterEmploye(Nomtxt.Text, Pretxt.Text, Path.GetFileNameWithoutExtension(imgname), DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, "docteur", Mailtxt.Text, Mdptxt.Text, Specmb.Text);
                         Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
+                        imageEmp.Image = null;
                     }
                 }
                 else
                 {
-                    if (Nomtxt.Text != "" && Pretxt.Text != "" && Mailtxt.Text != "" && Mdptxt.Text != "" && Specmb.Text != "" && cmbGenre.Text != "" && dNaissance.Text != "" && teletxt.Text != "")
+                    if (Nomtxt.Text != "" && Pretxt.Text != "" && Mailtxt.Text != "" && Mdptxt.Text != "" && Specmb.Text == "" && cmbGenre.Text != "" && dNaissance.Text != "" && teletxt.Text != "")
                     {
-                        con.ajouterEmploye(Nomtxt.Text, Pretxt.Text, imgname, DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, "secretaire", Mailtxt.Text, Mdptxt.Text, null);
+                        con.ajouterEmploye(Nomtxt.Text, Pretxt.Text, Path.GetFileNameWithoutExtension(imgname), DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, "secretaire", Mailtxt.Text, Mdptxt.Text, null);
                         Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
+                        imageEmp.Image = null;
                     }
                 }
             }
@@ -334,17 +336,17 @@ namespace GestionClinique
             {
                 DateTime now = DateTime.Now;
                 String imgname = Nomtxt.Text + Pretxt.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
-                File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\" + imgname + ".jpg");
+                File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\" + imgname);
                 if (Nomtxt.Text != "" && Pretxt.Text != "" && Mailtxt.Text != "" && Mdptxt.Text != "" && Specmb.Text != "" && cmbGenre.Text != "" && dNaissance.Text != "" && teletxt.Text != "")
                 {
                     if (rbDoc.Checked)
                     {
-                        con.modifierDocteur(ID, Nomtxt.Text, Pretxt.Text, imgname, DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, Mdptxt.Text, Specmb.Text);
+                        con.modifierDocteur(ID, Nomtxt.Text, Pretxt.Text, Path.GetFileNameWithoutExtension(imgname), DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, Mdptxt.Text, Specmb.Text);
                         Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
                     }
                     else
                     {
-                        con.modifierSecretaire(ID, Nomtxt.Text, Pretxt.Text, imgname, DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, Mdptxt.Text);
+                        con.modifierSecretaire(ID, Nomtxt.Text, Pretxt.Text, Path.GetFileNameWithoutExtension(imgname), DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, Mdptxt.Text);
                         Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
                     }
                 }

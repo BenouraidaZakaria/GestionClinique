@@ -188,7 +188,9 @@ namespace GestionClinique
 
 
                 // create a new instance of the other form
-                GererPatients otherForm = Application.OpenForms.OfType<GererPatients>().FirstOrDefault();
+                //GererPatients otherForm = Application.OpenForms.OfType<GererPatients>().FirstOrDefault();
+                GererPatients otherForm = new GererPatients();
+
                 // set the values of the controls in the other form
                 otherForm.ID = (int)selectedRow.Cells["IDPATIENT"].Value;
                     otherForm.Nom = selectedRow.Cells["NOM"].Value.ToString();

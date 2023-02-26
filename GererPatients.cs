@@ -107,16 +107,19 @@ namespace GestionClinique
                 {
                     DateTime now = DateTime.Now;
                     String imgname = txtNom.Text + txtPrenom.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
-                    File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\PROFILE\" + imgname + ".jpg");
+
+                    File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\" + imgname);
+
                     //String allergies = "";
                     //for (int i = 0; i < lisAll.Items.Count; i++)
                     //{
                     //    lisAll.Items[0].ToString().
                     //    allergies += lisAll.Items[i].ToString();
                     //}
-                    con.ajouterPatient(txtNom.Text, txtPrenom.Text, DateTime.Parse(datpickNaissance.Text), char.Parse(cmbSexe.Text), txtEmail.Text, txtTelephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileName(imagePatient.ImageLocation), lisAll.Text);
+                    con.ajouterPatient(txtNom.Text, txtPrenom.Text, DateTime.Parse(datpickNaissance.Text), char.Parse(cmbSexe.Text), txtEmail.Text, txtTelephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileNameWithoutExtension(imgname), lisAll.Text);
                     txtNom.Text = txtPrenom.Text = cmbSexe.Text = txtTelephone.Text = datpickNaissance.Text = txtEmail.Text = txtAdresse.Text = cmbassur.Text = "";
                     lisAll.Items.Clear();
+                    imagePatient.Image = null;
                 }
 
             }
@@ -134,61 +137,7 @@ namespace GestionClinique
             f.flowLayoutPanel1.Visible = false;
             f.Show();
             //f.SetInvisibilityAndTriggerEvent();
-            //this.Hide();
-            //// Create a new form to contain the DataGridView, label, and buttons
-            //Form form = new Form();
-            //form.ClientSize = new Size(1000, 630);
-            //form.StartPosition = FormStartPosition.CenterScreen;
-            //form.Text = "Liste Patients";
-
-            //// Create a new instance of the Label
-            //Label label = new Label();
-            //label.Text = "Sélectionnez un patient";
-            //label.Location = new Point(25, 25);
-            //label.Size = new Size(200, 25);
-            //// Add the Label to the form
-            //form.Controls.Add(label);
-
-            //// Create a new instance of the DataGridView
-            //DataGridView dgv = new DataGridView();
-            //// Set the properties of the DataGridView
-            //dgv.Size = new Size(950, 500);
-            //dgv.Location = new Point(25, 50);
-            //dgv.AllowUserToAddRows = false;
-            //// Add the DataGridView to the form
-            //form.Controls.Add(dgv);
-            //con.remplir(dgv, "PATIENT");
-            //dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            //// Create a new instance of the OK button
-            //Button okButton = new Button();
-            //okButton.Text = "OK";
-            //okButton.DialogResult = DialogResult.OK;
-            //okButton.Location = new Point(450, 570);
-            //// Add the OK button to the form
-            //form.Controls.Add(okButton);
-
-            //// Create a new instance of the Cancel button
-            //Button cancelButton = new Button();
-            //cancelButton.Text = "Cancel";
-            //cancelButton.DialogResult = DialogResult.Cancel;
-            //cancelButton.Location = new Point(550, 570);
-            //// Add the Cancel button to the form
-            //form.Controls.Add(cancelButton);
-
-            //// Show the form as a modal dialog
-            //DialogResult result = form.ShowDialog();
-
-            //if (result == DialogResult.OK)
-            //{
-            //    // Code to handle the OK button click
-            //    int selectedId = Convert.ToInt32(dgv.SelectedRows[0].Cells[0].Value);
-            //}
-            //else if (result == DialogResult.Cancel)
-            //{
-            //    // Code to handle the Cancel button click
-            //    form.Close();
-            //}
+            this.Hide();
         }
         FormC f = new FormC();
 
@@ -310,8 +259,10 @@ namespace GestionClinique
                 {
                     DateTime now = DateTime.Now;
                     String imgname = txtNom.Text + txtPrenom.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
-                    File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\PROFILE\" + imgname + ".jpg");
-                    con.modifierPatient(ID,txtNom.Text, txtPrenom.Text, DateTime.Parse(datpickNaissance.Text), char.Parse(cmbSexe.Text), txtEmail.Text, txtTelephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileName(imagePatient.ImageLocation), lisAll.Text);
+
+                    File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\" + imgname);
+                    con.modifierPatient(ID,txtNom.Text, txtPrenom.Text, DateTime.Parse(datpickNaissance.Text), char.Parse(cmbSexe.Text), txtEmail.Text, txtTelephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileNameWithoutExtension(imgname), lisAll.Text);
+
                     txtNom.Text = txtPrenom.Text = cmbSexe.Text = txtTelephone.Text = datpickNaissance.Text = txtEmail.Text = txtAdresse.Text = cmbassur.Text = "";
                     lisAll.Items.Clear();
                     imagePatient.Image = null;
