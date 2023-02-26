@@ -201,7 +201,18 @@ namespace GestionClinique
                     otherForm.Email = selectedRow.Cells["EMAIL"].Value.ToString();
                     otherForm.Sexe = selectedRow.Cells["GENRE"].Value.ToString();
                     otherForm.Assurance = selectedRow.Cells["ASSURANCE"].Value.ToString();
-                    otherForm.Allergie= selectedRow.Cells["ALLERGIE"].Value.ToString();
+                //otherForm.Allergie= selectedRow.Cells["ALLERGIE"].Value.ToString();
+                string allergiesString = selectedRow.Cells["ALLERGIE"].Value.ToString();
+
+                if (!string.IsNullOrEmpty(allergiesString))
+                {
+                    string[] allergiesArray = allergiesString.Split(',');
+                    foreach (string allergy in allergiesArray)
+                    {
+                        otherForm.lisAll.Items.Add(allergy.Trim());
+                    }
+                }
+
                 // ... set the values of other controls as needed
                 string patImgPath = Path.Combine(Application.StartupPath, "IMAGES", selectedRow.Cells["IMAGE"].Value.ToString());
 

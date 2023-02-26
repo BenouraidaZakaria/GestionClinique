@@ -420,6 +420,7 @@ namespace GestionClinique
             }
             return etat;
         }
+        
         // Secretaire
         // changer ajouterEmployee a la place de methode secretaire et docteur
         public Boolean ajouterEmploye(/*int idSecretaireSup,*/ string nom, string prenom, string image, DateTime dateNaissance, char genre, string telephone, string type, string email, string motPasse, string specialite)
@@ -745,7 +746,7 @@ namespace GestionClinique
 
 
         // patient
-        public Boolean ajouterPatient(string nom, string prenom, DateTime dateNaissance, char sexe, string email, string tele, string adresse, string assurance, string image, string allergie)
+        public Boolean ajouterPatient(string nom, string prenom, DateTime dateNaissance, char sexe, string email, string tele, string adresse, string assurance, string image, string allergies)
         {
             Boolean etat = false;
             connecter();
@@ -754,7 +755,6 @@ namespace GestionClinique
             int id = int.Parse(cmd.ExecuteScalar().ToString());
 
             cmd.Parameters.Clear();
-
             cmd.CommandText = "insert into Patient(NOM,PRENOM,DATENAISSANCE,GENRE,EMAIL,TELEPHONE,ADRESSE,ASSURANCE,IMAGE,ALLERGIE) values(@nom,@prenom,@da,@s,@email,@tele,@adresse,@assurance,@img,@allergie)";
             cmd.Parameters.AddWithValue("@nom", nom);
             cmd.Parameters.AddWithValue("@prenom", prenom);
@@ -765,7 +765,7 @@ namespace GestionClinique
             cmd.Parameters.AddWithValue("@adresse", adresse);
             cmd.Parameters.AddWithValue("@assurance", assurance);
             cmd.Parameters.AddWithValue("@img", image);
-            cmd.Parameters.AddWithValue("@allergie", allergie);
+            cmd.Parameters.AddWithValue("@allergie", allergies);
 
             cmd.ExecuteNonQuery();
 

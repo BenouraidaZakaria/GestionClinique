@@ -116,19 +116,24 @@ namespace GestionClinique
             File.Copy(imagePrescText.Text, Application.StartupPath + @"\IMAGES\" + imgname);
             string traitements = "";
             string diagnostics = "";
-            for (int i = 0; i < listtrai.Items.Count; i++)
+            foreach (string item in listtrai.Items)
             {
-                traitements += listtrai.Items[i].ToString() + "\n";
+                traitements += item + ",";
             }
-            for (int i = 0; i < listdiag.Items.Count; i++)
+            traitements = traitements.TrimEnd(',');
+
+            foreach (string item in listdiag.Items)
             {
-                diagnostics += listdiag.Items[i].ToString() + "\n";
+                diagnostics += item + ",";
             }
+            diagnostics = diagnostics.TrimEnd(',');
+
             con.ajouterConsultation(Program.iduser, IDD, IDP, DateTime.Parse(dateTimePicker1.Text), dateTimePicker2.Text.ToString(), traitements, Path.GetFileNameWithoutExtension(imgname), diagnostics);
             textDoc.Text = textPat.Text = dateTimePicker1.Text = dateTimePicker2.Text = "";
             imagePrescription.Image = null;
             listtrai.Items.Clear();
             listdiag.Items.Clear();
+            select.Enabled = true;
         }
 
         private void modifier_Click(object sender, EventArgs e)
@@ -138,19 +143,24 @@ namespace GestionClinique
             File.Copy(imagePrescText.Text, Application.StartupPath + @"\IMAGES\" + imgname);
             string traitements = "";
             string diagnostics = "";
-            for (int i = 0; i < listtrai.Items.Count; i++)
+            foreach (string item in listtrai.Items)
             {
-                traitements += listtrai.Items[i].ToString() + "\n";
+                traitements += item + ",";
             }
-            for (int i = 0; i < listdiag.Items.Count; i++)
+            traitements = traitements.TrimEnd(',');
+
+            foreach (string item in listdiag.Items)
             {
-                diagnostics += listdiag.Items[i].ToString() + "\n";
+                diagnostics += item + ",";
             }
+            diagnostics = diagnostics.TrimEnd(',');
             con.modifierConsultation(ID, Program.iduser, IDD, IDP, DateTime.Parse(dateTimePicker1.Text), dateTimePicker2.Text.ToString(), traitements, Path.GetFileNameWithoutExtension(imgname), diagnostics);
             textDoc.Text = textPat.Text = dateTimePicker1.Text = dateTimePicker2.Text = "";
             imagePrescription.Image = null;
             listtrai.Items.Clear();
             listdiag.Items.Clear();
+            select.Enabled = true;
+
         }
 
         private void supprimer_Click(object sender, EventArgs e)
@@ -162,6 +172,9 @@ namespace GestionClinique
             }
             else
                 MessageBox.Show("Selectionneer consultation");
+
+            select.Enabled = true;
+
         }
 
         //private void createDGV(string table)
@@ -370,5 +383,7 @@ namespace GestionClinique
             imagePrescription.Image = null;
             select.Enabled = true;
         }
+
+     
     }
 }
