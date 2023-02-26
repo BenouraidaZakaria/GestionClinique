@@ -100,14 +100,29 @@ namespace GestionClinique
         }
         private void ajouter_Click(object sender, EventArgs e)
         {
+            errorProvider1.Dispose();
             try
             {
+                Boolean checkEmail = false;
+                Boolean checkTele = false;
                 if (txtNom.Text != "" && txtPrenom.Text != "" && cmbSexe.Text != "" && txtTelephone.Text != "" && datpickNaissance.Value.Date <= DateTime.Now.Date)
                 {
-                    DateTime now = DateTime.Now;
-                    String imgname = txtNom.Text + txtPrenom.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
+                    if (txtEmail.Text.Contains("@gmail.com") || txtEmail.Text.Contains("@outlook.com") || txtEmail.Text.Contains("@live.com") || txtEmail.Text == "")
+                        checkEmail = true;
+                    else
+                        errorProvider1.SetError(txtEmail, "Email n'est pas Valide");
+                    
+                    if (txtTelephone.Text.Length == 10 && (txtTelephone.Text.StartsWith("05") || txtTelephone.Text.StartsWith("06") || txtTelephone.Text.StartsWith("07")))
+                        checkTele = true;
+                    else
+                        errorProvider1.SetError(txtTelephone, "Telephone n'est pas Valide");
 
-                    File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\" + imgname);
+                    if (checkEmail == true && checkTele == true)
+                    {
+                        DateTime now = DateTime.Now;
+                        String imgname = txtNom.Text + txtPrenom.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
+                        File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\" + imgname);
+
 
                     string allergies = "";
                     foreach (string item in lisAll.Items)
@@ -116,12 +131,39 @@ namespace GestionClinique
                     }
                     //Remove the trailing comma from the end of the string
                     allergies = allergies.TrimEnd(','); 
-                    con.ajouterPatient(txtNom.Text, txtPrenom.Text, DateTime.Parse(datpickNaissance.Text), char.Parse(cmbSexe.Text), txtEmail.Text, txtTelephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileNameWithoutExtension(imgname), allergies);
-                    txtNom.Text = txtPrenom.Text = cmbSexe.Text = txtTelephone.Text = datpickNaissance.Text = txtEmail.Text = txtAdresse.Text = cmbassur.Text = "";
-                    lisAll.Items.Clear();
-                    imagePatient.Image = null;
-                }
+                   
 
+                       
+                        con.ajouterPatient(txtNom.Text, txtPrenom.Text, DateTime.Parse(datpickNaissance.Text), char.Parse(cmbSexe.Text), txtEmail.Text, txtTelephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileNameWithoutExtension(imgname), lisAll.Text);
+                        txtNom.Text = txtPrenom.Text = cmbSexe.Text = txtTelephone.Text = datpickNaissance.Text = txtEmail.Text = txtAdresse.Text = cmbassur.Text = "";
+                        lisAll.Items.Clear();
+                        imagePatient.Image = null;
+                    }
+                }
+                else
+                {
+                    if (txtNom.Text == "")
+                    {
+                        errorProvider1.SetError(txtNom, "Nom est Obligatoire");
+                    }
+                    if (txtPrenom.Text == "")
+                    {
+                        errorProvider1.SetError(txtPrenom, "Prenom est Obligatoire");
+                    }
+                    if (cmbSexe.Text == "")
+                    {
+                        errorProvider1.SetError(cmbSexe, "Genre est Obligatoire");
+                    }
+                    if (txtTelephone.Text == "")
+                    {
+                        errorProvider1.SetError(txtTelephone, "Telephone est Obligatoire");
+                    }
+                    if (datpickNaissance.Value.Date > DateTime.Now.Date)
+                    {
+                        errorProvider1.SetError(datpickNaissance, "Date de Naissance n'est pas Valide");
+                    }
+
+                }
             }
             catch (Exception ex)
             {
@@ -159,6 +201,8 @@ namespace GestionClinique
         }
         private void select_Click(object sender, EventArgs e)
         {
+            errorProvider1.Dispose();
+
             AfficherPatients f = new AfficherPatients();
             //f.SetInvisibilityAndTriggerEvent(); // Call the method to set invisibility and trigger event
             f.flowLayoutPanel1.Visible = false;
@@ -179,6 +223,8 @@ namespace GestionClinique
 
         private void btnPatients_Click(object sender, EventArgs e)
         {
+            errorProvider1.Dispose();
+
             if (etatBtnPatient)
             {
                 panel1.Height += 72;
@@ -205,6 +251,8 @@ namespace GestionClinique
 
         private void btnEmployes_Click(object sender, EventArgs e)
         {
+            errorProvider1.Dispose();
+
             if (etatBtnEmployes)
             {
                 panel2.Height += 72;
@@ -230,6 +278,8 @@ namespace GestionClinique
         }
         private void btnConsultation_Click(object sender, EventArgs e)
         {
+            errorProvider1.Dispose();
+
             if (etatBtnConsultation)
             {
                 panel3.Height += 72;
@@ -256,13 +306,22 @@ namespace GestionClinique
 
         private void addall_Click(object sender, EventArgs e)
         {
-            lisAll.Items.Add(cmbAll.SelectedItem.ToString());
+            errorProvider1.Dispose();
+
+            if (cmbAll.Text != "")
+                lisAll.Items.Add(cmbAll.SelectedItem.ToString());
+            else
+                errorProvider1.SetError(cmbAll, "selectionner ou saisir allergie");
         }
 
         private void rmvtall_Click(object sender, EventArgs e)
         {
-            if(lisAll.Items.Count > 0) { 
-                lisAll.Items.RemoveAt(lisAll.SelectedIndex);
+            if (lisAll.Items.Count > 0) 
+            {
+                if (lisAll.SelectedIndex != -1)
+                    lisAll.Items.RemoveAt(lisAll.SelectedIndex);
+                else
+                    errorProvider1.SetError(lisAll, "selectionner allergie");
             }
 
         }
