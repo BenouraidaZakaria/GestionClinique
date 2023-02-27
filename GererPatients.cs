@@ -107,6 +107,7 @@ namespace GestionClinique
                 Boolean checkTele = false;
                 if (txtNom.Text != "" && txtPrenom.Text != "" && cmbSexe.Text != "" && txtTelephone.Text != "" && datpickNaissance.Value.Date <= DateTime.Now.Date)
                 {
+                    int tele = int.Parse(txtTelephone.Text);
                     if (txtEmail.Text.Contains("@gmail.com") || txtEmail.Text.Contains("@outlook.com") || txtEmail.Text.Contains("@live.com") || txtEmail.Text == "")
                         checkEmail = true;
                     else
@@ -124,16 +125,14 @@ namespace GestionClinique
                         File.Copy(imageText.Text, Application.StartupPath + @"\IMAGES\" + imgname);
 
 
-                    string allergies = "";
-                    foreach (string item in lisAll.Items)
-                    {
-                        allergies += item + ",";
-                    }
-                    //Remove the trailing comma from the end of the string
-                    allergies = allergies.TrimEnd(','); 
+                        string allergies = "";
+                        foreach (string item in lisAll.Items)
+                        {
+                            allergies += item + ",";
+                        }
+                        //Remove the trailing comma from the end of the string
+                        allergies = allergies.TrimEnd(','); 
                    
-
-                       
                         con.ajouterPatient(txtNom.Text, txtPrenom.Text, DateTime.Parse(datpickNaissance.Text), char.Parse(cmbSexe.Text), txtEmail.Text, txtTelephone.Text, txtAdresse.Text, cmbassur.Text, Path.GetFileNameWithoutExtension(imgname), lisAll.Text);
                         txtNom.Text = txtPrenom.Text = cmbSexe.Text = txtTelephone.Text = datpickNaissance.Text = txtEmail.Text = txtAdresse.Text = cmbassur.Text = "";
                         lisAll.Items.Clear();
@@ -165,6 +164,10 @@ namespace GestionClinique
 
                 }
             }
+            catch (FormatException ex)
+            {
+                errorProvider1.SetError(txtTelephone, "Telephone format n'est pas Valide");
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -177,6 +180,8 @@ namespace GestionClinique
             {
                 if (txtNom.Text != "" && txtPrenom.Text != "" && cmbSexe.Text != "" && txtTelephone.Text != "" && datpickNaissance.Value.Date <= DateTime.Now.Date)
                 {
+                    int tele = int.Parse(txtTelephone.Text);
+
                     DateTime now = DateTime.Now;
                     String imgname = txtNom.Text + txtPrenom.Text + now.ToString("yyyyMMddHHmmssfff") + ".jpg";
 
@@ -193,6 +198,10 @@ namespace GestionClinique
                     imagePatient.Image = null;
                 }
 
+            }
+            catch (FormatException ex)
+            {
+                errorProvider1.SetError(txtTelephone, "Telephone format n'est pas Valide");
             }
             catch (Exception ex)
             {
@@ -309,8 +318,10 @@ namespace GestionClinique
             errorProvider1.Dispose();
 
             if (cmbAll.Text != "")
+            {
                 lisAll.Items.Add(cmbAll.SelectedItem.ToString());
                 cmbAll.Text = "";
+            }
             else
                 errorProvider1.SetError(cmbAll, "selectionner ou saisir allergie");
         }
@@ -359,6 +370,9 @@ namespace GestionClinique
             if (con.supprimerPatient(ID))
             {
                 MessageBox.Show("suppression avec succès");
+                txtNom.Text = txtPrenom.Text = cmbSexe.Text = txtTelephone.Text = datpickNaissance.Text = txtEmail.Text = txtAdresse.Text = cmbassur.Text = "";
+                lisAll.Items.Clear();
+                imagePatient.Image = null;
             }
             else
             {

@@ -70,6 +70,21 @@ namespace GestionClinique
             set { cmbGenre.Text = value; }
         }
 
+        // methode pour remplir et actualiser genre
+        public void remplirGenre()
+        {
+            cmbGenre.Items.Clear();
+            cmbGenre.Items.Add("M");
+            cmbGenre.Items.Add("F");
+        }
+        
+        // methode pour remplir et actualiser spécialité
+        public void remplirSpecialite()
+        {
+            Specmb.Items.Clear();
+            Specmb.Items.Add("ophtalmologue");
+            Specmb.Items.Add("oto-rhino-laryngologie");
+        }
 
         //public Image MyImage
         //{
@@ -103,6 +118,8 @@ namespace GestionClinique
                 ajtEmp.Enabled = false;
             }
 
+            remplirGenre();
+            remplirSpecialite();
         }
         private void rbDoc_CheckedChanged_1(object sender, EventArgs e)
         {
@@ -111,6 +128,11 @@ namespace GestionClinique
                 mailext = "@docteur.ma";
                 Mailtxt.Text = Nomtxt.Text + Pretxt.Text + mailext;
                 Specmb.Enabled = true;
+
+                Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
+                imageEmp.Image = null;
+                remplirGenre();
+                remplirSpecialite();
             }
             else if (rbSec.Checked)
             {
@@ -118,7 +140,11 @@ namespace GestionClinique
                 Mailtxt.Text = Nomtxt.Text + Pretxt.Text + mailext;
                 Specmb.SelectedIndex = -1;
                 Specmb.Enabled = false;
-                
+
+                Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
+                imageEmp.Image = null;
+                remplirGenre();
+                remplirSpecialite();
             }
         }
 
@@ -278,20 +304,90 @@ namespace GestionClinique
                 {
                     if (Nomtxt.Text != "" && Pretxt.Text != "" && Mailtxt.Text != "" && Mdptxt.Text != "" && Specmb.Text != "" && cmbGenre.Text != "" && dNaissance.Text != "" && teletxt.Text != "")
                     {
-                        con.ajouterEmploye(Nomtxt.Text, Pretxt.Text, Path.GetFileNameWithoutExtension(imgname), DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, "docteur", Mailtxt.Text, Mdptxt.Text, Specmb.Text);
-                        Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
-                        imageEmp.Image = null;
+                        int tele = int.Parse(teletxt.Text);
+
+                        if (con.ajouterEmploye(Nomtxt.Text, Pretxt.Text, Path.GetFileNameWithoutExtension(imgname), DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, "docteur", Mailtxt.Text, Mdptxt.Text, Specmb.Text))
+                        {
+                            Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
+                            imageEmp.Image = null;
+                            remplirGenre();
+                            remplirSpecialite();
+                            MessageBox.Show("Ajouter avec Succès");
+                        }
                     }
+                    else
+                    {
+                        if (Nomtxt.Text == "")
+                        {
+                            errorProvider1.SetError(Nomtxt, "Nom est Obligatoire");
+                        }
+                        if (Pretxt.Text == "")
+                        {
+                            errorProvider1.SetError(Pretxt, "Prenom est Obligatoire");
+                        }
+                        if (cmbGenre.Text == "")
+                        {
+                            errorProvider1.SetError(cmbGenre, "Genre est Obligatoire");
+                        }
+                        if (teletxt.Text == "")
+                        {
+                            errorProvider1.SetError(teletxt, "Telephone est Obligatoire");
+                        }
+                        if (dNaissance.Value.Date > DateTime.Now.Date)
+                        {
+                            errorProvider1.SetError(dNaissance, "Date de Naissance n'est pas Valide");
+                        }
+                        if (Specmb.Text == "")
+                        {
+                            errorProvider1.SetError(Specmb, "Spécialité est Obligatoire");
+                        }
+                    }
+
                 }
                 else
                 {
-                    if (Nomtxt.Text != "" && Pretxt.Text != "" && Mailtxt.Text != "" && Mdptxt.Text != "" && Specmb.Text == "" && cmbGenre.Text != "" && dNaissance.Text != "" && teletxt.Text != "")
+                    if (Nomtxt.Text != "" && Pretxt.Text != "" && Mailtxt.Text != "" && Mdptxt.Text != "" && cmbGenre.Text != "" && dNaissance.Text != "" && teletxt.Text != "")
                     {
-                        con.ajouterEmploye(Nomtxt.Text, Pretxt.Text, Path.GetFileNameWithoutExtension(imgname), DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, "secretaire", Mailtxt.Text, Mdptxt.Text, null);
-                        Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
-                        imageEmp.Image = null;
+                        int tele = int.Parse(teletxt.Text);
+
+                        if (con.ajouterEmploye(Nomtxt.Text, Pretxt.Text, Path.GetFileNameWithoutExtension(imgname), DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, "secretaire", Mailtxt.Text, Mdptxt.Text, null))
+                        {
+                            Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
+                            imageEmp.Image = null;
+                            remplirGenre();
+                            remplirSpecialite();
+                            MessageBox.Show("Ajouter avec Succès");
+                        }
                     }
+                    else
+                    {
+                        if (Nomtxt.Text == "")
+                        {
+                            errorProvider1.SetError(Nomtxt, "Nom est Obligatoire");
+                        }
+                        if (Pretxt.Text == "")
+                        {
+                            errorProvider1.SetError(Pretxt, "Prenom est Obligatoire");
+                        }
+                        if (cmbGenre.Text == "")
+                        {
+                            errorProvider1.SetError(cmbGenre, "Genre est Obligatoire");
+                        }
+                        if (teletxt.Text == "")
+                        {
+                            errorProvider1.SetError(teletxt, "Telephone est Obligatoire");
+                        }
+                        if (dNaissance.Value.Date > DateTime.Now.Date)
+                        {
+                            errorProvider1.SetError(dNaissance, "Date de Naissance n'est pas Valide");
+                        }
+                    }
+
                 }
+            }
+            catch (FormatException ex)
+            {
+                errorProvider1.SetError(teletxt, "Telephone format n'est pas Valide");
             }
             catch (Exception ex)
             {
@@ -341,16 +437,82 @@ namespace GestionClinique
                 {
                     if (Nomtxt.Text != "" && Pretxt.Text != "" && Mailtxt.Text != "" && Mdptxt.Text != "" && Specmb.Text != "" && cmbGenre.Text != "" && dNaissance.Text != "" && teletxt.Text != "")
                     {
-                        con.modifierDocteur(ID, Nomtxt.Text, Pretxt.Text, Path.GetFileNameWithoutExtension(imgname), DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, Mdptxt.Text, Specmb.Text);
-                        Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
+                        int tele = int.Parse(teletxt.Text);
+
+                        if (con.modifierDocteur(ID, Nomtxt.Text, Pretxt.Text, Path.GetFileNameWithoutExtension(imgname), DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, Mdptxt.Text, Specmb.Text))
+                        {
+                            Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
+                            imageEmp.Image = null;
+                            remplirGenre();
+                            remplirSpecialite();
+                            MessageBox.Show("Modifier avec Succès");
+                        }
+                    }
+                    else
+                    {
+                        if (Nomtxt.Text == "")
+                        {
+                            errorProvider1.SetError(Nomtxt, "Nom est Obligatoire");
+                        }
+                        if (Pretxt.Text == "")
+                        {
+                            errorProvider1.SetError(Pretxt, "Prenom est Obligatoire");
+                        }
+                        if (cmbGenre.Text == "")
+                        {
+                            errorProvider1.SetError(cmbGenre, "Genre est Obligatoire");
+                        }
+                        if (teletxt.Text == "")
+                        {
+                            errorProvider1.SetError(teletxt, "Telephone est Obligatoire");
+                        }
+                        if (dNaissance.Value.Date > DateTime.Now.Date)
+                        {
+                            errorProvider1.SetError(dNaissance, "Date de Naissance n'est pas Valide");
+                        }
+                        if (Specmb.Text == "")
+                        {
+                            errorProvider1.SetError(Specmb, "Spécialité est Obligatoire");
+                        }
                     }
                 }
                 else
                 {
                     if (Nomtxt.Text != "" && Pretxt.Text != "" && Mailtxt.Text != "" && Mdptxt.Text != "" && cmbGenre.Text != "" && dNaissance.Text != "" && teletxt.Text != "")
                     {
-                        con.modifierSecretaire(ID, Nomtxt.Text, Pretxt.Text, Path.GetFileNameWithoutExtension(imgname), DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, Mdptxt.Text);
-                        Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
+                        int tele = int.Parse(teletxt.Text);
+
+                        if (con.modifierSecretaire(ID, Nomtxt.Text, Pretxt.Text, Path.GetFileNameWithoutExtension(imgname), DateTime.Parse(dNaissance.Text), char.Parse(cmbGenre.Text), teletxt.Text, Mdptxt.Text))
+                        {
+                            Nomtxt.Text = Pretxt.Text = Mailtxt.Text = Mdptxt.Text = Specmb.Text = cmbGenre.Text = dNaissance.Text = teletxt.Text = "";
+                            imageEmp.Image = null;
+                            remplirGenre();
+                            remplirSpecialite();
+                            MessageBox.Show("Modifier avec Succès");
+                        }
+                    }
+                    else
+                    {
+                        if (Nomtxt.Text == "")
+                        {
+                            errorProvider1.SetError(Nomtxt, "Nom est Obligatoire");
+                        }
+                        if (Pretxt.Text == "")
+                        {
+                            errorProvider1.SetError(Pretxt, "Prenom est Obligatoire");
+                        }
+                        if (cmbGenre.Text == "")
+                        {
+                            errorProvider1.SetError(cmbGenre, "Genre est Obligatoire");
+                        }
+                        if (teletxt.Text == "")
+                        {
+                            errorProvider1.SetError(teletxt, "Telephone est Obligatoire");
+                        }
+                        if (dNaissance.Value.Date > DateTime.Now.Date)
+                        {
+                            errorProvider1.SetError(dNaissance, "Date de Naissance n'est pas Valide");
+                        }
                     }
                 }
             }
@@ -362,27 +524,41 @@ namespace GestionClinique
 
         private void actEmp_Click(object sender, EventArgs e)
         {
-            try
+            if (ID != 0)
             {
-                con.activerEmploye(ID);
-                MessageBox.Show("Employe est Active");
+                try
+                {
+                    con.activerEmploye(ID);
+                    MessageBox.Show("Employe est Active");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("selectionner Employe");
             }
         }
 
         private void desEmp_Click(object sender, EventArgs e)
         {
-            try
+            if (ID != 0)
             {
-                con.desactiverEmploye(ID);
-                MessageBox.Show("Employe est Desactive");
+                try
+                {
+                    con.desactiverEmploye(ID);
+                    MessageBox.Show("Employe est Desactive");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("selectionner Employe");
             }
         }
     }
